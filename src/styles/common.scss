@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+button {
+  border: none;
+  outline: none;
+  text-shadow: none;
+  background: none;
+  cursor: pointer;
+}
+@mixin moveCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flexColCen {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flexRowCen {
+  display: flex;
+  justify-content: center;
+}
