@@ -1,16 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./Pages/Home";
-import Signup from "./Pages/Signup";
+// import Home from "./Pages/Home";
 
 class Routes extends React.Component {
   render() {
     return (
       <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signup" component={Signup} />
-        </Switch>
+        <Switch>{/* <Route exact path="/" component={Home} /> */}</Switch>
       </Router>
     );
   }
