@@ -1,0 +1,23 @@
+/** @format */
+
+// @font-face {
+//   font-family: "Neue Haas Grotesk";
+//   src: local("../../Font/NeueHaasGroteskText-Bold.otf") format("opentype");
+// }
+h1 {
+  font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
+}
+
+.itemBox {
+  display: flex;
+  flex-direction: row;
+  font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
+}
+
+.item {
+  list-style: none;
+
+  img {
+    width: 300px;
+  }
+}

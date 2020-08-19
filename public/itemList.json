@@ -1,0 +1,202 @@
+[
+  {
+    "title": "NEW",
+    "list": [
+      {
+        "name": "FOLK WAISTCOAT IN VELOUR",
+        "img": "http://localhost:3000/images/ShopListRow/1.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LOOSE SHIRT IN SILK JACQUARD",
+        "img": "http://localhost:3000/images/ShopListRow/2.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LONG BOUTIS SKIRT IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/3.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "HUNTING JACKET IN OILCLOTH",
+        "img": "http://localhost:3000/images/ShopListRow/4.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "COWL NECK SWEATER IN SEAMLESS CASHMERE",
+        "img": "http://localhost:3000/images/ShopListRow/5.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "SHIRT DRESS IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/6.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "OFF-THE-SHOULDER DRESS IN PRINTED SILK",
+        "img": "http://localhost:3000/images/ShopListRow/7.webp",
+        "isnew": "new"
+      }
+    ]
+  },
+  {
+    "title": "DRESSES & SKIRTS",
+    "list": [
+      {
+        "name": "FOLK WAISTCOAT IN VELOUR",
+        "img": "http://localhost:3000/images/ShopListRow/1.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LOOSE SHIRT IN SILK JACQUARD",
+        "img": "http://localhost:3000/images/ShopListRow/2.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LONG BOUTIS SKIRT IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/3.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "HUNTING JACKET IN OILCLOTH",
+        "img": "http://localhost:3000/images/ShopListRow/4.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "COWL NECK SWEATER IN SEAMLESS CASHMERE",
+        "img": "http://localhost:3000/images/ShopListRow/5.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "SHIRT DRESS IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/6.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "OFF-THE-SHOULDER DRESS IN PRINTED SILK",
+        "img": "http://localhost:3000/images/ShopListRow/7.webp",
+        "isnew": "new"
+      }
+    ]
+  },
+  {
+    "title": "JACKETS & COATS",
+    "list": [
+      {
+        "name": "FOLK WAISTCOAT IN VELOUR",
+        "img": "http://localhost:3000/images/ShopListRow/1.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LOOSE SHIRT IN SILK JACQUARD",
+        "img": "http://localhost:3000/images/ShopListRow/2.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LONG BOUTIS SKIRT IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/3.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "HUNTING JACKET IN OILCLOTH",
+        "img": "http://localhost:3000/images/ShopListRow/4.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "COWL NECK SWEATER IN SEAMLESS CASHMERE",
+        "img": "http://localhost:3000/images/ShopListRow/5.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "SHIRT DRESS IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/6.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "OFF-THE-SHOULDER DRESS IN PRINTED SILK",
+        "img": "http://localhost:3000/images/ShopListRow/7.webp",
+        "isnew": "new"
+      }
+    ]
+  },
+  {
+    "title": "KNITWEAR",
+    "list": [
+      {
+        "name": "FOLK WAISTCOAT IN VELOUR",
+        "img": "http://localhost:3000/images/ShopListRow/1.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LOOSE SHIRT IN SILK JACQUARD",
+        "img": "http://localhost:3000/images/ShopListRow/2.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LONG BOUTIS SKIRT IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/3.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "HUNTING JACKET IN OILCLOTH",
+        "img": "http://localhost:3000/images/ShopListRow/4.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "COWL NECK SWEATER IN SEAMLESS CASHMERE",
+        "img": "http://localhost:3000/images/ShopListRow/5.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "SHIRT DRESS IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/6.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "OFF-THE-SHOULDER DRESS IN PRINTED SILK",
+        "img": "http://localhost:3000/images/ShopListRow/7.webp",
+        "isnew": "new"
+      }
+    ]
+  },
+  {
+    "title": "SHIRT & BLOUSES",
+    "list": [
+      {
+        "name": "FOLK WAISTCOAT IN VELOUR",
+        "img": "http://localhost:3000/images/ShopListRow/1.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LOOSE SHIRT IN SILK JACQUARD",
+        "img": "http://localhost:3000/images/ShopListRow/2.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "LONG BOUTIS SKIRT IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/3.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "HUNTING JACKET IN OILCLOTH",
+        "img": "http://localhost:3000/images/ShopListRow/4.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "COWL NECK SWEATER IN SEAMLESS CASHMERE",
+        "img": "http://localhost:3000/images/ShopListRow/5.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "SHIRT DRESS IN PRINTED WOOL",
+        "img": "http://localhost:3000/images/ShopListRow/6.webp",
+        "isnew": "new"
+      },
+      {
+        "name": "OFF-THE-SHOULDER DRESS IN PRINTED SILK",
+        "img": "http://localhost:3000/images/ShopListRow/7.webp",
+        "isnew": "new"
+      }
+    ]
+  }
+]
