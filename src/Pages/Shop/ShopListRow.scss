@@ -1,22 +1,70 @@
 /** @format */
 
-// @font-face {
-//   font-family: "Neue Haas Grotesk";
-//   src: local("../../Font/NeueHaasGroteskText-Bold.otf") format("opentype");
-// }
-h1 {
-  font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
+@font-face {
+  font-family: "Neue Haas Grotesk-Bold";
+  src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
+    url("http://localhost:3000/Font/NeueHaasGroteskText-Bold.otf")
+      format("opentype");
 }
 
-.itemBox {
+@font-face {
+  font-family: "Neue Haas Grotesk-Regular";
+  src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
+    url("http://localhost:3000/Font/NeueHaasGroteskText-Regular.otf")
+      format("opentype");
+}
+@mixin flexRow {
   display: flex;
   flex-direction: row;
-  font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
+}
+
+@mixin hassBold {
+  font-family: Neue Haas Grotesk-Bold, Arial, sans-serif;
+  font-size: calc(10rem / 16);
+  line-height: 13px;
+}
+
+@mixin hassRegular {
+  font-family: Neue Haas Grotesk-Regular, Arial, sans-serif;
+  font-size: calc(10rem / 16);
+  line-height: 13px;
+}
+
+.shopListRow {
+  h1 {
+    @include hassRegular;
+  }
+
+  span {
+    @include hassRegular;
+  }
+}
+
+.listHeader {
+  height: 30px;
+}
+
+.categoryHeader {
+  @include flexRow;
+  justify-content: space-between;
+}
+
+.categoryTitle {
+  @include hassBold;
+}
+
+.itemList {
+  @include flexRow;
+  overflow-x: scroll;
+  white-space: nowrap;
+  p {
+    @include hassRegular;
+  }
 }
 
 .item {
   list-style: none;
-
+  display: inline-block;
   img {
     width: 300px;
   }

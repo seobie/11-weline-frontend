@@ -16,16 +16,16 @@ export default class ShopListRow extends Component {
     fetch("http://localhost:3000/itemList.json")
       .then((res) => res.json())
       .then((res) => {
-        console.log("first", res.data);
         this.setState({ itemList: res });
       });
   };
 
   render() {
-    console.log(this.state.itemList);
     return (
       <div className="shopListRow">
-        <h1>READY TO WEAR</h1>
+        <div className="listHeader">
+          <h1>READY TO WEAR</h1>
+        </div>
         {this.state.itemList &&
           this.state.itemList.map((el) => {
             return <ShopListRowItems itemList={el} />;
