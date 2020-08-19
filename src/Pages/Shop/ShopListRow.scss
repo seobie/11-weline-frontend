@@ -1,5 +1,4 @@
 /** @format */
-
 @font-face {
   font-family: "Neue Haas Grotesk-Bold";
   src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
@@ -13,6 +12,7 @@
     url("http://localhost:3000/Font/NeueHaasGroteskText-Regular.otf")
       format("opentype");
 }
+
 @mixin flexRow {
   display: flex;
   flex-direction: row;
