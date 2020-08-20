@@ -3,14 +3,15 @@ import "./EmailGoods.scss";
 
 class EmailGoods extends React.Component {
   render() {
+    let { href, src, name, price, colour } = this.props;
     return (
-      <a href="{this.props.href}" className="EmailGoods">
-        <img alt="goods pic" src="{this.prop.src}" />
+      <a href={href} className="EmailGoods">
+        <img alt="goods pic" src={src} />
         <div>
-          <div>{this.props.name}</div>
-          <div>{this.props.price}</div>
+          <h3>{name}</h3>
+          <h3 className="price">{price}</h3>
         </div>
-        <div>{this.props.colour}</div>
+        <p>{colour}</p>
       </a>
     );
   }

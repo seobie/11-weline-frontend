@@ -1,0 +1,25 @@
+.EmailGoods {
+  font-size: 10px;
+
+  img {
+    width: 449px;
+    height: 449px;
+    margin: 5px 0 20px 0;
+    background-color: black;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h3,
+  p {
+    height: 13px;
+    color: black;
+  }
+
+  .price {
+    font-weight: 800;
+  }
+}

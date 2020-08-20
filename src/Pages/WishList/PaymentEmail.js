@@ -1,27 +1,24 @@
 import React from "react";
-import EmailGoods from "../../Components/EmailGoods";
+import EmailGoodsList from "../../Components/EmailGoodsList";
 import "./PaymentEmail.scss";
+import "../../Styles/common.scss";
 
 class PaymentEmail extends React.Component {
   constructor() {
     super();
     this.state = {
-      Goods: [
-        {
-          category: "A",
-          List: [
-            {
-              name: "신발",
-              href: "주소",
-              src: "사진",
-              price: "가격",
-              colour: "색",
-            },
-          ],
-        },
-      ],
+      Goods: [],
     };
   }
+
+  componentDidMount = () => {
+    fetch("/data/mockData/Goods.json", {})
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({ Goods: response.Goods });
+      });
+  };
+
   render() {
     return (
       <div className="PaymentEmail">
@@ -34,8 +31,62 @@ class PaymentEmail extends React.Component {
         </aside>
         <main>
           <p>HAS SHARED A SELECTION OF CELINE ITEMS WITH YOU.</p>
-          <p>CLICK ON EACH ONE FOR MORE INFORMATION.</p>
-          <EmailGoods href={} src="" name="" price="" colour="" />
+          <p className="Seperation">CLICK ON EACH ONE FOR MORE INFORMATION.</p>
+          <EmailGoodsList Goods={this.state.Goods} />
+          <footer>
+            <div>
+              FOR FURTHER INFORMATION, OUR CLIENT SERVICES TEAM CAN BE REACHED
+              AT CLIENTSERVICE.EU@CELINE.COM, MONDAY TO SATURDAY 10AM TO 7PM
+              (PARIS TIME).
+            </div>
+            <table className="navList">
+              <tr>
+                <td>
+                  <a href="http://localhost:3000/Shop">CELINE WOMEN</a>
+                </td>
+                <td>
+                  <a href="https://www.instagram.com/celine/">INSTAGRAM</a>
+                </td>
+                <td>
+                  <a href="https://www.celine.com/en-int/help">CONTACT US</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.celine.com/en-int/celine-men/">
+                    CELINE MEN
+                  </a>
+                </td>
+                <td>
+                  <a href="https://www.facebook.com/celineofficial/">
+                    FACEBOOK
+                  </a>
+                </td>
+                <td>
+                  <a href="https://www.celine.com/en-int/faq?fid=faqquestions&q=shopping">
+                    FAQ
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.celine.com/en-int/celine-haute-parfumerie/">
+                    CELINE HAUTE PARFUMERIE
+                  </a>
+                </td>
+                <td>
+                  <a href="https://www.celine.com/en-int/recast-staticpage-99.html">
+                    WECHAT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://www.celine.com/en-int/privacy-policy.html">
+                    PRIVACY POLICY
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </footer>
         </main>
       </div>
     );
