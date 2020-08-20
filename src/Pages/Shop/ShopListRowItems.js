@@ -10,13 +10,24 @@ export default class ShopListRowItems extends Component {
     };
     this.ulRef = React.createRef();
   }
-  runScroll = (e) => {
-    console.log("runScroll");
-    document.getElementsByClassName("itemList")[0].scrollTo({
-      left: 3000,
-      behavior: "smooth",
-    });
+
+  // runScroll = (e) => {
+  //   console.log("runScroll");
+  //   document.getElementsByClassName("itemList")[0].scrollTo({
+  //     left: 3000,
+  //     behavior: "smooth",
+  //   });
+  // };j
+
+  autoScroll = (e) => {
+    console.log("autoScroll");
+    // window.scrollTo(e.current.offsetLeft, 0);
   };
+
+  stopScroll = (e) => {
+    console.log("stopScroll");
+  };
+
   render() {
     console.log(this.ulRef);
     return (
@@ -31,15 +42,20 @@ export default class ShopListRowItems extends Component {
                 <span>VIEW ALL</span>
               </a>
             </div>
-            <ul
-              ref={this.ulRef}
-              className="itemList"
-              onMouseEnter={this.runScroll}
-            >
-              {this.props.itemList.list.map((el) => {
-                return <ShopListRowItem item={el} />;
-              })}
-            </ul>
+            <div className="listBox">
+              <div
+                className="rangeLeft"
+                ref={this.ulRef}
+                onMouseEnter={this.autoScroll}
+                onMouseLeave={this.stopScroll}
+              ></div>
+              <div className="rangeRight"></div>
+              <ul className="itemList">
+                {this.props.itemList.list.map((el) => {
+                  return <ShopListRowItem item={el} />;
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
