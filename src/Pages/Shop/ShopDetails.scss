@@ -1,0 +1,151 @@
+@import "../../Styles/common.scss";
+
+.ShopDetails {
+  @include flexColCen;
+  padding: 0 27px;
+  font-family: Neue Haas Grotesk Text Reg, sans-serif;
+  font-size: calc(10rem / 16);
+  letter-spacing: calc(0.3rem / 16);
+  line-height: calc(13rem / 16);
+
+  .detailWrapper {
+    margin-left: 206px;
+
+    .returnToListing {
+      z-index: 2;
+      position: sticky;
+      display: flex;
+      align-items: center;
+      top: 0;
+      height: 60px;
+      background-color: white;
+
+      a {
+        color: black;
+        text-transform: uppercase;
+
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .detailContainer {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 68px;
+
+      .detailedPictures {
+        width: calc((((100% - 90px) / 10) * 6) + 60px);
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+
+          .evenList {
+            width: 50%;
+          }
+
+          .oddList {
+            width: 50%;
+            margin-bottom: -3px;
+            &:last-of-type {
+              width: 100%;
+            }
+          }
+
+          img {
+            width: 100%;
+            padding: 0 10px 10px 0;
+          }
+        }
+      }
+
+      .itemDescriptions {
+        position: sticky;
+        top: 60px;
+        height: calc(100vh - 205px);
+        width: calc((((100% - 90px) / 10) * 4) + 30px);
+        padding-right: calc(((((100% - 90px) / 10) * 1) + 0px) + 10px);
+
+        h1 {
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 16px;
+          letter-spacing: 0.02em;
+        }
+        p {
+          margin-top: 28px;
+          text-transform: uppercase;
+        }
+        .optionWrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-top: 25px;
+          height: calc(100vh - 378px);
+          .option {
+            @include flexColumn;
+
+            .optionLabel {
+              @include flexColCen;
+            }
+
+            div {
+              text-transform: uppercase;
+              font-size: 10px;
+              line-height: 13px;
+            }
+
+            .contactUs,
+            .addToWishlist {
+              margin-top: 28px;
+            }
+          }
+          button {
+            @include moveCenter;
+            border: 1px solid black;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: 400;
+            height: 40px;
+            padding: 12px 10px 13px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+    .recentlyViewed {
+      width: calc((((100% - 90px) / 10) * 6) + 60px);
+      margin-top: 68px;
+      h2 {
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      ul {
+        display: flex;
+        width: calc(100% + 11px);
+        li {
+          width: calc((((100% - 11px - 50px) / 6) * 1) + 0px);
+          margin: 10px 10px 0 0;
+          img {
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+
+    .itemDirectory {
+      margin-top: 62px;
+      padding-bottom: 78px;
+      text-transform: uppercase;
+      a {
+        color: black;
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

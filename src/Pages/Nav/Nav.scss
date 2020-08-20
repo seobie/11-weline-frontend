@@ -1,0 +1,75 @@
+@import "../../Styles/common.scss";
+
+.Nav {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  bottom: -148px;
+  justify-content: space-between;
+  padding: 16px 27px 0;
+  background-color: white;
+
+  .upper {
+    display: flex;
+
+    .leftContainer {
+      position: relative;
+      display: flex;
+      height: 149px;
+      width: auto;
+
+      .logo {
+        width: 12.875rem;
+        img {
+          width: 11.375rem;
+          height: 2.4375rem;
+        }
+      }
+      .navContainer {
+        display: flex;
+        ul {
+          width: 220px;
+        }
+        .categories {
+          a {
+            color: black;
+            &:hover {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    .rightContainer {
+      position: relative;
+      text-align: end;
+      margin-left: auto;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    padding: 25px 0 25px 206px;
+    .location {
+      width: calc((100% + 0.625rem) / 7);
+    }
+    .messenger {
+      width: calc((100% + 0.625rem) / 7);
+    }
+    .socialMedia {
+      width: calc((100% + 0.625rem) / 7);
+    }
+    .newsletter {
+      width: calc((100% + 0.625rem) / 7);
+    }
+  }
+
+  div {
+    text-transform: uppercase;
+  }
+
+  .activeMenu {
+    font-weight: 600;
+  }
+}
