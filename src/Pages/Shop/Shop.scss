@@ -1,0 +1,49 @@
+.Shop {
+  display: flex;
+  width: 100vw;
+  height: 805.81px;
+  margin-top: 30px;
+  padding: 0 27px;
+
+  aside {
+    width: 206px;
+  }
+
+  main {
+    width: 100%;
+
+    ul {
+      display: flex;
+      align-items: stretch;
+      height: 100%;
+      li {
+        width: 100%;
+        flex-shrink: 4;
+        border: 1px solid black;
+        &:hover {
+          flex-shrink: 1;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        a {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+        }
+
+        span {
+          position: absolute;
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+}
