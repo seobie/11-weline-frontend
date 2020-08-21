@@ -14,7 +14,7 @@ class ShopListCol extends React.Component {
   componentDidMount = () => {
     fetch("Data/MockData/Goods.json")
       .then((response) => response.json())
-      .then((Goods) => this.setState({ Goods }));
+      .then(({ Goods }) => this.setState({ Goods }));
   };
 
   render() {
