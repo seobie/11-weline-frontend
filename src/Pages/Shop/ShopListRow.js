@@ -21,15 +21,15 @@ export default class ShopListRow extends Component {
   };
 
   render() {
-    console.log(this.state.itemList);
     return (
       <div className="shopListRow">
         <div className="listHeader">
           <h1>READY TO WEAR</h1>
         </div>
-        {this.state.itemList.map((el) => {
-          return <ShopListRowItems itemList={el} />;
-        })}
+        {this.state.itemList.length > 0 &&
+          this.state.itemList.map((el) => {
+            return <ShopListRowItems itemList={el} />;
+          })}
       </div>
     );
   }

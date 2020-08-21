@@ -54,6 +54,7 @@ button {
 .wishWhole {
   display: flex;
   justify-content: space-around;
+  margin-top: 130px;
 }
 
 .wishNav {
@@ -79,12 +80,6 @@ button {
   margin-bottom: 30px;
 }
 
-// .line {
-//   width: 520px;
-//   height: 1px;
-//   background-color: black;
-// }
-
 .purchase {
   @include flexBtwn;
   border-bottom: 1px solid black;
@@ -99,14 +94,23 @@ button {
   }
 }
 
-.select {
+.selectAll {
   @include flexBtwn;
+  margin-left: 10px;
   width: 330px;
   div {
     width: 165px;
   }
   button {
     @include buttonNone;
+  }
+}
+
+.logOut {
+  position: relative;
+  button {
+    position: absolute;
+    right: 0;
   }
 }
 
@@ -124,19 +128,84 @@ button {
 }
 
 .itemBox {
+  margin-left: 10px;
   width: 330px;
 }
 
 .itemDetail {
   @include flexBtwn;
+  position: relative;
   width: 330px;
   button {
     @include buttonNone;
-    position: absolute;
-    right: 0;
   }
+}
+
+.item {
+  margin-bottom: 10px;
+}
+
+.select {
+  margin-top: 20px;
+}
+
+.remove {
+  position: absolute;
+  right: 0;
 }
 
 .buttonDiv {
   position: relative;
+}
+
+.checkboxWrapper {
+  position: relative;
+}
+
+.checkboxWrapper label {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.checkboxWrapper label:before,
+.checkboxWrapper label:after {
+  pointer-events: none;
+}
+
+.checkboxWrapper label:before {
+  display: flex;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  background-color: #fff;
+  margin-right: 5px;
+}
+
+.checkboxWrapper label:after {
+  position: absolute;
+  top: 2.8px;
+  left: 2.8px;
+  display: flex;
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: #000;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.checkboxWrapper input[type="checkbox"]:checked + label:after {
+  transform: scale(1);
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
 }

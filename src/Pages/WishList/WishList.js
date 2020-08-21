@@ -21,11 +21,11 @@ export default class WishList extends Component {
                   <button>SEND</button>
                 </div>
               </div>
-              <div className="select">
+              <div className="selectAll">
                 <div>
                   <button>SELECT ALL</button>
                 </div>
-                <div>
+                <div className="logOut">
                   <button>LOG OUT</button>
                 </div>
               </div>
@@ -39,14 +39,19 @@ export default class WishList extends Component {
               <div className="itemBox">
                 <div className="itemDetail">
                   <div>
-                    <div>LONG JACKET IN STRIPED WOOL FABRIC</div>
+                    <div className="item">
+                      LONG JACKET IN STRIPED WOOL FABRIC
+                    </div>
                     <div>DOCK WASH</div>
                   </div>
                   <div>
-                    <button>REMOVE</button>
+                    <button className="remove">REMOVE</button>
                   </div>
                 </div>
-                <div>SELECT</div>
+                <div className="checkboxWrapper">
+                  <input id="checkbox" type="checkbox" checked="checked" />
+                  <label for="checkbox">SELECT</label>
+                </div>
               </div>
             </div>
           </div>
