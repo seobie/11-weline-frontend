@@ -2,35 +2,45 @@
   display: flex;
   font-size: 10px;
   margin-top: 30px;
+
   aside {
     div {
       padding-left: 25px;
     }
   }
+
   main {
     width: 513px;
     padding: 0 25px 0 37px;
   }
+
   p {
     height: 15px;
     padding-top: 4px;
   }
+
   .Seperation {
     margin-bottom: 10px;
   }
+
   footer {
     padding: 48px 0;
   }
+
   table {
     margin: 20px 0 30px 0;
+
     tr {
-      a {
+      a,
+      Link {
         color: black;
       }
+
       td {
         &:first-child {
           width: 197.55px;
         }
+
         &:last-child {
           width: 197.14px;
           text-align: end;

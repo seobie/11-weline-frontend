@@ -7,13 +7,14 @@ class EmailGoodsList extends React.Component {
       <article className="EmailGoodsList">
         {this.props.Goods.map((goods) => (
           <div>
-            {goods.List.map((list) => (
+            {goods.List.map((list, idx) => (
               <EmailGoods
                 href={list.href}
                 src={list.src}
                 name={list.name}
                 colour={list.colour}
                 price={list.price}
+                key={idx}
               />
             ))}
           </div>

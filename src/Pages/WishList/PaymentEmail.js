@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import EmailGoodsList from "../../Components/EmailGoodsList";
 import "./PaymentEmail.scss";
-import "../../Styles/common.scss";
 
 class PaymentEmail extends React.Component {
   constructor() {
@@ -14,9 +14,7 @@ class PaymentEmail extends React.Component {
   componentDidMount = () => {
     fetch("/data/mockData/Goods.json")
       .then((response) => response.json())
-      .then((response) => {
-        this.setState({ Goods: response.Goods });
-      });
+      .then((Goods) => this.setState({ Goods }));
   };
 
   render() {
@@ -42,7 +40,7 @@ class PaymentEmail extends React.Component {
             <table className="navList">
               <tr>
                 <td>
-                  <a href="http://localhost:3000/Shop">CELINE WOMEN</a>
+                  <Link to="/Shop">CELINE WOMEN</Link>
                 </td>
                 <td>
                   <a href="https://www.instagram.com/celine/">INSTAGRAM</a>
