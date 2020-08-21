@@ -2,11 +2,14 @@ import React from "react";
 
 class ShopTab extends React.Component {
   render() {
-    let { TabName, href, src, text } = this.props;
+    let { TabName, href, src, src2, text, hover, EnterHandler } = this.props;
     return (
-      <li className={TabName}>
+      <li
+        className={TabName === hover ? "hover" : "unhover"}
+        onMouseEnter={() => EnterHandler(TabName)}
+      >
         <a href={href}>
-          <img alt="manu pic" src={src} />
+          <img alt="manu pic" src={TabName === hover ? src : src2} />
           <button>
             <span className="first">{text[0]}</span>
             <span className="secound">{text[1]}</span>

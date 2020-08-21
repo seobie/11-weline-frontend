@@ -6,14 +6,19 @@ class Shop extends React.Component {
   constructor() {
     super();
     this.state = {
-      Accordion: [],
+      hover: "NEW WINTER PART 1",
+      accordion: [],
     };
   }
 
   componentDidMount = () => {
-    fetch("Data/MockData/Accordion.json")
+    fetch("Data/MockData/accordion.json")
       .then((response) => response.json())
-      .then(({ Accordion }) => this.setState({ Accordion }));
+      .then(({ accordion }) => this.setState({ accordion }));
+  };
+
+  EnterHandler = (TabName) => {
+    this.setState({ hover: TabName });
   };
 
   render() {
@@ -22,13 +27,16 @@ class Shop extends React.Component {
         <aside></aside>
         <main>
           <ul>
-            {this.state.Accordion.map((tab, idx) => (
+            {this.state.accordion.map((tab, idx) => (
               <ShopTab
                 TabName={tab.TabName}
                 key={idx}
                 src={tab.src}
+                src2={tab.src2}
                 href={tab.href}
                 text={tab.text}
+                hover={this.state.hover}
+                EnterHandler={(TabName) => this.EnterHandler(TabName)}
               />
             ))}
           </ul>
