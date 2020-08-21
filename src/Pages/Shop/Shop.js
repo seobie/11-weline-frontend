@@ -1,6 +1,5 @@
 import React from "react";
 import ShopTab from "../../Components/ShopTab";
-import "../../Styles/common.scss";
 import "./Shop.scss";
 
 class Shop extends React.Component {

@@ -7,9 +7,11 @@ class ShopTab extends React.Component {
       <li className={true ? tabName : "hoverLi"}>
         <a href={href}>
           <img alt="manu pic" src={src} />
-          <span>{text[0]}</span>
-          <span>{text[1]}</span>
-          <span>{text[2]}</span>
+          <button>
+            <span>{text[0]}</span>
+            <span>{text[1]}</span>
+            <span>{text[2]}</span>
+          </button>
         </a>
       </li>
     );
