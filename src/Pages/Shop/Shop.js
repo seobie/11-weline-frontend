@@ -6,15 +6,15 @@ class Shop extends Component {
   constructor() {
     super();
     this.state = {
-      accordion: [],
+      Accordion: [],
     };
   }
 
   componentDidMount = () => {
-    fetch("/Data/MockData/shop.json")
+    fetch("/Data/MockData/Shop.json")
       .then((response) => response.json())
       .then((response) => {
-        this.setState({ accordion: response.accordion });
+        this.setState({ Accordion: response.Accordion });
       });
   };
   render() {
@@ -23,13 +23,11 @@ class Shop extends Component {
         <aside></aside>
         <main>
           <ul>
-            {this.state.accordion.map((tab) => (
-              <li>
+            {this.state.Accordion.map((tab) => (
+              <li className={tab.tabName}>
                 <a href={tab.href}>
                   <img alt="manu pic" src={tab.src} />
                   <span>{tab.text[0]}</span>
-                  <span>{tab.text[1]}</span>
-                  <span>{tab.text[2]}</span>
                 </a>
               </li>
             ))}
