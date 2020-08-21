@@ -1,0 +1,56 @@
+{
+  "Goods": [
+    {
+      "category": "A",
+      "List": [
+        {
+          "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
+          "src": "./Images/images.jpeg",
+          "src2": "./Images/images1.jpeg",
+          "new": true,
+          "href": ""
+        },
+        {
+          "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
+          "src": "./Images/images.jpeg",
+          "src2": "./Images/images1.jpeg",
+          "new": true,
+          "href": ""
+        },
+        {
+          "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
+          "src": "./Images/images.jpeg",
+          "src2": "./Images/images1.jpeg",
+          "new": true,
+          "href": ""
+        }
+      ]
+    },
+    {
+      "category": "B",
+      "List": [
+        {
+          "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
+          "src": "./Images/images.jpeg",
+          "src2": "./Images/images1.jpeg",
+          "new": true,
+          "href": ""
+        },
+        {
+          "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
+          "src": "./Images/images.jpeg",
+          "src2": "./Images/images1.jpeg",
+          "new": true,
+          "href": ""
+        },
+        {
+          "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
+          "src": "./Images/images.jpeg",
+          "src2": "./Images/images1.jpeg",
+          "new": true,
+          "href": ""
+        }
+      ]
+    }
+  ]
+}
