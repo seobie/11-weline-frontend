@@ -37,9 +37,9 @@
   }
 
   header {
-    display: flex;
-    top: 0;
     position: sticky;
+    top: 0;
+    display: flex;
     justify-content: space-between;
     height: 57px;
     width: 100%;

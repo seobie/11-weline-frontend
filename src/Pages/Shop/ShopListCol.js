@@ -15,18 +15,11 @@ class ShopListCol extends React.Component {
   componentDidMount = () => {
     fetch("Data/MockData/Goods.json")
       .then((response) => response.json())
-      .then((response) => {
-        this.setState({ Goods: response.Goods });
-      });
+      .then((Goods) => this.setState({ Goods }));
   };
 
-  //HoverImgChanger = () => {
-  //  this.setState({
-  //    mouseover: !this.state.mouseover,
-  //  });
-  //};
-
   render() {
+    let { Goods, mouseover } = this.state;
     return (
       <div className="ShopListCol">
         <aside></aside>
@@ -34,16 +27,17 @@ class ShopListCol extends React.Component {
           <header>
             <span>BOOTS</span>
           </header>
-          <GoodsList
-            Goods={this.state.Goods}
-            mouseover={this.state.mouseover}
-          />
+          <GoodsList Goods={Goods} mouseover={mouseover} />
           <nav>
-            <a href="?">WELINE</a>
+            <a href="https://www.celine.com/en-int/home">WELINE</a>
             <span>/</span>
-            <a href="?">WELINE WOMEN</a>
+            <a href="https://www.celine.com/en-int/celine-women/">
+              WELINE WOMEN
+            </a>
             <span>/</span>
-            <a href="?">SHOES</a>
+            <a href="https://www.celine.com/en-int/celine-women/shoes/">
+              SHOES
+            </a>
             <span>/</span>
             <span>BOOTS</span>
           </nav>
