@@ -21,8 +21,35 @@
         width: 100%;
         flex-shrink: 4;
         transition: all 0.8s 0.1s;
+
+        button {
+          opacity: 0;
+
+          .first {
+            opacity: 0;
+            transition: all 0.8s 0.5s;
+          }
+
+          .secound {
+            opacity: 0;
+            transition: all 0.8s 0.7s;
+          }
+
+          .third {
+            opacity: 0;
+            transition: all 0.8s 0.9s;
+          }
+        }
         &:hover {
           flex-shrink: 1;
+
+          button {
+            opacity: 1;
+
+            span {
+              opacity: 1;
+            }
+          }
         }
 
         img {
@@ -42,7 +69,7 @@
         button {
           position: absolute;
           width: 100%;
-          background-color: blue;
+
           span {
             display: block;
             width: 100%;

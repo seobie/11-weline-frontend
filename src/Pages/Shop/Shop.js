@@ -13,9 +13,7 @@ class Shop extends React.Component {
   componentDidMount = () => {
     fetch("Data/MockData/Accordion.json")
       .then((response) => response.json())
-      .then((response) => {
-        this.setState({ Accordion: response.Accordion });
-      });
+      .then(({ Accordion }) => this.setState({ Accordion }));
   };
 
   render() {
@@ -26,7 +24,7 @@ class Shop extends React.Component {
           <ul>
             {this.state.Accordion.map((tab, idx) => (
               <ShopTab
-                tabName={tab.tabName}
+                TabName={tab.TabName}
                 key={idx}
                 src={tab.src}
                 href={tab.href}
