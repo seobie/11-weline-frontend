@@ -13,7 +13,7 @@ export default class ShopListRowItems extends Component {
 
   autoScrollRight = () => {
     const intervalScroll = setInterval(() => {
-      this.ulRef.current.scrollLeft += 1;
+      this.ulRef.current.scrollLeft += 2;
       if (!this.state.isMouseOn) {
         clearInterval(intervalScroll);
       }
@@ -22,7 +22,7 @@ export default class ShopListRowItems extends Component {
 
   autoScrollLeft = () => {
     const intervalScroll = setInterval(() => {
-      this.ulRef.current.scrollLeft -= 1;
+      this.ulRef.current.scrollLeft -= 2;
       if (!this.state.isMouseOn) {
         clearInterval(intervalScroll);
       }
