@@ -16,10 +16,12 @@
       display: flex;
       align-items: stretch;
       height: 100%;
+
       li {
         width: 100%;
         flex-shrink: 4;
-        border: 1px solid black;
+        transition: all 0.8s 0.1s;
+
         &:hover {
           flex-shrink: 1;
         }
@@ -40,6 +42,9 @@
 
         span {
           position: absolute;
+          width: 100%;
+          font-size: 40px;
+          font-weight: 700;
           text-align: center;
           color: white;
         }
