@@ -14,7 +14,7 @@ class PaymentEmail extends React.Component {
   componentDidMount = () => {
     fetch("/data/mockData/Goods.json")
       .then((response) => response.json())
-      .then((Goods) => this.setState({ Goods }));
+      .then((response) => this.setState({ Goods: response.Goods }));
   };
 
   render() {
