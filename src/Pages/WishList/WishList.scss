@@ -1,0 +1,142 @@
+/** @format */
+@import "../../Styles/common.scss";
+
+@font-face {
+  font-family: "Neue Haas Grotesk-Bold";
+  src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
+    url("http://localhost:3000/Font/NeueHaasGroteskText-Bold.otf")
+      format("opentype");
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk-Regular";
+  src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
+    url("http://localhost:3000/Font/NeueHaasGroteskText-Regular.otf")
+      format("opentype");
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flexBtwn {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin hassBold {
+  font-family: Neue Haas Grotesk-Bold, Arial, sans-serif;
+  font-size: calc(10rem / 16);
+  line-height: 13px;
+}
+
+@mixin hassRegular {
+  font-family: Neue Haas Grotesk-Regular, Arial, sans-serif;
+  font-size: calc(10rem / 16);
+  line-height: 13px;
+}
+
+@mixin buttonNone {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.wishList {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  @include hassRegular;
+}
+
+.wishWhole {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wishNav {
+  @include hassBold;
+  font-size: calc(13rem / 16);
+  line-height: 20px;
+  width: 200px;
+}
+
+.wishBox {
+  @include hassRegular;
+}
+
+.itemWishList {
+  display: flex;
+  flex-direction: row;
+  width: 850px;
+}
+
+.wishHeader {
+  @include flexBtwn;
+  width: 850px;
+  margin-bottom: 30px;
+}
+
+// .line {
+//   width: 520px;
+//   height: 1px;
+//   background-color: black;
+// }
+
+.purchase {
+  @include flexBtwn;
+  border-bottom: 1px solid black;
+  width: 520px;
+  div {
+    width: 260px;
+  }
+  button {
+    @include buttonNone;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.select {
+  @include flexBtwn;
+  width: 330px;
+  div {
+    width: 165px;
+  }
+  button {
+    @include buttonNone;
+  }
+}
+
+.itemImage {
+  width: 520px;
+  img {
+    margin: 5px;
+    width: 110px;
+  }
+}
+
+.wishHeader {
+  @include flexBtwn;
+  width: 330px;
+}
+
+.itemBox {
+  width: 330px;
+}
+
+.itemDetail {
+  @include flexBtwn;
+  width: 330px;
+  button {
+    @include buttonNone;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.buttonDiv {
+  position: relative;
+}

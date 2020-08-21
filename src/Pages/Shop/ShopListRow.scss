@@ -64,6 +64,10 @@
   }
 }
 
+.itemList::-webkit-scrollbar {
+  display: none;
+}
+
 .item {
   list-style: none;
   display: inline-block;
@@ -82,7 +86,6 @@
   left: 0;
   width: 300px;
   height: 430px;
-  border: 2px solid red;
   z-index: 100;
 }
 
@@ -91,6 +94,5 @@
   right: 0;
   width: 300px;
   height: 430px;
-  border: 2px solid red;
   z-index: 100;
 }

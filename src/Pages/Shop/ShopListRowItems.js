@@ -6,40 +6,33 @@ export default class ShopListRowItems extends Component {
   constructor() {
     super();
     this.state = {
-      scroll: 0,
+      isMouseOn: false,
     };
     this.ulRef = React.createRef();
   }
 
-  // runScroll = (e) => {
-  //   console.log("runScroll");
-  //   document.getElementsByClassName("itemList")[0].scrollTo({
-  //     left: 3000,
-  //     behavior: "smooth",
-  //   });
-  // };
-  componentDidMount = () => {
-    // var intervalId = setInterval();
+  autoScrollRight = () => {
+    const intervalScroll = setInterval(() => {
+      this.ulRef.current.scrollLeft += 1;
+      if (!this.state.isMouseOn) {
+        clearInterval(intervalScroll);
+      }
+    }, 10);
   };
 
-  scrollCount = (e) => {
-    console.log("autoScroll");
-    this.setState({ scroll: this.state.scroll + 1 });
-    console.log(this.state.scroll);
-    console.log(this.ulRef.current.scrollLeft);
+  autoScrollLeft = () => {
+    const intervalScroll = setInterval(() => {
+      this.ulRef.current.scrollLeft -= 1;
+      if (!this.state.isMouseOn) {
+        clearInterval(intervalScroll);
+      }
+    }, 10);
   };
 
-  stopScroll = (e) => {
-    console.log("stopScroll");
-    console.log(this.ulRef);
-    if (this.state.scroll === 10) {
-      clearInterval(this.scrollCount);
-    }
-  };
-
-  autoScroll = () => {
-    console.log("scrollcount");
-    setInterval(this.scrollCount, 1000);
+  changMouseState = () => {
+    this.setState({
+      isMouseOn: !this.state.isMouseOn,
+    });
   };
 
   render() {
@@ -58,13 +51,19 @@ export default class ShopListRowItems extends Component {
             <div className="listBox">
               <div
                 className="rangeLeft"
-                onMouseEnter={this.autoScroll}
-                onMouseLeave={this.stopScroll}
+                onMouseEnter={() => {
+                  this.autoScrollLeft();
+                  this.changMouseState();
+                }}
+                onMouseLeave={this.changMouseState}
               ></div>
               <div
                 className="rangeRight"
-                onMouseEnter={this.autoScroll}
-                onMouseLeave={this.stopScroll}
+                onMouseEnter={() => {
+                  this.autoScrollRight();
+                  this.changMouseState();
+                }}
+                onMouseLeave={this.changMouseState}
               ></div>
               <ul className="itemList" ref={this.ulRef}>
                 {this.props.itemList.list.map((el) => {
