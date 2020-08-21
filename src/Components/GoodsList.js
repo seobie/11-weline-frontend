@@ -9,13 +9,14 @@ class GoodsList extends React.Component {
         <ul>
           {this.props.Goods.map((goods) => (
             <li className={goods.category}>
-              {goods.List.map((list) => (
+              {goods.List.map((list, idx) => (
                 <Goods
                   href={list.href}
                   src={this.props.mouseover ? list.src : list.src2}
                   name={list.name}
                   new={list.new}
                   mouseover={this.props.mouseover}
+                  key={idx}
                 />
               ))}
             </li>

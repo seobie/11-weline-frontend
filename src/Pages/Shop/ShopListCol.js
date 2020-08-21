@@ -8,41 +8,25 @@ class ShopListCol extends React.Component {
     super();
     this.state = {
       mouseover: true,
-      Goods: [
-        {
-          category: "A",
-          List: [
-            {
-              key: "1",
-              name: "CUBAINE MEDIUM BOOT IN CALFSKIN",
-              src: "./Images/images.jpeg",
-              src2: "./Images/images1.jpeg",
-              new: true,
-              href: "",
-            },
-          ],
-        },
-      ],
+      Goods: [],
     };
   }
 
-  /*componentDidMount = () => {
-    fetch("주소", {
-      method: "GET",
-      body: JSON.stringify({}),
-    })
+  componentDidMount = () => {
+    fetch("Data/MockData/Goods.json")
       .then((response) => response.json())
-      .then((response) => console.log(response));
-  };*/
-
-  HoverImgChanger = () => {
-    this.setState({
-      mouseover: !this.state.mouseover,
-    });
+      .then((response) => {
+        this.setState({ Goods: response.Goods });
+      });
   };
 
+  //HoverImgChanger = () => {
+  //  this.setState({
+  //    mouseover: !this.state.mouseover,
+  //  });
+  //};
+
   render() {
-    console.log(this.state);
     return (
       <div className="ShopListCol">
         <aside></aside>
