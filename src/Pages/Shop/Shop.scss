@@ -11,20 +11,20 @@
 
   main {
     width: 100%;
+    height: auto;
 
     ul {
       display: flex;
-      align-items: stretch;
       height: 100%;
+
+      .hoverLi {
+        flex-shrink: 1;
+      }
 
       li {
         width: 100%;
         flex-shrink: 4;
         transition: all 0.8s 0.1s;
-
-        &:hover {
-          flex-shrink: 1;
-        }
 
         img {
           height: 100%;

@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
+import ShopTab from "../../Components/ShopTab";
 import "../../Styles/common.scss";
 import "./Shop.scss";
 
-class Shop extends Component {
+class Shop extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -11,25 +12,27 @@ class Shop extends Component {
   }
 
   componentDidMount = () => {
-    fetch("/Data/MockData/Shop.json")
+    fetch("Data/MockData/Accordion.json")
       .then((response) => response.json())
       .then((response) => {
         this.setState({ Accordion: response.Accordion });
       });
   };
+
   render() {
     return (
       <div className="Shop">
         <aside></aside>
         <main>
           <ul>
-            {this.state.Accordion.map((tab) => (
-              <li className={tab.tabName}>
-                <a href={tab.href}>
-                  <img alt="manu pic" src={tab.src} />
-                  <span>{tab.text[0]}</span>
-                </a>
-              </li>
+            {this.state.Accordion.map((tab, idx) => (
+              <ShopTab
+                tabName={tab.tabName}
+                key={idx}
+                src={tab.src}
+                href={tab.href}
+                text={tab.text}
+              />
             ))}
           </ul>
         </main>

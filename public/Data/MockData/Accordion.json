@@ -4,25 +4,25 @@
       "TabName": "ACCESSORIES",
       "href": "",
       "src": "https://www.celine.com/on/demandware.static/-/Library-Sites-Celine-SharedLibrary/default/dwae4f7a92/navigation-recast/16.WOMEN_WINTER_20_PART_2_SGL.jpg",
-      "text": ["ACCESSORIES"]
+      "text": ["", "ACCESSORIES", ""]
     },
     {
       "TabName": "JEWELLERY",
       "href": "",
       "src": "https://www.celine.com/on/demandware.static/-/Library-Sites-Celine-SharedLibrary/default/dwe22fbd6b/navigation-recast/16.WOMEN_WINTER_20_PART_2_JWL.jpg",
-      "text": ["JEWELLERY"]
+      "text": ["", "JEWELLERY", ""]
     },
     {
       "TabName": "SMALL LEATHER GOODS",
       "href": "",
       "src": "https://www.celine.com/on/demandware.static/-/Library-Sites-Celine-SharedLibrary/default/dwc694a6c4/navigation-recast/16.WOMEN_WINTER_20_PART_2_SLG.jpg",
-      "text": ["SMALL LEATHER GOODS"]
+      "text": ["", "SMALL LEATHER GOODS", ""]
     },
     {
       "TabName": "HANDBAGS",
       "href": "",
       "src": "https://www.celine.com/on/demandware.static/-/Library-Sites-Celine-SharedLibrary/default/dw58420ebe/navigation-recast/16.WOMEN_WINTER_20_PART_2_SHOES_STATIQUE.jpg",
-      "text": ["HANDBAGS"]
+      "text": ["", "HANDBAGS", ""]
     },
     {
       "TabName": "READY TO WEAR",
@@ -34,13 +34,13 @@
       "TabName": "CHARMS COLLECTION",
       "href": "",
       "src": "https://www.celine.com/on/demandware.static/-/Library-Sites-Celine-SharedLibrary/default/dwaf401b49/navigation-recast/16.WOMEN_WINTER_20_PART_1_CHARMS.jpg",
-      "text": ["CHARMS COLLECTION"]
+      "text": ["", "CHARMS COLLECTION", ""]
     },
     {
       "TabName": "NEW WNTER PART 1",
       "href": "",
       "src": "https://www.celine.com/on/demandware.static/-/Library-Sites-Celine-SharedLibrary/default/dw026a1b09/navigation-recast/16.WOMEN_WINTER_20_PART_2_NC.jpg",
-      "text": ["NEW", "WNTER PART 1"]
+      "text": ["NEW", "WNTER PART 1", ""]
     }
   ]
 }
