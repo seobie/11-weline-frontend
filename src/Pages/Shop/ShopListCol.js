@@ -1,7 +1,6 @@
 import React from "react";
 import GoodsList from "../../Components/GoodsList";
 import "./ShopListCol.scss";
-import "../../Styles/common.scss";
 
 class ShopListCol extends React.Component {
   constructor() {
