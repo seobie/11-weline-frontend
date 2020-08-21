@@ -12,10 +12,13 @@ class GoodsList extends React.Component {
               {goods.List.map((list, idx) => (
                 <Goods
                   href={list.href}
-                  src={this.props.mouseover ? list.src : list.src2}
+                  src={list.src}
+                  src2={list.src2}
                   name={list.name}
-                  new={list.new}
+                  checkNew={list.checkNew}
                   mouseover={this.props.mouseover}
+                  HoverHandler={(name) => this.props.HoverHandler(name)}
+                  outHandler={(e) => this.props.HoverHandler(e)}
                   key={idx}
                 />
               ))}

@@ -6,7 +6,7 @@ class ShopListCol extends React.Component {
   constructor() {
     super();
     this.state = {
-      mouseover: true,
+      mouseover: "",
       Goods: [],
     };
   }
@@ -15,6 +15,17 @@ class ShopListCol extends React.Component {
     fetch("Data/MockData/Goods.json")
       .then((response) => response.json())
       .then(({ Goods }) => this.setState({ Goods }));
+  };
+
+  HoverHandler = (name) => {
+    this.setState({
+      mouseover: name,
+    });
+  };
+  outHandler = () => {
+    this.setState({
+      mouseover: "",
+    });
   };
 
   render() {
@@ -26,7 +37,12 @@ class ShopListCol extends React.Component {
           <header>
             <span>BOOTS</span>
           </header>
-          <GoodsList Goods={Goods} mouseover={mouseover} />
+          <GoodsList
+            Goods={Goods}
+            mouseover={mouseover}
+            HoverHandler={(name) => this.HoverHandler(name)}
+            outHandler={(e) => this.outHandler(e)}
+          />
           <nav>
             <a href="https://www.celine.com/en-int/home">WELINE</a>
             <span>/</span>

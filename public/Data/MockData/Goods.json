@@ -7,21 +7,21 @@
           "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
           "src": "./Images/images.jpeg",
           "src2": "./Images/images1.jpeg",
-          "new": true,
+          "checkcheckNew": true,
+          "href": ""
+        },
+        {
+          "name": "CUBAINE MEDIUM BOOT",
+          "src": "./Images/images.jpeg",
+          "src2": "./Images/images1.jpeg",
+          "checkNew": false,
           "href": ""
         },
         {
           "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
           "src": "./Images/images.jpeg",
           "src2": "./Images/images1.jpeg",
-          "new": true,
-          "href": ""
-        },
-        {
-          "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
-          "src": "./Images/images.jpeg",
-          "src2": "./Images/images1.jpeg",
-          "new": true,
+          "checkNew": true,
           "href": ""
         }
       ]
@@ -30,24 +30,24 @@
       "category": "B",
       "List": [
         {
-          "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
+          "name": "CUBAINE MEDIUM BOOT",
           "src": "./Images/images.jpeg",
           "src2": "./Images/images1.jpeg",
-          "new": true,
+          "checkNew": false,
           "href": ""
         },
         {
           "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
           "src": "./Images/images.jpeg",
           "src2": "./Images/images1.jpeg",
-          "new": true,
+          "checkNew": true,
           "href": ""
         },
         {
           "name": "CUBAINE MEDIUM BOOT IN CALFSKIN",
           "src": "./Images/images.jpeg",
           "src2": "./Images/images1.jpeg",
-          "new": true,
+          "checkNew": true,
           "href": ""
         }
       ]
