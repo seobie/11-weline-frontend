@@ -1,9 +1,71 @@
 /** @format */
 
 import React, { Component } from "react";
+import WishItem from "./WishItem";
 import "./WishList.scss";
 
 export default class WishList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      wishItems: [
+        {
+          id: 0,
+          name: "STRIPE RIBBON BLOUSE",
+          img: [
+            "http://localhost:3000/Images/WishList/blouse1.webp",
+            "http://localhost:3000/Images/WishList/blouse2.webp",
+            "http://localhost:3000/Images/WishList/blouse3.webp",
+          ],
+        },
+        {
+          id: 1,
+          name: "TANNED PUMPS",
+          img: [
+            "http://localhost:3000/Images/WishList/boots1.webp",
+            "http://localhost:3000/Images/WishList/boots2.webp",
+            "http://localhost:3000/Images/WishList/boots3.webp",
+            "http://localhost:3000/Images/WishList/boots4.webp",
+          ],
+        },
+        {
+          id: 2,
+          name: "CLEAR DROPS",
+          img: [
+            "http://localhost:3000/Images/WishList/jewerly1.webp",
+            "http://localhost:3000/Images/WishList/jewerly2.webp",
+            "http://localhost:3000/Images/WishList/jewerly3.webp",
+          ],
+        },
+        {
+          id: 3,
+          name: "PATTERNED CROSS BAG",
+          img: [
+            "http://localhost:3000/Images/WishList/leather1.webp",
+            "http://localhost:3000/Images/WishList/leather2.webp",
+            "http://localhost:3000/Images/WishList/leather3.webp",
+            "http://localhost:3000/Images/WishList/leather4.webp",
+          ],
+        },
+        {
+          id: 4,
+          name: "NIGHT REPTILE",
+          img: [
+            "http://localhost:3000/Images/WishList/perfume1.webp",
+            "http://localhost:3000/Images/WishList/perfume2.webp",
+            "http://localhost:3000/Images/WishList/perfume3.webp",
+          ],
+        },
+      ],
+    };
+  }
+
+  removeItem = (id) => {
+    this.setState((prevState) => ({
+      wishItems: prevState.wishItems.id.filter((el) => el !== id),
+    }));
+  };
+
   render() {
     return (
       <div className="wishList">
@@ -15,11 +77,9 @@ export default class WishList extends Component {
           </div>
           <div className="wishBox">
             <div className="wishHeader">
-              <div className="purchase">
-                <div>PURCHASE BY EMAIL</div>
-                <div className="buttonDiv">
-                  <button>SEND</button>
-                </div>
+              <div className="title">
+                <div>MY ITEMS</div>
+                <div className="buttonDiv"></div>
               </div>
               <div className="selectAll">
                 <div>
@@ -30,27 +90,18 @@ export default class WishList extends Component {
                 </div>
               </div>
             </div>
-            <div className="itemWishList">
-              <div className="itemImage">
-                <img src="http://localhost:3000/Images/WishList/blouse1.webp" />
-                <img src="http://localhost:3000/Images/WishList/blouse2.webp" />
-                <img src="http://localhost:3000/Images/WishList/blouse3.webp" />
-              </div>
-              <div className="itemBox">
-                <div className="itemDetail">
-                  <div>
-                    <div className="item">
-                      LONG JACKET IN STRIPED WOOL FABRIC
-                    </div>
-                    <div>DOCK WASH</div>
-                  </div>
-                  <div>
-                    <button className="remove">REMOVE</button>
-                  </div>
+            {this.state.wishItems.map((el, idx) => {
+              return <WishItem key={idx} list={el} />;
+            })}
+            <div className="purchaseBox">
+              <div>
+                <div className="purchaseBorder">
+                  <div>TOTAL</div>
+                  <div>$ 2050</div>
                 </div>
-                <div className="checkboxWrapper">
-                  <input id="checkbox" type="checkbox" checked="checked" />
-                  <label for="checkbox">SELECT</label>
+                <div className="purchaseText">
+                  <div>PURCHASE BY EMAIL</div>
+                  <div>CHECKOUT</div>
                 </div>
               </div>
             </div>
