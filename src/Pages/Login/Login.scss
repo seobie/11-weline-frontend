@@ -1,0 +1,27 @@
+.Login {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  // height: 100vh;
+
+  .loginContainer {
+    * {
+      font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
+    }
+    width: 491.922px;
+    // position: relative;
+    .menuTabs {
+      display: flex;
+      // position: absolute;
+      justify-content: center;
+      justify-content: space-between;
+
+      li {
+        cursor: pointer;
+        font-weight: 700;
+        font-size: calc(13rem / 16);
+        line-height: calc(16rem / 16);
+      }
+    }
+  }
+}

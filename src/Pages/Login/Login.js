@@ -1,24 +1,38 @@
 import React, { Component } from "react";
-import "./loginTab";
-import "./signUpTab";
+import LoginTab from "./components/LoginTab";
+import SignUpTab from "./components/SignUpTab";
+import "./Login.scss";
+
+const content = {
+  1: <LoginTab />,
+  2: <SignUpTab />,
+};
 
 export default class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      activeTab: 1,
+    };
+  }
+
+  clickHandler = (id) => {
+    this.setState({
+      activeTab: id,
+    });
+  };
   render() {
+    console.log(this.state.activeTab);
     return (
       <div className="Login">
-        <div className="logo">
-          <img
-            alt="CELINE"
-            src="http://localhost:3000/Images/logo-celine.svg"
-          />
-        </div>
-        <nav className="loginBar">
-          <ul>
-            <li>LOGIN</li>
-            <li>SIGN UP</li>
+        <div className="loginContainer">
+          <ul className="menuTabs">
+            <li onClick={() => this.clickHandler(1)}>LOGIN</li>
+            <li onClick={() => this.clickHandler(2)}>SIGN UP</li>
+            <li>CLOSE</li>
           </ul>
-          <button>CLOSE</button>
-        </nav>
+          <div className="loginContent">{content[this.state.activeTab]}</div>
+        </div>
       </div>
     );
   }
