@@ -36,13 +36,21 @@ export default class ShopListRowItems extends Component {
   };
 
   render() {
+    console.log("child render");
+    console.log(this.props.itemlist && this.props.itemlist["BOOTS"]); // undefined
+    console.log(
+      this.props.itemlist !== undefined && this.props.itemlist["BOOTS"]
+    ); // undefined
     return (
       <div className="shopListRowItems">
         <div className="wholeBox">
           <div className="categoryBox">
             <div className="categoryHeader">
               <a>
-                <h3 className="categoryTitle">{this.props.itemList.title}</h3>
+                <h3 className="categoryTitle">
+                  {this.props.itemlist !== undefined &&
+                    Object.keys(this.props.itemlist)}
+                </h3>
               </a>
               <a>
                 <span>VIEW ALL</span>
@@ -65,10 +73,19 @@ export default class ShopListRowItems extends Component {
                 }}
                 onMouseLeave={this.changMouseState}
               ></div>
-              <ul className="itemList" ref={this.ulRef}>
-                {this.props.itemList.list.map((el) => {
-                  return <ShopListRowItem item={el} />;
-                })}
+              <ul className="itemlist" ref={this.ulRef}>
+                {this.props.itemlist["BOOTS"] &&
+                  this.props.itemlist["BOOTS"].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
+                {this.props.itemlist["WEDGES"] &&
+                  this.props.itemlist["WEDGES"].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
+                {this.props.itemlist["ESPADRILLES"] &&
+                  this.props.itemlist["ESPADRILLES"].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
               </ul>
             </div>
           </div>

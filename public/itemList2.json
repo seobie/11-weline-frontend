@@ -2,7 +2,8 @@
   "data": ["CELINE", "CELINE WOMEN", "SHOES"],
   "item_list": [
     {
-      "BOOTS": [
+      "title": "BOOTS",
+      "list": [
         {
           "name": "CHAT BOTTÉ OVER-THE-KNEE FLAT BOOT IN SUEDE CALFSKIN",
           "img": "['https://twicpics.celine.com/products/dw2a049ab4/images/large/339703117C.38NO_0_FALL20_742753v2.jpg?sw=1900&sh=1900&sm=fit&strip=false', 'https://twicpics.celine.com/products/dw208fcd48/images/large/339703117C.38NO_1_FALL20_742702v1.jpg?sw=1900&sh=1900&sm=fit&strip=false', 'https://twicpics.celine.com/products/dwcf9b0128/images/large/339703117C.38NO_2_FALL20_742795v1.jpg?sw=1900&sh=1900&sm=fit&strip=false', 'https://twicpics.celine.com/products/dw8d590640/images/large/339703117C.38NO_6_FALL20_742767v2.jpg?sw=1900&sh=1900&sm=fit&strip=false', 'https://twicpics.celine.com/products/dw0eaab394/images/large/339703117C.38NO_7_FALL20_721371v2.jpg?sw=1900&sh=1900&sm=fit&strip=false']",

@@ -8,28 +8,57 @@ export default class ShopListRow extends Component {
   constructor() {
     super();
     this.state = {
-      itemList: [],
+      list: {},
     };
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:3000/itemList.json")
+    console.log("componentDidMount");
+    fetch("http://localhost:3000/shoplistrow.json")
       .then((res) => res.json())
-      .then((res) => {
-        this.setState({ itemList: res });
+      .then((result) => {
+        this.setState({
+          list: result,
+        });
       });
   };
 
+  // componentDidMount = () => {
+  //   fetch("http://10.58.3.133:8000/product/list", {
+  //     method: "GET",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => console.log(res));
+  //   // .then((result) => {
+  //   //   this.setState({
+  //   //     category: result,
+  //   //   });
+  //   // });
+  // };
+
   render() {
+    const { list } = this.state;
+    console.log("parent render");
+    console.log(list !== undefined && list["item_list"]);
+    console.log(list["item_list"] && Object.keys(list));
+    console.log(
+      list["item_list"] !== undefined && Object.keys(list["item_list"][0])
+    );
+
     return (
       <div className="shopListRow">
         <div className="listHeader">
           <h1>READY TO WEAR</h1>
         </div>
-        {this.state.itemList.length > 0 &&
-          this.state.itemList.map((el) => {
-            return <ShopListRowItems itemList={el} />;
+        {list["item_list"] &&
+          list["item_list"].map((itemlist, idx) => {
+            return <ShopListRowItems key={idx} itemlist={itemlist} />;
           })}
+        <div className="subNav">
+          <div>{list["nav"] && list["nav"][0]}</div>
+          <div>{list["nav"] && list["nav"][1]}</div>
+          <div>{list["nav"] && list["nav"][2]}</div>
+        </div>
       </div>
     );
   }

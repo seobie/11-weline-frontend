@@ -54,7 +54,7 @@
   @include hassBold;
 }
 
-.itemList {
+.itemlist {
   @include flexRow;
   overflow-x: scroll;
   white-space: nowrap;
@@ -64,7 +64,7 @@
   }
 }
 
-.itemList::-webkit-scrollbar {
+.itemlist::-webkit-scrollbar {
   display: none;
 }
 
@@ -95,4 +95,12 @@
   width: 300px;
   height: 430px;
   z-index: 100;
+}
+
+.subNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+  @include hassRegular;
 }
