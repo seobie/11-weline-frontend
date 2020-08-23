@@ -46,9 +46,9 @@ export default class ShopListRow extends Component {
     );
 
     return (
-      <div className="shopListRow">
+      <div className="shopLists">
         <div className="listHeader">
-          <h1>READY TO WEAR</h1>
+          <h1>SHOES</h1>
         </div>
         {list["item_list"] &&
           list["item_list"].map((itemlist, idx) => {
@@ -56,7 +56,9 @@ export default class ShopListRow extends Component {
           })}
         <div className="subNav">
           <div>{list["nav"] && list["nav"][0]}</div>
+          <div>/</div>
           <div>{list["nav"] && list["nav"][1]}</div>
+          <div>/</div>
           <div>{list["nav"] && list["nav"][2]}</div>
         </div>
       </div>
