@@ -8,20 +8,14 @@ import ShopListCol from "./Pages/Shop/ShopListCol";
 import ShopListRow from "./Pages/Shop/ShopListRow";
 import ShopDetails from "./Pages/Shop/ShopDetails";
 import WishList from "./Pages/WishList/WishList";
-import logintab from "./Pages/Login/components/LoginTab";
-import signuptab from "./Pages/Login/components/SignUpTab";
-import forgotpw from "./Pages/Login/components/ForgotPw";
 
 class Routes extends React.Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/loginTab" component={logintab} />
-          <Route exact path="/signuptab" component={signuptab} />
-          <Route exact path="/forgotpw" component={forgotpw} />
-          <Route exact path="/main" component={Main} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={Main} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/shoplistCol" component={ShopListCol} />
