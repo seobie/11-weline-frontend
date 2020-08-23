@@ -29,13 +29,93 @@
         display: flex;
         ul {
           width: 220px;
-        }
-        .categories {
-          a {
-            color: black;
-            &:hover {
-              font-weight: 600;
+          li {
+            a {
+              color: black;
+              &:hover {
+                font-weight: 600;
+              }
             }
+          }
+        }
+        .searchInput {
+          display: none;
+        }
+        .searchInputActive {
+          position: absolute;
+          width: 85vw;
+          display: flex;
+          justify-content: space-between;
+          height: 15px;
+          border-bottom: 1px solid;
+          input {
+            padding: 1px 2px 0 0;
+            border: 0;
+            width: 100%;
+          }
+        }
+        .Menu1 li {
+          animation: menuFade 1s ease-in both;
+          opacity: 0;
+
+          &:nth-of-type(1) {
+            animation-delay: 0.15s;
+          }
+          &:nth-of-type(2) {
+            animation-delay: 0.3s;
+          }
+          &:nth-of-type(3) {
+            animation-delay: 0.45s;
+          }
+          &:nth-of-type(4) {
+            animation-delay: 0.6s;
+          }
+          &:nth-of-type(5) {
+            animation-delay: 0.75s;
+          }
+          &:nth-of-type(6) {
+            animation-delay: 0.9s;
+          }
+          &:nth-of-type(7) {
+            animation-delay: 1.05s;
+          }
+          &:nth-of-type(8) {
+            animation-delay: 1.2s;
+          }
+        }
+        .Menu2 li {
+          animation: menuFade 1s ease-in both;
+          opacity: 0;
+
+          &:nth-of-type(1) {
+            animation-delay: 0.6s;
+          }
+          &:nth-of-type(2) {
+            animation-delay: 0.75s;
+          }
+          &:nth-of-type(3) {
+            animation-delay: 0.9s;
+          }
+          &:nth-of-type(4) {
+            animation-delay: 1.05s;
+          }
+          &:nth-of-type(5) {
+            animation-delay: 1.2s;
+          }
+          &:nth-of-type(6) {
+            animation-delay: 1.35s;
+          }
+          &:nth-of-type(7) {
+            animation-delay: 1.5s;
+          }
+          &:nth-of-type(8) {
+            animation-delay: 1.65s;
+          }
+        }
+        .invisible {
+          display: none;
+          div {
+            display: none;
           }
         }
       }
@@ -45,6 +125,9 @@
       position: relative;
       text-align: end;
       margin-left: auto;
+      div button {
+        padding: 0;
+      }
     }
   }
 
@@ -65,11 +148,23 @@
     }
   }
 
-  div {
+  div,
+  button {
     text-transform: uppercase;
   }
 
-  .activeMenu {
-    font-weight: 600;
+  @keyframes menuFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes rightToLeft {
+    from {
+      transform: translateX(-100px);
+    }
   }
 }

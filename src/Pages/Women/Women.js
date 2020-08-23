@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Nav from "../Nav/Nav";
-import "../Nav/Nav.scss";
+import MenuData from "../Nav/MenuData";
 
 class Women extends Component {
   render() {
     return (
-      <div>
-        <Nav />
-      </div>
+      <main className="Women">
+        <Nav womenList={Object.keys(MenuData["celine women"])} />
+      </main>
     );
   }
 }

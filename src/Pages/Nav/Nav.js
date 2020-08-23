@@ -1,79 +1,51 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import { NavLink, Link } from "react-router-dom";
+import MenuData from "./MenuData";
+import Menu1 from "./Menu1";
+import Menu2 from "./Menu2";
 import "./Nav.scss";
 
-const menu = {
-  "celine women": {
-    women: {
-      "new winter part1": [],
-      "charms collection": [],
-      "ready to wear": [],
-      shoes: [
-        "boots",
-        "wedges",
-        "espadrilles",
-        "clogs",
-        "flats",
-        "sandals",
-        "pumps",
-        "sneakers",
-      ],
-      handbags: [],
-      "small leather goods": [],
-      jewellery: [],
-      accessories: [],
-    },
-  },
-  "celine men": { men: [] },
-  "celine haute parfumerie": { parfumerie: [] },
-  "celine collections": { collections: [] },
-  "celine masion de couture": { masion_de_couture: [] },
-  "celine main": { "": [] },
-  "celine shopdetails": { shopdetails: "shopdetails" },
-};
-
-const menuTab = {
-  "new winter part1": [],
-  "charms collection": [1, 2, 3, 4, 5, 6],
-  "ready to wear": [7, 8, 9, 10, 11],
-  shoes: [1, 2, 3, 4],
-  handbags: [4, 3, 2, 1],
-  "small leather goods": [1, 1, 1, 1, 1],
-  jewellery: [2, 2, 2, 2, 2, 2],
-  accessories: [3, 3, 3, 3, 3],
-};
 class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      activeTab: 0,
+      searchActive: false,
     };
   }
-
-  handleClick = () => {
-    console.log("hello");
+  handleSearch = () => {
+    this.setState({ searchActive: !this.state.searchActive });
   };
   render() {
+    const getPathName = window.location.pathname.split("/");
+    console.log(this.state);
     return (
       <nav className="Nav">
         <div className="upper">
           <div className="leftContainer">
             <div className="logo">
-              <img
-                src="https://www.celine.com/on/demandware.static/Sites-Celine_NONTRANSAC_V2-Site/-/default/dw1bd73729/img/logo/logo-celine.svg"
-                alt="logo"
-              />
+              <Link to="/">
+                <img
+                  alt="logo"
+                  src="https://www.celine.com/on/demandware.static/Sites-Celine_NONTRANSAC_V2-Site/-/default/dw1bd73729/img/logo/logo-celine.svg"
+                />
+              </Link>
             </div>
             <div className="navContainer">
-              <ul className="categories">
-                {Object.keys(menu).map((key, idx) => (
-                  <li key={idx} onClick={() => this.handleClick(idx)}>
+              <div
+                className={
+                  this.state.searchActive ? "searchInputActive" : "searchInput"
+                }
+              >
+                <input type="text" />
+                <button onClick={this.handleSearch}>close</button>
+              </div>
+              <ul className={this.state.searchActive ? "invisible" : ""}>
+                {Object.keys(MenuData).map((key) => (
+                  <li key={key}>
                     <NavLink
-                      to={Object.keys(menu[key])[0]}
+                      to={`/${key.slice(7)}`}
                       activeStyle={{
                         fontWeight: "bold",
-                        color: "red",
                       }}
                     >
                       {key}
@@ -81,27 +53,39 @@ class Nav extends Component {
                   </li>
                 ))}
               </ul>
-              <ul>
-                {Object.keys(menuTab).map((key) => (
-                  <li key={key}>
-                    <NavLink to={key}>{key}</NavLink>{" "}
-                  </li>
-                ))}
-              </ul>
-              <ul>
-                {Object.keys(menuTab).map((key, idx) => (
-                  <li key={idx}>
-                    <NavLink to={menuTab[key]}>{menuTab[key]}</NavLink>
-                  </li>
-                ))}
-              </ul>
+              {getPathName[1] ? (
+                <Menu1
+                  searchActive={this.state.searchActive}
+                  firstSubMenu={getPathName[1]}
+                />
+              ) : (
+                ""
+              )}
+              {getPathName[2] ? (
+                <Menu2
+                  searchActive={this.state.searchActive}
+                  secondSubMenu={getPathName}
+                />
+              ) : (
+                ""
+              )}
             </div>
           </div>
-          <div className="rightContainer">
-            <div>search</div>
-            <div>sign in / register</div>
-            <div>store locator</div>
-            <div>wishlist</div>
+          <div
+            className={this.state.searchActive ? "invisible" : "rightContainer"}
+          >
+            <div role="search">
+              <button onClick={this.handleSearch}>search</button>
+            </div>
+            <div>
+              <button>sign in / register</button>
+            </div>
+            <div>
+              <button>store locator</button>
+            </div>
+            <div>
+              <button>wishlist</button>
+            </div>
           </div>
         </div>
         <div className="bottom">
