@@ -17,26 +17,26 @@ class Shop extends React.Component {
       .then(({ accordion }) => this.setState({ accordion }));
   };
 
-  EnterHandler = (TabName) => {
-    this.setState({ hover: TabName });
+  enterHandler = (tabName) => {
+    this.setState({ hover: tabName });
   };
 
   render() {
     return (
       <div className="Shop">
-        <aside></aside>
+        <aside />
         <main>
           <ul>
             {this.state.accordion.map((tab, idx) => (
               <ShopTab
-                TabName={tab.TabName}
+                tabName={tab.tabName}
                 key={idx}
                 src={tab.src}
                 src2={tab.src2}
                 href={tab.href}
                 text={tab.text}
                 hover={this.state.hover}
-                EnterHandler={(TabName) => this.EnterHandler(TabName)}
+                enterHandler={(tabName) => this.enterHandler(tabName)}
               />
             ))}
           </ul>
