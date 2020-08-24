@@ -36,6 +36,7 @@ class Shop extends React.Component {
                 href={tab.href}
                 text={tab.text}
                 hover={this.state.hover}
+                link={tab.link}
                 enterHandler={(tabName) => this.enterHandler(tabName)}
               />
             ))}
