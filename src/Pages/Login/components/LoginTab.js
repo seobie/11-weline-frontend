@@ -7,19 +7,17 @@ export default class LoginTab extends Component {
     this.state = {
       email: "",
       password: "",
+      disabled: false,
     };
   }
-  handleEmail = (e) => {
-    this.setState({ email: e.target.value });
-  };
-
-  handlePw = (e) => {
-    this.setState({ password: e.target.value });
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://10.58.5.101:8000/user/signin", {
+    fetch("http://10.58.6.1:8000/user/signin", {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -31,23 +29,24 @@ export default class LoginTab extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="LoginTab">
-        <form className="loginTabContainer">
+        <div className="loginTabContainer">
           <div className="loginInput">
             <div className="loginEmail">
               <input
+                name="email"
                 type="email"
                 placeholder="EMAIL"
-                onChange={this.handleEmail}
+                onChange={this.handleChange}
               />
             </div>
             <div className="loginPw">
               <input
+                name="password"
                 type="password"
                 placeholder="PASSWORD"
-                onChange={this.handlePw}
+                onChange={this.handleChange}
               />
             </div>
           </div>
@@ -59,9 +58,11 @@ export default class LoginTab extends Component {
             <button className="forgotPw">FORGOT PASSWORD?</button>
           </div>
           <div className="submitBtn">
-            <button onClick={this.handleSubmit}>SUBMIT</button>
+            <button onClick={this.handleSubmit} disabled={this.state.disabled}>
+              SUBMIT
+            </button>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

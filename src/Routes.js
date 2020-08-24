@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import Main from "./Pages/Main/Main";
-import SignUp from "./Pages/SignUp/SignUp";
 import Shop from "./Pages/Shop/Shop";
 import ShopListCol from "./Pages/Shop/ShopListCol";
 import ShopListRow from "./Pages/Shop/ShopListRow";
@@ -16,7 +15,7 @@ class Routes extends React.Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Main} />
-          <Route exact path="/signup" component={SignUp} />
+
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/shoplistCol" component={ShopListCol} />
           <Route exact path="/shoplistRow" component={ShopListRow} />

@@ -27,11 +27,16 @@
         padding: 0px;
         padding-top: 22px;
       }
-      .a {
+
+      .titleFirstnameBar {
         display: flex;
         width: 100%;
 
+        .title {
+          width: auto;
+        }
         .firstnameContainer {
+          width: 100%;
           padding-left: 10px;
 
           .firstName {

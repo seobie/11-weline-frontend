@@ -12,78 +12,62 @@ export default class SignUpTab extends Component {
       password: "",
       confirmpw: "",
       nationality: "",
-      is_email_agreed: "True",
-      is_policy_agreed: "True",
+      is_email_agreed: true,
+      is_policy_agreed: true,
+      disabled: false,
     };
   }
-  handleEmail = (e) => {
-    this.setState({ email: e.target.value });
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
-
-  handleTitle = (e) => {
-    this.setState({ title: e.target.value });
-  };
-
-  handleFirstname = (e) => {
-    this.setState({ firstname: e.target.value });
-  };
-
-  handleLastname = (e) => {
-    this.setState({ lastname: e.target.value });
-  };
-
-  handlePw = (e) => {
-    this.setState({ password: e.target.value });
-  };
-
-  handleConfirmPw = (e) => {
-    this.setState({ confirmpw: e.target.value });
-  };
-
-  handleNationality = (e) => {
-    this.setState({ nationality: e.target.value });
-  };
-
-  // handleAgreeEmail = (e) => {
-  //   this.setState({ is_email_agreed: e.target.value });
-  // };
-
-  // handleNationality = (e) => {
-  //   this.setState({ nationality: e.target.value });
-  // };
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://10.58.5.101:8000/user/signup", {
-      method: "POST",
-      body: JSON.stringify({
-        email: this.state.email,
-        title: this.state.title,
-        firstname: this.state.firstname,
-        lastname: this.state.lastname,
-        password: this.state.password,
-        nationality: this.nationality,
-        is_email_agreed: "True",
-        is_policy_agreed: "True",
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+    this.state.password === this.state.confirmpw &&
+    this.state.email.includes("@")
+      ? fetch("http://10.58.6.1:8000/user/signup", {
+          method: "POST",
+          body: JSON.stringify({
+            email: this.state.email,
+            title: this.state.title,
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            password: this.state.password,
+            nationality: this.state.nationality,
+            is_email_agreed: true,
+            is_policy_agreed: true,
+          }),
+        })
+          .then((res) => res.json())
+          .then((res) => console.log(res))
+          .then((res) => {
+            if (res === "SUCCESS_LOGIN") {
+              localStorage.setItem("userInfo", res.token);
+              // history.push("/");
+            }
+          })
+      : this.setState({ disabled: true });
   };
   render() {
-    console.log(this.state);
     return (
       <div className="SignUpTab">
-        <form className="signUpTabContainer">
+        <div className="signUpTabContainer">
           <div className="signUpInput">
             <input
               className="signUpEmail"
+              name="email"
               type="email"
               placeholder="EMAIL"
-              onChange={this.handleEmail}
+              onChange={this.handleChange}
             />
-            <div className="a">
-              <select className="title" onChange={this.handleTitle}>
+            <div className="titleFirstnameBar">
+              <select
+                className="title"
+                name="title"
+                onChange={this.handleChange}
+              >
                 <option>TITLE</option>
                 <option>MRS.</option>
                 <option>MS.</option>
@@ -92,31 +76,39 @@ export default class SignUpTab extends Component {
               <div className="firstnameContainer">
                 <input
                   className="firstName"
+                  name="firstname"
                   type="text"
                   placeholder="FIRST NAME"
-                  onChange={this.handleFirstname}
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
             <input
               className="lastName"
+              name="lastname"
               type="text"
               placeholder="LAST NAME"
-              onChange={this.handleLastname}
+              onChange={this.handleChange}
             />
             <input
               className="signUpPw"
+              name="password"
               type="password"
               placeholder="PASSWORD"
-              onChange={this.handlePw}
+              onChange={this.handleChange}
             />
             <input
               className="confirmPw"
+              name="confirmpw"
               type="password"
               placeholder="CONFIRM PASSWORD"
-              onChange={this.handleConfirmPw}
+              onChange={this.handleChange}
             />
-            <select className="nationality" onChange={this.handleNationality}>
+            <select
+              className="nationality"
+              name="nationality"
+              onChange={this.handleChange}
+            >
               <option>NATIONALITY</option>
               <option>AFGHANISTAN</option>
               <option>ALAND ISLANDS</option>
@@ -144,7 +136,12 @@ export default class SignUpTab extends Component {
               </label>
             </div>
             <div className="submitBtn">
-              <button onClick={this.handleSubmit}>SUBMIT</button>
+              <button
+                onClick={this.handleSubmit}
+                disabled={this.state.disabled}
+              >
+                SUBMIT
+              </button>
             </div>
           </div>
           <div className="policy">
@@ -158,7 +155,7 @@ export default class SignUpTab extends Component {
             TO OUR CLIENT SERVICES. YOU MAY ALSO MODIFY AT ANY TIME YOUR
             PREFERENCES REGARDING THE INFORMATION YOU WANT TO RECEIVE FROM US.
           </div>
-        </form>
+        </div>
       </div>
     );
   }
