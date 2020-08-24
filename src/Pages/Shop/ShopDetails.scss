@@ -34,6 +34,26 @@
       justify-content: space-between;
       padding-bottom: 68px;
 
+      .sidePanel {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: -27px;
+        font-size: 10px;
+        width: calc((((100% - 90px) / 10) * 4) + -20px);
+        height: calc(100vh - 144px);
+        padding-right: calc(((((100% - 90px) / 10) * 1) + 0px) + 37px);
+        overflow: auto;
+        background-color: #fff;
+        animation-name: sidePanel;
+        animation-timing-function: ease;
+        animation-duration: 0.1s;
+      }
+
+      .hiddenPanel {
+        display: none;
+      }
+
       .detailedPictures {
         width: calc((((100% - 90px) / 10) * 6) + 60px);
         ul {
@@ -42,19 +62,33 @@
 
           .evenList {
             width: 50%;
+
+            img {
+              width: 100%;
+              padding: 0 10px 10px 0;
+            }
           }
 
           .oddList {
             width: 50%;
             margin-bottom: -3px;
-            &:last-of-type {
+
+            img {
               width: 100%;
+              padding: 0 10px 10px 0;
+            }
+            &:last-child {
+              width: 100%;
+              img {
+                padding-bottom: 0;
+              }
             }
           }
-
-          img {
-            width: 100%;
-            padding: 0 10px 10px 0;
+          .clickedImg {
+            z-index: 3;
+            position: absolute;
+            top: 0;
+            left: 0;
           }
         }
       }
@@ -80,17 +114,27 @@
           text-transform: uppercase;
           letter-spacing: calc(0.3rem / 16);
         }
+
+        .productDetails {
+          text-transform: uppercase;
+          font-size: 10px;
+          margin-top: 28px;
+          &:hover {
+            font-weight: 600;
+          }
+        }
         .optionWrapper {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           margin-top: 25px;
-          height: calc(100vh - 378px);
+          height: calc(100vh - 421px);
           .option {
             @include flexColumn;
 
             .optionLabel {
               @include flexColCen;
+              font-weight: 600;
             }
 
             div {
@@ -99,9 +143,23 @@
               line-height: 13px;
             }
 
-            .contactUs,
-            .addToWishlist {
-              margin-top: 28px;
+            .buttons {
+              div {
+                &:first-child {
+                  margin-top: 28px;
+                }
+                &:hover {
+                  font-weight: 600;
+                }
+              }
+
+              .addToWishlist {
+                margin-top: 28px;
+              }
+              .saved {
+                display: none;
+                margin-top: 28px;
+              }
             }
           }
           button {
@@ -147,12 +205,43 @@
       text-transform: uppercase;
       font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
       font-size: calc(10rem / 16);
+      ul {
+        display: flex;
+        li {
+          position: relative;
+          &:not(:last-child) {
+            margin-right: 12px;
+          }
+          &:not(:first-child) {
+            padding-left: 18px;
+          }
+          &:not(:first-child)::before {
+            position: absolute;
+            content: "/";
+            left: 0;
+            top: 0;
+          }
+          &:hover {
+            font-weight: 600;
+          }
+        }
+      }
       a {
         color: black;
         &:hover {
           font-weight: 600;
         }
       }
+    }
+  }
+  @keyframes sidePanel {
+    from {
+      right: -500px;
+      opacity: 0;
+    }
+    to {
+      right: -30px;
+      opacity: 1;
     }
   }
 }
