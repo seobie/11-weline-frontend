@@ -81,6 +81,10 @@
 .item {
   list-style: none;
   display: inline-block;
+  p {
+    overflow-wrap: break-word;
+    width: 430px;
+  }
   img {
     margin-right: 10px;
     width: 430px;

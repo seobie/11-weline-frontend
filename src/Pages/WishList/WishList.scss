@@ -27,6 +27,12 @@
 
 @mixin hassBold {
   font-family: Neue Haas Grotesk-Bold, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 13px;
+}
+
+@mixin hassBoldSmall {
+  font-family: Neue Haas Grotesk-Bold, Arial, sans-serif;
   font-size: calc(10rem / 16);
   line-height: 13px;
 }
@@ -42,120 +48,150 @@
   background-color: rgba(255, 255, 255, 0);
 }
 
+button {
+  @include hassRegular;
+  padding: 0;
+}
+
 .wishList {
   display: flex;
   justify-content: center;
+  .wishWhole {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 130px;
+    .wishBox {
+      @include hassRegular;
+      .wishHeader {
+        @include flexBtwn;
+        width: 1080px;
+        margin-bottom: 30px;
+        .title {
+          @include flexBtwn;
+          @include hassBold;
+          border-bottom: 1px solid black;
+          padding-bottom: 5px;
+          width: 740px;
+          div {
+            width: 740px;
+          }
+          button {
+            @include buttonNone;
+          }
+        }
+        .selectAll {
+          // border: 2px solid green;
+          @include flexBtwn;
+          width: 330px;
+          margin-left: 10px;
+          div {
+            width: 175px;
+          }
+          .logOut {
+            position: relative;
+            button {
+              position: absolute;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-button {
-  @include hassRegular;
-}
-
-.wishWhole {
+.purchaseSec {
+  width: 1080px;
+  border: 2px solid pink;
   display: flex;
-  justify-content: space-around;
-  margin-top: 130px;
-}
-
-.wishNav {
-  @include hassBold;
-  font-size: calc(13rem / 16);
-  line-height: 20px;
-  width: 200px;
-}
-
-.wishBox {
-  @include hassRegular;
+  justify-content: flex-end;
+  .purchaseBox {
+    width: 330px;
+    .purchaseTotal {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 40px;
+      border-bottom: 1px solid black;
+      margin-bottom: 20px;
+      .priceTotal {
+        @include hassBoldSmall;
+      }
+    }
+    .purchaseInfo {
+      table {
+        width: 330px;
+        line-height: 22px;
+        margin-bottom: 40px;
+      }
+      td {
+        text-align: right;
+      }
+      .payIcons {
+        img {
+          width: 44px;
+          height: 28px;
+          margin-right: 5px;
+        }
+      }
+      .checkout {
+        width: 330px;
+        height: 40px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        color: white;
+        background-color: black;
+      }
+    }
+  }
 }
 
 .itemWishList {
   display: flex;
   flex-direction: row;
-  width: 850px;
-}
-
-.wishHeader {
-  @include flexBtwn;
-  width: 850px;
-  margin-bottom: 30px;
-}
-
-.title {
-  border: 2px solid blue;
-  @include flexBtwn;
-  border-bottom: 1px solid black;
-  width: 520px;
-  div {
-    width: 520px;
+  width: 1160px;
+  .itemImage {
+    // border: 2px solid greenyellow;
+    width: 740px;
+    height: 185px;
+    img {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      width: 175px;
+    }
   }
-  button {
-    @include buttonNone;
-    position: absolute;
-    right: 0;
-  }
-}
-
-.selectAll {
-  border: 2px solid green;
-  @include flexBtwn;
-  margin-left: 10px;
-  width: 330px;
-  div {
-    width: 165px;
-  }
-  button {
-    @include buttonNone;
-  }
-}
-
-.logOut {
-  position: relative;
-  button {
-    position: absolute;
-    right: 0;
-  }
-}
-
-.itemImage {
-  border: 2px solid greenyellow;
-  width: 520px;
-  img {
-    margin: 5px;
-    width: 110px;
-  }
-}
-
-.wishHeader {
-  @include flexBtwn;
-  width: 330px;
 }
 
 .itemBox {
   margin-left: 10px;
   width: 330px;
-}
-
-.itemDetail {
-  border: 2px solid red;
-  @include flexBtwn;
-  position: relative;
-  width: 330px;
-  button {
-    @include buttonNone;
+  .itemDetail {
+    // border: 2px solid red;
+    @include flexBtwn;
+    position: relative;
+    width: 330px;
+    button {
+      @include buttonNone;
+    }
+    .itemData {
+      height: 50px;
+      .quantity {
+        display: flex;
+        flex-direction: row;
+        button {
+          font-size: 13px;
+          width: 20px;
+        }
+      }
+    }
+    .itemPrice {
+      @include hassBoldSmall;
+      margin-bottom: 10px;
+    }
+    .remove {
+      position: absolute;
+      right: 0;
+    }
   }
-}
-
-.item {
-  margin-bottom: 10px;
-}
-
-.select {
-  margin-top: 20px;
-}
-
-.remove {
-  position: absolute;
-  right: 0;
 }
 
 .checkboxContainer {
@@ -164,45 +200,27 @@ button {
   align-items: center;
   position: relative;
   margin-top: 30px;
-}
-
-.checkboxOff {
-  width: 10px;
-  height: 10px;
-  border: 1px solid black;
-  margin-right: 5px;
-  background-color: white;
-  z-index: 100;
-}
-
-.checkboxOn {
-  position: relative;
-  width: 10px;
-  height: 10px;
-  border: 1px solid black;
-  margin-right: 5px;
-  .check {
-    position: absolute;
-    left: 1.25px;
-    top: 1.25px;
-    background-color: black;
-    width: 6px;
-    height: 6px;
+  .checkboxOff {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    margin-right: 5px;
+    background-color: white;
+    z-index: 100;
   }
-}
-.purchaseBox {
-  width: 850px;
-  border: 2px solid pink;
-  display: flex;
-  justify-content: flex-end;
-  .purchaseBorder {
-    display: flex;
-    width: 330px;
-    height: 30px;
-    border-bottom: 1px solid black;
-    margin-bottom: 10px;
-  }
-  .purchaseText {
-    width: 330px;
+  .checkboxOn {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    margin-right: 5px;
+    .check {
+      position: absolute;
+      left: 1.25px;
+      top: 1.25px;
+      background-color: black;
+      width: 6px;
+      height: 6px;
+    }
   }
 }

@@ -13,7 +13,7 @@ export default class ShopListRowItems extends Component {
 
   autoScrollRight = () => {
     const intervalScroll = setInterval(() => {
-      this.ulRef.current.scrollLeft += 2;
+      this.ulRef.current.scrollLeft += 3;
       if (!this.state.isMouseOn) {
         clearInterval(intervalScroll);
       }
@@ -22,7 +22,7 @@ export default class ShopListRowItems extends Component {
 
   autoScrollLeft = () => {
     const intervalScroll = setInterval(() => {
-      this.ulRef.current.scrollLeft -= 2;
+      this.ulRef.current.scrollLeft -= 3;
       if (!this.state.isMouseOn) {
         clearInterval(intervalScroll);
       }
@@ -37,10 +37,7 @@ export default class ShopListRowItems extends Component {
 
   render() {
     console.log("child render");
-    console.log(this.props.itemlist && this.props.itemlist["BOOTS"]); // undefined
-    console.log(
-      this.props.itemlist !== undefined && this.props.itemlist["BOOTS"]
-    ); // undefined
+
     return (
       <div className="shopListRowItems">
         <div className="wholeBox">
@@ -74,18 +71,24 @@ export default class ShopListRowItems extends Component {
                 onMouseLeave={this.changMouseState}
               ></div>
               <ul className="itemlist" ref={this.ulRef}>
-                {this.props.itemlist["BOOTS"] &&
-                  this.props.itemlist["BOOTS"].map((item, idx) => {
-                    return <ShopListRowItem key={idx} item={item} />;
-                  })}
-                {this.props.itemlist["WEDGES"] &&
-                  this.props.itemlist["WEDGES"].map((item, idx) => {
-                    return <ShopListRowItem key={idx} item={item} />;
-                  })}
-                {this.props.itemlist["ESPADRILLES"] &&
-                  this.props.itemlist["ESPADRILLES"].map((item, idx) => {
-                    return <ShopListRowItem key={idx} item={item} />;
-                  })}
+                {this.props.itemlist[Object.keys(this.props.itemlist)[0]] &&
+                  this.props.itemlist[Object.keys(this.props.itemlist)[0]].map(
+                    (item, idx) => {
+                      return <ShopListRowItem key={idx} item={item} />;
+                    }
+                  )}
+                {this.props.itemlist[Object.keys(this.props.itemlist)[1]] &&
+                  this.props.itemlist[Object.keys(this.props.itemlist)[1]].map(
+                    (item, idx) => {
+                      return <ShopListRowItem key={idx} item={item} />;
+                    }
+                  )}
+                {this.props.itemlist[Object.keys(this.props.itemlist)[2]] &&
+                  this.props.itemlist[Object.keys(this.props.itemlist)[2]].map(
+                    (item, idx) => {
+                      return <ShopListRowItem key={idx} item={item} />;
+                    }
+                  )}
               </ul>
             </div>
           </div>

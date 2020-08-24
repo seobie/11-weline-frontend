@@ -28,12 +28,11 @@ export default class ShopListRow extends Component {
   //     method: "GET",
   //   })
   //     .then((res) => res.json())
-  //     .then((res) => console.log(res));
-  //   // .then((result) => {
-  //   //   this.setState({
-  //   //     category: result,
-  //   //   });
-  //   // });
+  //     .then((result) => {
+  //       this.setState({
+  //         list: result,
+  //       });
+  //     });
   // };
 
   render() {
