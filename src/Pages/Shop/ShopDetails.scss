@@ -133,7 +133,8 @@
             @include flexColumn;
 
             .optionLabel {
-              @include flexColCen;
+              @include flexRowCen;
+              justify-content: space-between;
               font-weight: 600;
             }
 
@@ -150,6 +151,7 @@
                 }
                 &:hover {
                   font-weight: 600;
+                  cursor: pointer;
                 }
               }
 
@@ -165,12 +167,16 @@
           button {
             @include moveCenter;
             border: 1px solid black;
-            text-transform: uppercase;
-            font-size: 10px;
-            font-weight: 400;
             height: 40px;
-            padding: 12px 10px 13px;
             margin-bottom: 10px;
+            padding: 12px 10px 13px;
+            text-transform: uppercase;
+            background-color: black;
+            color: white;
+
+            &:hover {
+              opacity: 0.9;
+            }
           }
         }
       }
@@ -223,6 +229,7 @@
           }
           &:hover {
             font-weight: 600;
+            cursor: pointer;
           }
         }
       }
@@ -230,6 +237,7 @@
         color: black;
         &:hover {
           font-weight: 600;
+          cursor: pointer;
         }
       }
     }
@@ -242,6 +250,14 @@
     to {
       right: -30px;
       opacity: 1;
+    }
+  }
+  @keyframes optionDown {
+    from {
+      top: 22px;
+    }
+    to {
+      top: 32px;
     }
   }
 }
