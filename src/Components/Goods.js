@@ -3,26 +3,25 @@ import "./Goods.scss";
 
 class Goods extends React.Component {
   render() {
-    let {
-      href,
+    const {
+      url,
       src,
       src2,
       name,
-      mouseover,
-      HoverHandler,
-      outHandler,
-      checkNew,
+      mouseOver,
+      hoverHandler,
+      is_new,
     } = this.props;
     return (
-      <a href={href} className="Goods">
+      <a href={url} className="Goods">
         <img
           alt="상품 사진"
-          src={mouseover === name ? src : src2}
-          onMouseEnter={() => HoverHandler(name)}
-          onMouseOut={(e) => outHandler(e)}
+          src={mouseOver === url ? src : src2}
+          onMouseEnter={() => hoverHandler(url)}
+          onMouseOut={() => hoverHandler(false)}
         />
         <h2>{name}</h2>
-        <div className="new">{checkNew ? "new" : ""}</div>
+        <div className="new">{is_new && "new"}</div>
       </a>
     );
   }

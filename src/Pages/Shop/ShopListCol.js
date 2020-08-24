@@ -6,55 +6,59 @@ class ShopListCol extends React.Component {
   constructor() {
     super();
     this.state = {
-      mouseover: "",
-      Goods: [],
+      data: [],
+      mouseOver: "",
+      item_list: [{ category: "", products: [] }],
     };
   }
 
   componentDidMount = () => {
-    fetch("Data/MockData/Goods.json")
+    fetch("http://10.58.3.133:8000/product/categorylist/BOOTS")
       .then((response) => response.json())
-      .then(({ Goods }) => this.setState({ Goods }));
+      .then((response) => this.setState(response));
   };
 
-  HoverHandler = (name) => {
-    this.setState({
-      mouseover: name,
-    });
-  };
-  outHandler = () => {
-    this.setState({
-      mouseover: "",
-    });
+  hoverHandler = (url) => {
+    if (url) {
+      this.setState({
+        mouseOver: url,
+      });
+    } else {
+      this.setState({
+        mouseOver: "",
+      });
+    }
   };
 
   render() {
-    let { Goods, mouseover } = this.state;
+    let { item_list, mouseOver } = this.state;
+    console.log(this.state);
     return (
       <div className="ShopListCol">
         <aside></aside>
         <main>
           <header>
-            <span>BOOTS</span>
+            <span>{item_list[0].category}</span>
           </header>
           <GoodsList
-            Goods={Goods}
-            mouseover={mouseover}
-            HoverHandler={(name) => this.HoverHandler(name)}
-            outHandler={(e) => this.outHandler(e)}
+            products={item_list[0].products}
+            mouseOver={mouseOver}
+            hoverHandler={(url) => this.hoverHandler(url)}
           />
           <nav>
-            <a href="https://www.celine.com/en-int/home">WELINE</a>
+            <a href="https://www.celine.com/en-int/home">
+              {this.state.data[0]}
+            </a>
             <span>/</span>
             <a href="https://www.celine.com/en-int/celine-women/">
-              WELINE WOMEN
+              {this.state.data[1]}
             </a>
             <span>/</span>
             <a href="https://www.celine.com/en-int/celine-women/shoes/">
-              SHOES
+              {this.state.data[2]}
             </a>
             <span>/</span>
-            <span>BOOTS</span>
+            <span>{this.state.item_list[0].category}</span>
           </nav>
         </main>
       </div>
