@@ -1,0 +1,34 @@
+.CheckOut {
+  width: 761px;
+  height: 100%;
+  background-color: salmon;
+
+  .none {
+    display: none;
+  }
+
+  .nameTab {
+    width: 308px;
+    background-color: sandybrown;
+  }
+
+  .largeTab {
+    display: flex;
+  }
+
+  .maintab {
+    background-color: wheat;
+  }
+
+  .mainTabNone {
+    display: none;
+  }
+
+  .editDate {
+    background-color: yellowgreen;
+  }
+
+  .editDateNone {
+    display: none;
+  }
+}

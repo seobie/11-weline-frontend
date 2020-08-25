@@ -1,0 +1,45 @@
+.ShoppingMethod {
+  width: 452px;
+  height: 494px;
+  background-color: tan;
+
+  .changeContry {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    margin: 0 3px;
+  }
+
+  .shipToAdress {
+    .title {
+      width: 145px;
+    }
+
+    .firstName {
+      width: 299px;
+    }
+    .contryCode {
+      width: 222px;
+    }
+    .contactPhone {
+      width: 222px;
+    }
+    .saveAdress {
+      width: 20px;
+    }
+
+    input {
+      width: 449px;
+      border: 0;
+      border-bottom: 1px solid black;
+      background-color: inherit;
+    }
+
+    select {
+      border: 0;
+      border-bottom: 1px solid black;
+      background-color: inherit;
+      margin-right: 5px;
+    }
+  }
+}
