@@ -21,8 +21,8 @@ export default class Login extends Component {
       activeTab: id,
     });
   };
+
   render() {
-    console.log(this.state.activeTab);
     return (
       <div className="Login">
         <div className="loginContainer">

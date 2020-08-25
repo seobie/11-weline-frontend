@@ -9,11 +9,11 @@
     font-size: 11px;
   }
 
-  .loginTabContainer {
+  .container {
     font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
     box-sizing: border-box;
 
-    .loginInput {
+    .input {
       color: #767676;
 
       div {
@@ -26,14 +26,17 @@
         }
       }
     }
+
     .checkBtn {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       .stayBtn {
         label {
           cursor: pointer;
         }
+
         input {
           margin-top: 21px;
           margin-bottom: 5px;

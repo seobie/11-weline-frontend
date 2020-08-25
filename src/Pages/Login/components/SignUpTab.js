@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
+import { withRouter } from "react-router-dom";
 import "./SignUpTab.scss";
 
-export default class SignUpTab extends Component {
+class SignUpTab extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -18,15 +19,20 @@ export default class SignUpTab extends Component {
     };
   }
 
-  handleChange = (e) => {
+  handleSignUpInfo = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
+    if (e.target.name === "password" || "confirmpw") {
+      this.setState({
+        disabled: false,
+      });
+    }
   };
 
-  handleSubmit = (e) => {
+  handleSignUp = (e) => {
     this.state.password === this.state.confirmpw &&
-    this.state.email.includes("@")
+    this.state.email.includes("@", ".")
       ? fetch("http://10.58.6.1:8000/user/signup", {
           method: "POST",
           body: JSON.stringify({
@@ -41,11 +47,9 @@ export default class SignUpTab extends Component {
           }),
         })
           .then((res) => res.json())
-          .then((res) => console.log(res))
           .then((res) => {
-            if (res === "SUCCESS_LOGIN") {
-              localStorage.setItem("userInfo", res.token);
-              // history.push("/");
+            if (res === "SIGN_UP_SUCCESS") {
+              this.props.history.push("/");
             }
           })
       : this.setState({ disabled: true });
@@ -60,13 +64,13 @@ export default class SignUpTab extends Component {
               name="email"
               type="email"
               placeholder="EMAIL"
-              onChange={this.handleChange}
+              onChange={this.handleSignUpInfo}
             />
             <div className="titleFirstnameBar">
               <select
                 className="title"
                 name="title"
-                onChange={this.handleChange}
+                onChange={this.handleSignUpInfo}
               >
                 <option>TITLE</option>
                 <option>MRS.</option>
@@ -79,7 +83,7 @@ export default class SignUpTab extends Component {
                   name="firstname"
                   type="text"
                   placeholder="FIRST NAME"
-                  onChange={this.handleChange}
+                  onChange={this.handleSignUpInfo}
                 />
               </div>
             </div>
@@ -88,26 +92,26 @@ export default class SignUpTab extends Component {
               name="lastname"
               type="text"
               placeholder="LAST NAME"
-              onChange={this.handleChange}
+              onChange={this.handleSignUpInfo}
             />
             <input
               className="signUpPw"
               name="password"
               type="password"
               placeholder="PASSWORD"
-              onChange={this.handleChange}
+              onChange={this.handleSignUpInfo}
             />
             <input
               className="confirmPw"
               name="confirmpw"
               type="password"
               placeholder="CONFIRM PASSWORD"
-              onChange={this.handleChange}
+              onChange={this.handleSignUpInfo}
             />
             <select
               className="nationality"
               name="nationality"
-              onChange={this.handleChange}
+              onChange={this.handleSignUpInfo}
             >
               <option>NATIONALITY</option>
               <option>AFGHANISTAN</option>
@@ -137,7 +141,7 @@ export default class SignUpTab extends Component {
             </div>
             <div className="submitBtn">
               <button
-                onClick={this.handleSubmit}
+                onClick={this.handleSignUp}
                 disabled={this.state.disabled}
               >
                 SUBMIT
@@ -160,3 +164,4 @@ export default class SignUpTab extends Component {
     );
   }
 }
+export default withRouter(SignUpTab);

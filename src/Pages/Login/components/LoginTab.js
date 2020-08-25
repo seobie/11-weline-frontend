@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
+import { withRouter } from "react-router-dom";
 import "./LoginTab.scss";
 
-export default class LoginTab extends Component {
+class LoginTab extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -10,13 +11,13 @@ export default class LoginTab extends Component {
       disabled: false,
     };
   }
-  handleChange = (e) => {
+  handleLoginInfo = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
 
-  handleSubmit = (e) => {
+  handleLogin = (e) => {
     fetch("http://10.58.6.1:8000/user/signin", {
       method: "POST",
       body: JSON.stringify({
@@ -25,20 +26,25 @@ export default class LoginTab extends Component {
       }),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res === "LOGIN_SUCESS") {
+          localStorage.setItem("wtw-token", res.token);
+          // this.props.history.push("/");
+        }
+      });
   };
 
   render() {
     return (
       <div className="LoginTab">
-        <div className="loginTabContainer">
-          <div className="loginInput">
+        <div className="container">
+          <div className="input">
             <div className="loginEmail">
               <input
                 name="email"
                 type="email"
                 placeholder="EMAIL"
-                onChange={this.handleChange}
+                onChange={this.handleLoginInfo}
               />
             </div>
             <div className="loginPw">
@@ -46,7 +52,7 @@ export default class LoginTab extends Component {
                 name="password"
                 type="password"
                 placeholder="PASSWORD"
-                onChange={this.handleChange}
+                onChange={this.handleLoginInfo}
               />
             </div>
           </div>
@@ -58,7 +64,7 @@ export default class LoginTab extends Component {
             <button className="forgotPw">FORGOT PASSWORD?</button>
           </div>
           <div className="submitBtn">
-            <button onClick={this.handleSubmit} disabled={this.state.disabled}>
+            <button onClick={this.handleLogin} disabled={this.state.disabled}>
               SUBMIT
             </button>
           </div>
@@ -67,6 +73,7 @@ export default class LoginTab extends Component {
     );
   }
 }
+export default withRouter(LoginTab);
 //https://developer.mozilla.org/ko/docs/Web/HTML/Element/label  라벨
 //https://www.w3schools.com/tags/tag_label.asp
 //https://blueshw.github.io/2020/05/09/know-html-semantic-elements/ 시멘틱태그 블로그
