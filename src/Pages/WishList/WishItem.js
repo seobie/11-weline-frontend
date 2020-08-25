@@ -5,34 +5,21 @@ import React, { Component } from "react";
 export default class WishItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isCheckClicked: false,
-      total: 0,
-    };
+    this.state = {};
   }
 
-  checkClick = (id) => {
-    this.setState({
-      isCheckClicked: !this.state.isCheckClicked,
-    });
-    console.log("sumPriceStart");
-    this.state.isCheckClicked && this.sumPrice(id);
-  };
-
-  sumPrice = (id) => {
-    console.log(id);
-    if (id === id) {
-      console.log("sumpriceIfTrue");
-      this.setState({
-        // total: +id,
-        // total += id.price
-        // 그다음에 this.state.total을 부모로 쏴주기?
-      });
-    }
-  };
-
   render() {
-    const { key, id, name, img, price } = this.props;
+    console.log("child render");
+    const {
+      list,
+      id,
+      name,
+      img,
+      price,
+      selectedItems,
+      selectedObj,
+    } = this.props;
+
     return (
       <div>
         <div className="itemWishList">
@@ -42,39 +29,53 @@ export default class WishItem extends Component {
             <img src={img[2]} />
             <img src={img[3] !== undefined ? img[3] : null} />
           </div>
-          {/* total[id].price */}
           <div className="itemBox">
             <div className="itemDetail">
               <div className="itemData">
                 <div>{name}</div>
-                <div>DOCK WASH</div>
+                <div>{list.option}</div>
                 <div className="quantity">
                   <div>QUANTITY :</div>
-                  <button className="quantityButton"> - </button>
+                  <button
+                    className="quantityButton"
+                    // onClick={console.log(
+                    //   "this.props.list.quantity>>",
+                    //   this.props.list.quantity
+                    // )}
+                  >
+                    -
+                  </button>
                   <div> 1 </div>
                   <button className="quantityButton"> + </button>
                 </div>
               </div>
               <div className="priceBox">
-                <div className="itemPrice">{`${price} USD`}</div>
+                <div className="itemPrice">{`${price.toLocaleString()} USD`}</div>
                 <button
-                  onClick={() => this.props.removeItem(id)}
+                  onClick={() => this.props.methods.removeItem(id)}
                   className="remove"
                 >
                   REMOVE
                 </button>
               </div>
             </div>
-
             <div className="checkboxContainer">
               <div
-                onClick={() => this.checkClick(id)}
-                // onChange={this.sumPrice}
+                onClick={() => {
+                  this.props.methods.handleSelect(id);
+                  selectedObj.selected
+                    ? (selectedObj.selected = false)
+                    : (selectedObj.selected = true);
+                }}
                 className={
-                  this.state.isCheckClicked ? "checkboxOn" : "checkboxOff"
+                  selectedObj.id === id && selectedObj.selected
+                    ? "checkArea checkboxOn"
+                    : "checkArea checkboxOff"
                 }
               >
-                <div className="check"></div>
+                <div>
+                  <div className="check"></div>
+                </div>
               </div>
               <div className="text">SELECT</div>
             </div>

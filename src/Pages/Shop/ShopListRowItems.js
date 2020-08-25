@@ -37,7 +37,7 @@ export default class ShopListRowItems extends Component {
 
   render() {
     console.log("child render");
-
+    console.log(this.ulRef);
     return (
       <div className="shopListRowItems">
         <div className="wholeBox">

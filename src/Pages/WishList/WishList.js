@@ -10,6 +10,10 @@ export default class WishList extends Component {
     this.state = {
       message: "",
       wishItems: [],
+      selectedObj: {},
+      selectedItems: [],
+      quantity: 0,
+      totalPrice: 0,
     };
   }
 
@@ -21,6 +25,7 @@ export default class WishList extends Component {
       .then((result) => {
         this.setState({
           wishItems: result,
+          // wishItems: result.map((el) => ({ ...el, selected: false })),
         });
       });
   };
@@ -45,22 +50,52 @@ export default class WishList extends Component {
   //     }));
   // };
 
-  removeItem = (num) => {
-    console.log(num);
-    const newWishItems = this.state.wishItems.filter((el) => {
-      return el.id !== num;
+  handleSelect = (id) => {
+    const { wishItems, selectedObj, selectedItems, totalPrice } = this.state;
+    console.log("handleSelect method");
+    const selectedItemObj = wishItems.find((el) => el.id === id);
+    this.setState(
+      {
+        selectedItems: [...selectedItems, selectedItemObj],
+        selectedObj: selectedItemObj,
+        totalPrice: totalPrice + selectedItemObj.price,
+      }
+      // () => {
+      //   selectedItemObj.selected
+      //     ? (selectedItemObj.selected = false)
+      //     : (selectedItemObj.selected = true);
+      // }
+    );
+  };
+
+  // 수량 더하기, 최종 수량의 가격 곱하기
+  removeItem = (id) => {
+    const { wishItems, totalPrice } = this.state;
+    const removedItem = wishItems[id];
+    const newWishItems = wishItems.filter((el) => {
+      return el.id !== id;
     });
     this.setState({
       wishItems: [...newWishItems],
+      totalPrice: totalPrice - removedItem.price,
     });
     if (newWishItems.length === 0) {
       this.setState({
-        message: "Your Wish List is empty.",
+        message: "NO ITEMS IN YOUR ORDER",
       });
     }
   };
 
   render() {
+    const {
+      message,
+      wishItems,
+      selectedObj,
+      selectedItems,
+      quantity,
+      totalPrice,
+    } = this.state;
+    console.log("parent render");
     return (
       <div className="wishList">
         <div className="wishWhole">
@@ -78,16 +113,23 @@ export default class WishList extends Component {
                 </div>
               </div>
             </div>
-            {this.state.wishItems.map((el) => {
+            {wishItems.map((el) => {
               return (
                 <WishItem
-                  removeItem={(num) => this.removeItem(num)}
-                  // list={el}
-                  key={el.id}
+                  methods={{
+                    handleSelect: (id) => this.handleSelect(id),
+                    removeItem: (num) => this.removeItem(num),
+                  }}
+                  arr={wishItems}
+                  selectedItems={selectedItems}
+                  selectedObj={selectedObj}
+                  list={el}
+                  key={el.idx}
                   id={el.id}
                   price={el.price}
                   name={el.name}
                   img={el.img}
+                  selected={el.selected}
                 />
               );
             })}
@@ -95,7 +137,7 @@ export default class WishList extends Component {
               <div className="purchaseBox">
                 <div className="purchaseTotal">
                   <div>TOTAL</div>
-                  <div className="priceTotal">1000 USD</div>
+                  <div className="priceTotal">{`${totalPrice.toLocaleString()} USD`}</div>
                 </div>
                 <div className="purchaseInfo">
                   <table>

@@ -8,10 +8,11 @@
       "http://localhost:3000/Images/WishList/blouse2.webp",
       "http://localhost:3000/Images/WishList/blouse3.webp"
     ],
-    "option": "",
+    "option": "DOCK WASH",
     "quantity": 2,
-    "price": "1500",
-    "url": ""
+    "price": 1500,
+    "url": "",
+    "selected": false
   },
   {
     "id": 1,
@@ -23,10 +24,11 @@
       "http://localhost:3000/Images/WishList/boots3.webp",
       "http://localhost:3000/Images/WishList/boots4.webp"
     ],
-    "option": "",
+    "option": "TANN",
     "quantity": 2,
-    "price": "1080",
-    "url": ""
+    "price": 1080,
+    "url": "",
+    "selected": false
   },
   {
     "id": 2,
@@ -37,10 +39,11 @@
       "http://localhost:3000/Images/WishList/jewerly2.webp",
       "http://localhost:3000/Images/WishList/jewerly3.webp"
     ],
-    "option": "",
+    "option": "GOLD",
     "quantity": 2,
-    "price": "2000",
-    "url": ""
+    "price": 2000,
+    "url": "",
+    "selected": false
   },
   {
     "id": 3,
@@ -52,10 +55,11 @@
       "http://localhost:3000/Images/WishList/leather3.webp",
       "http://localhost:3000/Images/WishList/leather4.webp"
     ],
-    "option": "",
+    "option": "BLACK",
     "quantity": 2,
-    "price": "8000",
-    "url": ""
+    "price": 8000,
+    "url": "",
+    "selected": false
   },
   {
     "id": 4,
@@ -66,9 +70,10 @@
       "http://localhost:3000/Images/WishList/perfume2.webp",
       "http://localhost:3000/Images/WishList/perfume3.webp"
     ],
-    "option": "",
+    "option": "BROWN",
     "quantity": 2,
-    "price": "3000",
-    "url": ""
+    "price": 3000,
+    "url": "",
+    "selected": false
   }
 ]

@@ -196,10 +196,17 @@ button {
 
 .checkboxContainer {
   display: flex;
-  flex-direction: row;
   align-items: center;
   position: relative;
   margin-top: 30px;
+  .checkArea {
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+  }
   .checkboxOff {
     width: 10px;
     height: 10px;
