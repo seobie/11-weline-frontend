@@ -6,11 +6,11 @@ class Video extends Component {
     const { src, description } = this.props.videos;
     return (
       <div className="Video">
-        <div className="videoContainer">
+        <div className="wrapper">
           <iframe title="mainVideo" src={src} allowFullScreen="true" />
           <div className="description">
-            <div className="descriptionHeader"></div>
-            <div className="descriptionMain">
+            <div className="header"></div>
+            <div className="main">
               {description.split("\n").map((el) => (
                 <div>{el}</div>
               ))}
