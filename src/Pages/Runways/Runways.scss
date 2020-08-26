@@ -1,0 +1,10 @@
+.Runways {
+  .runwayslist::-webkit-scrollbar {
+    display: none;
+  }
+  .runwayslist {
+    display: flex;
+    padding-top: 60px;
+    overflow-x: scroll;
+  }
+}
