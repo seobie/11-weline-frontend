@@ -8,17 +8,26 @@ class CheckOut extends React.Component {
   constructor() {
     super();
     this.state = {
-      btnClick: "ShoppingMethod",
-      firstName: "",
-      lastName: "",
-      company: "",
-      streetName: "",
-      aptFloor: "",
-      city: "",
-      contryCode: "",
-      title: "",
-      contactPhone: "",
-      zip: "",
+      btnClick: "Payment",
+      shoppingMethod: {
+        firstName: "",
+        lastName: "",
+        company: "",
+        streetName: "",
+        aptFloor: "",
+        city: "",
+        contryCode: "+82",
+        title: "MRS.",
+        contactPhone: "",
+        zip: "",
+      },
+      service: {},
+      payment: {
+        nameOfCard: "",
+        cardNumber: "",
+        expDate: "",
+        securityCode: "",
+      },
     };
   }
 
@@ -28,25 +37,26 @@ class CheckOut extends React.Component {
     });
   };
 
-  inputHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  shoppingMethodHandler = (e) => {
+    this.setState({
+      shoppingMethod: {
+        ...this.state.shoppingMethod,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+  paymentHandler = (e) => {
+    this.setState({
+      payment: {
+        ...this.state.payment,
+        [e.target.name]: e.target.value,
+      },
+    });
   };
 
   render() {
-    const {
-      btnClick,
-      service,
-      payment,
-      firstName,
-      lastName,
-      streetName,
-      city,
-      contryCode,
-      contactPhone,
-      title,
-      zip,
-    } = this.state;
-    console.log(this.state);
+    const { btnClick, service, payment, shoppingMethod } = this.state;
     return (
       <div className="CheckOut">
         <div className="largeTab">
@@ -68,16 +78,9 @@ class CheckOut extends React.Component {
             </div>
             <ShoppingMethod
               btnClick={btnClick}
-              firstName={firstName}
-              lastName={lastName}
-              streetName={streetName}
-              city={city}
-              contryCode={contryCode}
-              title={title}
-              zip={zip}
-              contactPhone={contactPhone}
+              shoppingMethod={shoppingMethod}
               visibleHandler={(btnClick) => this.visibleHandler(btnClick)}
-              inputHandler={(e) => this.inputHandler(e)}
+              shoppingMethodHandler={(e) => this.shoppingMethodHandler(e)}
             />
           </div>
         </div>
@@ -106,7 +109,11 @@ class CheckOut extends React.Component {
         <div className="largeTab">
           <div className="nameTab">4 PAYMENT</div>
           <div className="mainTab">
-            <Payment payment={payment} btnClick={btnClick} />
+            <Payment
+              payment={payment}
+              btnClick={btnClick}
+              paymentHandler={(e) => this.paymentHandler(e)}
+            />
           </div>
         </div>
       </div>

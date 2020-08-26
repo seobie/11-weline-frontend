@@ -29,15 +29,8 @@ class ShoppingMethod extends React.Component {
     const {
       visibleHandler,
       btnClick,
-      inputHandler,
-      firstName,
-      lastName,
-      streetName,
-      city,
-      contryCode,
-      contactPhone,
-      title,
-      zip,
+      shoppingMethodHandler,
+      shoppingMethod,
     } = this.props;
     const { howToSend, isCheck } = this.state;
     return (
@@ -65,7 +58,7 @@ class ShoppingMethod extends React.Component {
         </div>
         <div className={howToSend === "shipToAdress" ? "shipToAdress" : "none"}>
           <select
-            onBlur={(e) => inputHandler(e)}
+            onBlur={(e) => shoppingMethodHandler(e)}
             name="title"
             className="title"
           >
@@ -77,35 +70,43 @@ class ShoppingMethod extends React.Component {
             className="firstName"
             name="firstName"
             type="text"
-            onChange={(e) => inputHandler(e)}
+            onChange={(e) => shoppingMethodHandler(e)}
           />
           <input
             name="lastName"
             type="text"
-            onChange={(e) => inputHandler(e)}
+            onChange={(e) => shoppingMethodHandler(e)}
           />
-          <input name="company" type="text" onChange={(e) => inputHandler(e)} />
+          <input
+            name="company"
+            type="text"
+            onChange={(e) => shoppingMethodHandler(e)}
+          />
           <input
             name="streetName"
             type="text"
-            onChange={(e) => inputHandler(e)}
+            onChange={(e) => shoppingMethodHandler(e)}
           />
           <input
             name="aptFloor"
             type="text"
-            onChange={(e) => inputHandler(e)}
+            onChange={(e) => shoppingMethodHandler(e)}
           />
-          <input name="city" type="text" onChange={(e) => inputHandler(e)} />
+          <input
+            name="city"
+            type="text"
+            onChange={(e) => shoppingMethodHandler(e)}
+          />
           <input
             name="zip"
             type="text"
             maxLength="6"
-            onChange={(e) => inputHandler(e)}
+            onChange={(e) => shoppingMethodHandler(e)}
           />
           <select
             className="contryCode"
             name="contryCode"
-            onBlur={(e) => inputHandler(e)}
+            onBlur={(e) => shoppingMethodHandler(e)}
           >
             <option>+82</option>
           </select>
@@ -115,7 +116,7 @@ class ShoppingMethod extends React.Component {
             type="number"
             maxLength="11"
             onInput={(e) => this.limitLength(e)}
-            onChange={(e) => inputHandler(e)}
+            onChange={(e) => shoppingMethodHandler(e)}
           />
           <div className="labelheight">
             <input
@@ -183,14 +184,14 @@ class ShoppingMethod extends React.Component {
             visibleHandler(btnClick);
           }}
           disabled={
-            !firstName ||
-            !lastName ||
-            !streetName ||
-            !city ||
-            !contryCode ||
-            contactPhone.length < 11 ||
-            !title ||
-            zip < 6
+            !shoppingMethod.firstName ||
+            !shoppingMethod.lastName ||
+            !shoppingMethod.streetName ||
+            !shoppingMethod.city ||
+            !shoppingMethod.contryCode ||
+            shoppingMethod.contactPhone.length < 11 ||
+            !shoppingMethod.title ||
+            shoppingMethod.zip.length < 6
           }
         >
           CONTINUE

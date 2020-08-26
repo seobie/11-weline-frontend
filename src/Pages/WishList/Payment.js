@@ -4,7 +4,7 @@ import "./Payment.scss";
 class Payment extends React.Component {
   constructor() {
     super();
-    this.state = { isCheck: true };
+    this.state = { isCheck: true, isChange: [] };
   }
 
   limitLength = (e) => {
@@ -12,36 +12,86 @@ class Payment extends React.Component {
       e.target.value = e.target.value.slice(0, e.target.maxLength);
     }
   };
+
   checkboxHandler = () => {
     this.setState({ isCheck: !this.state.isCheck });
   };
+
+  placeholderHandler = (e) => {
+    if (this.state.isChange.indexOf(e.target.name) === -1) {
+      this.setState({ isChange: [...this.state.isChange, e.target.name] });
+    }
+  };
   render() {
-    const { btnClick } = this.props;
-    const { isCheck } = this.state;
+    const { btnClick, payment, paymentHandler } = this.props;
+    const { isCheck, isChange } = this.state;
     return (
       <div className={btnClick === "Payment" ? "Payment" : "none"}>
-        <input className="inputFull" type="text" />
-        <input
-          className="inputFull"
-          type="number"
-          maxLength="16"
-          onInput={(e) => this.limitLength(e)}
-        />
-        <input
-          className="inputHalf"
-          type="number"
-          maxLength="4"
-          onInput={(e) => this.limitLength(e)}
-        />
+        <div className="placeholderContainor">
+          <input
+            type="text"
+            id={
+              isChange.indexOf("nameOfCard") !== -1 && !payment.nameOfCard
+                ? "inputFocusOut"
+                : ""
+            }
+            name="nameOfCard"
+            placeholder="THIS FIELD IS REQUIRED."
+            onChange={this.placeholderHandler}
+            onKeyUp={(e) => paymentHandler(e)}
+          />
+        </div>
+        <div className="placeholderContainor">
+          <input
+            type="number"
+            id={
+              isChange.indexOf("cardNumber") !== -1 && !payment.cardNumber
+                ? "inputFocusOut"
+                : ""
+            }
+            name="cardNumber"
+            maxLength="16"
+            placeholder="THIS FIELD IS REQUIRED."
+            onChange={this.placeholderHandler}
+            onInput={(e) => this.limitLength(e)}
+            onKeyUp={(e) => paymentHandler(e)}
+          />
+        </div>
+        <div className="placeholderContainorhalf">
+          <input
+            type="number"
+            id={
+              isChange.indexOf("expDate") !== -1 && !payment.expDate
+                ? "inputFocusOut"
+                : ""
+            }
+            name="expDate"
+            maxLength="4"
+            placeholder="THIS FIELD IS REQUIRED."
+            onChange={this.placeholderHandler}
+            onInput={(e) => this.limitLength(e)}
+            onKeyUp={(e) => paymentHandler(e)}
+          />
+        </div>
         <div className="half"></div>
-        <input
-          className="inputHalf"
-          type="number"
-          maxLength="3"
-          onInput={(e) => this.limitLength(e)}
-        />
+        <div className="placeholderContainorhalf">
+          <input
+            type="number"
+            id={
+              isChange.indexOf("securityCode") !== -1 && !payment.securityCode
+                ? "inputFocusOut"
+                : ""
+            }
+            name="securityCode"
+            maxLength="3"
+            placeholder="THIS FIELD IS REQUIRED."
+            onChange={this.placeholderHandler}
+            onInput={(e) => this.limitLength(e)}
+            onKeyUp={(e) => paymentHandler(e)}
+          />
+        </div>
         <div className="adress">
-          <input id="adress" type="radio" />
+          <input id="adress" type="radio" checked />
           <label for="adress">
             <h3>MR. HAN TEAGYU</h3>
             <p>중동로</p>
