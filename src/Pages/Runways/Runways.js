@@ -10,7 +10,13 @@ export default class Runways extends Component {
       "https://twicpics.celine.com/products/dwd7427098/images/collections_recast/summer2021_men_look_01_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
       "https://twicpics.celine.com/products/dw55fe313a/images/collections_recast/summer2021_men_look_02_01.jpg?sw=1333&sh=1998&sm=fit&strip=false",
       "https://twicpics.celine.com/products/dw84a66a3d/images/collections_recast/summer2021_men_look_02_02.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      "https://twicpics.celine.com/products/dw7165591f/images/collections_recast/summer2021_men_look_02_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      "https://twicpics.celine.com/products/dw131e9f73/images/collections_recast/summer2021_men_look_02_04.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      "https://twicpics.celine.com/products/dw0d0634c8/images/collections_recast/summer2021_men_look_03_01.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      "https://twicpics.celine.com/products/dw9dfb3a88/images/collections_recast/summer2021_men_look_03_02.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      "https://twicpics.celine.com/products/dw37493735/images/collections_recast/summer2021_men_look_03_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
     ],
+    numberOfItems: 1,
   };
 
   componentDidMount() {
@@ -19,11 +25,20 @@ export default class Runways extends Component {
       .then((res) => this.setState({ runways: res }));
   }
 
+  handleScroll = (e) => {
+    this.setState({
+      numberOfItems: parseInt(e.target.scrollLeft / 320 + 1),
+    });
+    // console.log(parseInt(e.target.scrollLeft / 330 + 1));
+  };
+
   render() {
     return (
       <div className="Runways">
-        <p>01 of 200</p>
-        <ul className="runwayslist">
+        <p className="numberOfItems">
+          {this.state.numberOfItems} of {this.state.runways.length}
+        </p>
+        <ul className="runwayslist" onScroll={this.handleScroll}>
           {this.state.runways.map((el, idx) => {
             return <Card imgUrl={el} imgOrder={idx + 1} />;
           })}
@@ -32,3 +47,5 @@ export default class Runways extends Component {
     );
   }
 }
+
+//(e.target.scrollTop/200) +1

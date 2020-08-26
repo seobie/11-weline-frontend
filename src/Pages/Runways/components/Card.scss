@@ -4,10 +4,11 @@
     div {
       width: 320px;
       height: 760px;
+      overflow: hidden;
       img {
         // width: 320px;
         // height: 760px;
-        width: 100%;
+        // overflow: hidden;
         height: 100%;
       }
     }

@@ -1,7 +1,12 @@
 .Runways {
-  .runwayslist::-webkit-scrollbar {
-    display: none;
+  position: relative;
+  .numberOfItems {
+    position: absolute;
+    top: 26px;
   }
+  // .runwayslist::-webkit-scrollbar {
+  //   display: none;
+  // }
   .runwayslist {
     display: flex;
     padding-top: 60px;
