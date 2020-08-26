@@ -1,0 +1,84 @@
+.Shop {
+  display: flex;
+  width: 100vw;
+  height: 805.81px;
+  margin-top: 30px;
+  padding: 0 27px;
+
+  aside {
+    width: 206px;
+  }
+
+  main {
+    width: 100%;
+
+    ul {
+      display: flex;
+      height: 100%;
+
+      .hover {
+        flex-shrink: 1;
+
+        span,
+        button {
+          opacity: 1;
+        }
+      }
+
+      .unhover {
+        span,
+        button {
+          opacity: 0;
+        }
+      }
+
+      li {
+        width: 100%;
+        flex-shrink: 4;
+        transition: flex-shrink 0.8s 0.1s;
+
+        button {
+          .first {
+            transition: opacity 0.8s 0.9s;
+          }
+
+          .secound {
+            transition: opacity 0.8s 1.1s;
+          }
+
+          .third {
+            transition: opacity 0.8s 1.3s;
+          }
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        a {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+        }
+
+        button {
+          position: absolute;
+          display: block;
+          width: 100%;
+
+          span {
+            display: inherit;
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
