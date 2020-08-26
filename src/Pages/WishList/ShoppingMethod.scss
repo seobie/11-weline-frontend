@@ -1,7 +1,16 @@
 .ShoppingMethod {
+  font-size: 10px;
   width: 452px;
-  height: 494px;
-  background-color: tan;
+
+  button {
+    font-size: 10px;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   .changeContry {
     display: flex;
@@ -15,31 +24,117 @@
       width: 145px;
     }
 
-    .firstName {
-      width: 299px;
-    }
     .contryCode {
       width: 222px;
     }
+
+    .firstName {
+      width: 299px;
+    }
+
     .contactPhone {
       width: 222px;
-    }
-    .saveAdress {
-      width: 20px;
     }
 
     input {
       width: 449px;
       border: 0;
       border-bottom: 1px solid black;
+      padding-top: 30px;
       background-color: inherit;
     }
 
     select {
       border: 0;
       border-bottom: 1px solid black;
-      background-color: inherit;
+      font-size: 10px;
       margin-right: 5px;
     }
+  }
+  .collectInStore {
+    .adress {
+      display: flex;
+      label {
+        position: relative;
+        top: 2px;
+        width: 100%;
+      }
+      h3 {
+        font-weight: 800;
+        span {
+          font-weight: 400;
+        }
+      }
+      h3,
+      p {
+        display: block;
+        position: relative;
+        line-height: 12px;
+        span {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+    .text {
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+    .title {
+      width: 145px;
+    }
+
+    .contryCode {
+      width: 222px;
+    }
+
+    .firstName {
+      width: 299px;
+    }
+
+    .contactPhone {
+      width: 222px;
+    }
+    input[type="radio"] {
+      width: 30px;
+    }
+
+    input {
+      width: 449px;
+      border: 0;
+      border-bottom: 1px solid black;
+      padding-top: 30px;
+      background-color: inherit;
+    }
+    select {
+      border: 0;
+      border-bottom: 1px solid black;
+      font-size: 10px;
+      margin-right: 5px;
+    }
+  }
+
+  .continue {
+    width: 100%;
+    height: 40px;
+    font-size: 10px;
+    color: white;
+    margin-top: 50px;
+    background-color: black;
+
+    &:disabled {
+      border: 1px solid black;
+      color: black;
+      background-color: white;
+    }
+  }
+  input[type="checkbox"] {
+    width: 10px;
+    margin-top: 30px;
+  }
+  label {
+    position: relative;
+    top: -3.3px;
+    vertical-align: middle;
   }
 }

@@ -3,10 +3,17 @@ import "./Service.scss";
 
 class Service extends React.Component {
   render() {
+    const { visibleHandler, btnClick } = this.props;
     return (
-      <div
-        className={this.props.btnClick === "Service" ? "Service" : "none"}
-      ></div>
+      <div className={btnClick === "Service" ? "Service" : "none"}>
+        <input type="checkbox" id="isGift" />
+        <label for="isGift">IS THIS A GIFT?</label>
+        <br />
+        <input type="text" />
+        <button name="Payment" onClick={(btnClick) => visibleHandler(btnClick)}>
+          CONTINUE
+        </button>
+      </div>
     );
   }
 }
