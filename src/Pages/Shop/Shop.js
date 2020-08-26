@@ -1,7 +1,49 @@
-import React, { Component } from "react";
+import React from "react";
+import ShopTab from "../../Components/ShopTab";
+import "./Shop.scss";
 
-export default class Shop extends Component {
+class Shop extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      hover: "NEW WINTER PART 1",
+      accordion: [],
+    };
+  }
+
+  componentDidMount = () => {
+    fetch("Data/MockData/accordion.json")
+      .then((response) => response.json())
+      .then(({ accordion }) => this.setState({ accordion }));
+  };
+
+  enterHandler = (tabName) => {
+    this.setState({ hover: tabName });
+  };
+
   render() {
-    return <div></div>;
+    return (
+      <div className="Shop">
+        <aside />
+        <main>
+          <ul>
+            {this.state.accordion.map((tab, idx) => (
+              <ShopTab
+                tabName={tab.tabName}
+                key={idx}
+                src={tab.src}
+                src2={tab.src2}
+                href={tab.href}
+                text={tab.text}
+                hover={this.state.hover}
+                enterHandler={(tabName) => this.enterHandler(tabName)}
+              />
+            ))}
+          </ul>
+        </main>
+      </div>
+    );
   }
 }
+
+export default Shop;

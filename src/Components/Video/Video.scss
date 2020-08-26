@@ -3,13 +3,12 @@
 .Video {
   width: 100%;
   padding: 0 27px;
-  padding-bottom: 100px;
 
   .wrapper {
     @include flexColumn;
     padding-left: 206px;
     iframe {
-      height: calc(100em - 157px);
+      height: calc(100em - 174px);
       max-height: calc(56.25vw - 145px);
       min-height: calc(50vw - 130px);
       width: 100%;
@@ -18,11 +17,12 @@
     .description {
       @include flexColCen;
 
-      .descriptionHeader {
+      .header {
         padding: 9px 0 2px;
       }
 
-      .descriptionMain {
+      .main {
+        font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
         font-size: 10px;
         line-height: 13px;
       }

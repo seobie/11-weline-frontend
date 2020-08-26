@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Video from "../../Components/Video/Video";
-import Nav from "../Nav/Nav";
+import MainData from "./MainData";
 import "./Main.scss";
 
 const videos = {
@@ -49,8 +49,7 @@ export default class Main extends Component {
   render() {
     return (
       <main className="Main">
-        <Video videos={videos} />
-        <Nav />
+        <Video videos={MainData.main} />
       </main>
     );
   }
