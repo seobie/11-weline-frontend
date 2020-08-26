@@ -6,10 +6,8 @@
       height: 760px;
       overflow: hidden;
       img {
-        // width: 320px;
-        // height: 760px;
-        // overflow: hidden;
         height: 100%;
+        object-position: -93px;
       }
     }
     .cardNumber {
@@ -17,7 +15,7 @@
 
       span {
         font-size: 11px;
-        font-weight: 500;
+
         font-family: Neue Haas Grotesk Text Reg, sans-serif;
       }
     }

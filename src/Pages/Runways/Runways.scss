@@ -1,15 +1,24 @@
 .Runways {
   position: relative;
-  .numberOfItems {
-    position: absolute;
-    top: 26px;
-  }
-  // .runwayslist::-webkit-scrollbar {
-  //   display: none;
-  // }
-  .runwayslist {
-    display: flex;
-    padding-top: 60px;
-    overflow-x: scroll;
+  padding-top: 60px;
+  padding-left: 233px;
+  .container {
+    .numberOfItems {
+      position: absolute;
+      top: 26px;
+      font-size: 10px;
+      font-family: Neue Haas Grotesk Text Reg, sans-serif;
+      span {
+        font-weight: bold;
+      }
+    }
+    .runwayslist::-webkit-scrollbar {
+      display: none;
+    }
+    .runwayslist {
+      display: flex;
+      font-weight: bold;
+      overflow-x: scroll;
+    }
   }
 }

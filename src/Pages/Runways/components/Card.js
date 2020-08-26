@@ -7,7 +7,7 @@ export default class Card extends Component {
       <div className="Card">
         <li className="container">
           <div>
-            <img alt="runway" src={this.props.imgUrl} />
+            <img id="position" alt="runway" src={this.props.imgUrl} />
           </div>
           <p className="cardNumber">
             <span>{this.props.imgOrder}</span>

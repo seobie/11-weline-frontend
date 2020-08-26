@@ -35,14 +35,17 @@ export default class Runways extends Component {
   render() {
     return (
       <div className="Runways">
-        <p className="numberOfItems">
-          {this.state.numberOfItems} of {this.state.runways.length}
-        </p>
-        <ul className="runwayslist" onScroll={this.handleScroll}>
-          {this.state.runways.map((el, idx) => {
-            return <Card imgUrl={el} imgOrder={idx + 1} />;
-          })}
-        </ul>
+        <div className="container">
+          <p className="numberOfItems">
+            <span>{this.state.numberOfItems}</span>
+            &nbsp;OF&nbsp;{this.state.runways.length}
+          </p>
+          <ul className="runwayslist" onScroll={this.handleScroll}>
+            {this.state.runways.map((el, idx) => {
+              return <Card imgUrl={el} imgOrder={idx + 1} />;
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
