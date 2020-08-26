@@ -245,7 +245,7 @@
             top: 0;
           }
 
-          &:hover {
+          a &:hover {
             font-weight: 600;
             cursor: pointer;
           }
@@ -262,6 +262,7 @@
       }
     }
   }
+
   @keyframes sidePanel {
     from {
       right: -500px;

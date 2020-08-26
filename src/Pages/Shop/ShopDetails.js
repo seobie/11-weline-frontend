@@ -153,9 +153,11 @@ export default class ShopDetails extends Component {
               <li>
                 <Link to="/">Celine</Link>
               </li>
-              {ShopDetailsData.directory.map(
-                ((el) => <li key={el}>{el}</li>: before)
-              )}
+              {ShopDetailsData.directory.map((el) => (
+                <li key={el}>
+                  <Link to="/">{el}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
