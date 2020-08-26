@@ -45,9 +45,7 @@
         padding-right: calc(((((100% - 90px) / 10) * 1) + 0px) + 37px);
         overflow: auto;
         background-color: #fff;
-        animation-name: sidePanel;
-        animation-timing-function: ease;
-        animation-duration: 0.1s;
+        animation: sidePanel 0.1s ease;
       }
 
       .hiddenPanel {
@@ -56,6 +54,7 @@
 
       .detailedPictures {
         width: calc((((100% - 90px) / 10) * 6) + 60px);
+
         ul {
           display: flex;
           flex-wrap: wrap;
@@ -77,13 +76,16 @@
               width: 100%;
               padding: 0 10px 10px 0;
             }
+
             &:last-child {
               width: 100%;
+
               img {
                 padding-bottom: 0;
               }
             }
           }
+
           .clickedImg {
             z-index: 3;
             position: absolute;
@@ -107,6 +109,7 @@
           line-height: 16px;
           letter-spacing: 0.02em;
         }
+
         p {
           margin-top: 28px;
           font-size: calc(10rem / 16);
@@ -119,16 +122,19 @@
           text-transform: uppercase;
           font-size: 10px;
           margin-top: 28px;
+
           &:hover {
             font-weight: 600;
           }
         }
+
         .optionWrapper {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           margin-top: 25px;
           height: calc(100vh - 421px);
+
           .option {
             @include flexColumn;
 
@@ -149,6 +155,7 @@
                 &:first-child {
                   margin-top: 28px;
                 }
+
                 &:hover {
                   font-weight: 600;
                   cursor: pointer;
@@ -158,6 +165,7 @@
               .addToWishlist {
                 margin-top: 28px;
               }
+
               .saved {
                 display: none;
                 margin-top: 28px;
@@ -185,18 +193,22 @@
     .recentlyViewed {
       width: calc((((100% - 90px) / 10) * 6) + 60px);
       margin-top: 68px;
+
       h2 {
         font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
         font-weight: 600;
         font-size: calc(10rem / 16);
         text-transform: uppercase;
       }
+
       ul {
         display: flex;
         width: calc(100% + 11px);
+
         li {
           width: calc((((100% - 11px - 50px) / 6) * 1) + 0px);
           margin: 10px 10px 0 0;
+
           img {
             width: 100%;
             object-fit: contain;
@@ -211,30 +223,38 @@
       text-transform: uppercase;
       font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
       font-size: calc(10rem / 16);
+
       ul {
         display: flex;
+
         li {
           position: relative;
+
           &:not(:last-child) {
             margin-right: 12px;
           }
+
           &:not(:first-child) {
             padding-left: 18px;
           }
+
           &:not(:first-child)::before {
             position: absolute;
             content: "/";
             left: 0;
             top: 0;
           }
+
           &:hover {
             font-weight: 600;
             cursor: pointer;
           }
         }
       }
+
       a {
         color: black;
+
         &:hover {
           font-weight: 600;
           cursor: pointer;
@@ -252,6 +272,7 @@
       opacity: 1;
     }
   }
+
   @keyframes optionDown {
     from {
       top: 22px;

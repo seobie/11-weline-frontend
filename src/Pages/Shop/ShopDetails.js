@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ShopDetailsData from "./ShopDetailsData";
 import Option from "./Option";
 import TempText from "./TempText";
+import config from "../../config";
 import "./ShopDetails.scss";
 
 export default class ShopDetails extends Component {
@@ -16,8 +17,9 @@ export default class ShopDetails extends Component {
       isSelectActive: false,
     };
   }
+
   componentDidMount() {
-    fetch("http://10.58.3.133:8000/product/detail/4")
+    fetch(`${config.itemDetails}/product/detail/4`)
       .then((res) => res.json())
       .then((res) => this.setState({ detailData: res }));
   }
@@ -35,14 +37,13 @@ export default class ShopDetails extends Component {
   };
 
   addToWishList = () => {
-    fetch("http://10.58.6.1:8000/user/wishadd", {
+    fetch(`${config.addToWishList}/user/wishadd`, {
       method: "POST",
       body: JSON.stringify({
         product_id: ShopDetailsData.id,
       }),
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.k9CXE2QeEZUFs4HFYMMJOfoKJxWDgvVtcSJU_WrucG4",
+        Authorization: config.token,
       },
     })
       .then((res) => res.json())
@@ -52,6 +53,7 @@ export default class ShopDetails extends Component {
   render() {
     const { detailData, imgClicked, zoomed, sidePanel } = this.state;
     const { showOriginal, zoomToggle, funcSidePanel } = this;
+
     return (
       <div className="ShopDetails">
         <div className="detailWrapper">

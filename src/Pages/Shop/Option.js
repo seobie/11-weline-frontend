@@ -10,11 +10,13 @@ class Option extends Component {
       chosenOption: "",
     };
   }
+
   chooseOption = (idx) => {
     this.setState({
       chosenOption: ShopDetailsData[this.props.optionName][idx],
     });
   };
+
   handleSelect = () => {
     this.setState({ isSelectActive: !this.state.isSelectActive });
   };
@@ -31,7 +33,7 @@ class Option extends Component {
           <div className="selector" onClick={handleSelect}>
             {this.state.chosenOption}
           </div>
-          <span className="arrow"></span>
+          <span className="arrow" />
         </div>
         <div className={isSelectActive ? "optionNames" : "inActiveOptions"}>
           <ul>
@@ -43,13 +45,11 @@ class Option extends Component {
                     handleSelect();
                   }}
                 >
-                  {options ? (
+                  {options && (
                     <img
                       src={ShopDetailsData[options][idx]}
                       alt={`option ${idx}`}
                     />
-                  ) : (
-                    ""
                   )}
                   {ShopDetailsData[optionName][idx]}
                 </li>
