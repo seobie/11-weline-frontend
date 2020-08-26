@@ -6,7 +6,7 @@ class Video extends Component {
     const { src, description } = this.props.videos.Main;
     return (
       <div className="Video">
-        <div className="videoContainer">
+        <div className="wrapper">
           <iframe title="mainVideo" src={src} allowFullScreen={true} />
           <div className="description">
             <div className="descriptionHeader"></div>

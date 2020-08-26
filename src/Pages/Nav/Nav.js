@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import MenuData from "./MenuData";
 import Menu1 from "./Menu1";
 import Menu2 from "./Menu2";
+import SearchResultItem from "./SearchResultItem";
 import "./Nav.scss";
 
 class Nav extends Component {
@@ -10,16 +11,41 @@ class Nav extends Component {
     super();
     this.state = {
       searchActive: false,
+      searchResult: false,
     };
   }
+
+  handleChange = (e) => {
+    if (e.target.value) {
+      this.setState({ searchResult: true });
+    } else {
+      this.setState({ searchResult: false });
+    }
+  };
+
   handleSearch = () => {
     this.setState({ searchActive: !this.state.searchActive });
   };
+
   render() {
     const getPathName = window.location.pathname.split("/");
-    console.log(this.state);
+    const { searchActive, searchResult } = this.state;
+    const { handleSearch } = this;
+
     return (
       <nav className="Nav">
+        <div
+          className={
+            searchActive && searchResult ? "searchResult" : "invisible"
+          }
+        >
+          <div className="leftSpace"></div>
+          <div className="rightSpace">
+            <ul>
+              <SearchResultItem />
+            </ul>
+          </div>
+        </div>
         <div className="upper">
           <div className="leftContainer">
             <div className="logo">
@@ -32,14 +58,12 @@ class Nav extends Component {
             </div>
             <div className="navContainer">
               <div
-                className={
-                  this.state.searchActive ? "searchInputActive" : "searchInput"
-                }
+                className={searchActive ? "searchInputActive" : "searchInput"}
               >
-                <input type="text" />
-                <button onClick={this.handleSearch}>close</button>
+                <input type="text" onChange={this.handleChange} />
+                <button onClick={handleSearch}>close</button>
               </div>
-              <ul className={this.state.searchActive ? "invisible" : ""}>
+              <ul className={searchActive ? "invisible" : ""}>
                 {Object.keys(MenuData).map((key) => (
                   <li key={key}>
                     <NavLink
@@ -55,7 +79,7 @@ class Nav extends Component {
               </ul>
               {getPathName[1] ? (
                 <Menu1
-                  searchActive={this.state.searchActive}
+                  searchActive={searchActive}
                   firstSubMenu={getPathName[1]}
                 />
               ) : (
@@ -63,7 +87,7 @@ class Nav extends Component {
               )}
               {getPathName[2] ? (
                 <Menu2
-                  searchActive={this.state.searchActive}
+                  searchActive={searchActive}
                   secondSubMenu={getPathName}
                 />
               ) : (
@@ -71,20 +95,20 @@ class Nav extends Component {
               )}
             </div>
           </div>
-          <div
-            className={this.state.searchActive ? "invisible" : "rightContainer"}
-          >
+          <div className={searchActive ? "invisible" : "rightContainer"}>
             <div role="search">
-              <button onClick={this.handleSearch}>search</button>
+              <button onClick={handleSearch}>search</button>
             </div>
-            <div>
-              <button>sign in / register</button>
-            </div>
-            <div>
-              <button>store locator</button>
-            </div>
-            <div>
-              <button>wishlist</button>
+            <div className={searchActive ? "invisible" : "rightBtns"}>
+              <div>
+                <button>sign in / register</button>
+              </div>
+              <div>
+                <button>store locator</button>
+              </div>
+              <div>
+                <button>shopping bag</button>
+              </div>
             </div>
           </div>
         </div>
