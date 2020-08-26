@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import MenuData from "./MenuData";
 
-class Menu1 extends Component {
+class FirstSubMenu extends Component {
   render() {
-    const { firstSubMenu } = this.props;
+    const { searchActive, firstSubMenu } = this.props;
+
     return (
-      <ul className={this.props.searchActive ? "invisible" : "Menu1"}>
-        {Object.keys(MenuData[`celine ${firstSubMenu}`]).map((key) => (
+      <ul className={searchActive ? "invisible" : "FirstSubMenu"}>
+        {Object.keys(MenuData[`celine ${firstSubMenu[1]}`]).map((key) => (
           <li key={key}>
             <NavLink
-              to={`/${firstSubMenu}/${key}`}
+              to={`/${firstSubMenu[1]}/${key}`}
               activeStyle={{ fontWeight: "bold" }}
             >
               {key}
@@ -22,4 +23,4 @@ class Menu1 extends Component {
   }
 }
 
-export default Menu1;
+export default FirstSubMenu;

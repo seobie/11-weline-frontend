@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 import MenuData from "./MenuData";
-import Menu1 from "./Menu1";
-import Menu2 from "./Menu2";
+import FirstSubMenu from "./FirstSubMenu";
+import SecondSubMenu from "./SecondSubMenu";
 import SearchResultItem from "./SearchResultItem";
 import "./Nav.scss";
 
@@ -12,15 +12,27 @@ class Nav extends Component {
     this.state = {
       searchActive: false,
       searchResult: false,
+      items: [],
+      searchInput: "",
     };
   }
 
+  componentDidMount() {
+    fetch("Data/MockData/SearchData.json")
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ items: res });
+      });
+  }
+
+  handleInput = (e) => {
+    this.setState({
+      searchInput: e.target.value,
+    });
+  };
+
   handleChange = (e) => {
-    if (e.target.value) {
-      this.setState({ searchResult: true });
-    } else {
-      this.setState({ searchResult: false });
-    }
+    this.setState({ searchResult: e.target.value });
   };
 
   handleSearch = () => {
@@ -29,8 +41,13 @@ class Nav extends Component {
 
   render() {
     const getPathName = window.location.pathname.split("/");
-    const { searchActive, searchResult } = this.state;
-    const { handleSearch } = this;
+    const { searchActive, searchResult, searchInput, items } = this.state;
+    const { handleSearch, handleInput, handleChange } = this;
+    const filtered =
+      items.products &&
+      items.products.filter((el) =>
+        el.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
 
     return (
       <nav className="Nav">
@@ -39,10 +56,19 @@ class Nav extends Component {
             searchActive && searchResult ? "searchResult" : "invisible"
           }
         >
-          <div className="leftSpace"></div>
+          <div className="leftSpace" />
           <div className="rightSpace">
+            {filtered && !filtered.length && (
+              <div className="noResult">
+                <img
+                  src="https://www.celine.com/on/demandware.static/-/Library-Sites-Celine-SharedLibrary/default/dwce2858c6/staticpages/Celine.com_WEB_AUCUN_RESULTAT.jpg"
+                  alt="failed to search"
+                />
+                <h1>no results found for your search</h1>
+              </div>
+            )}
             <ul>
-              <SearchResultItem />
+              <SearchResultItem products={filtered} />
             </ul>
           </div>
         </div>
@@ -60,7 +86,13 @@ class Nav extends Component {
               <div
                 className={searchActive ? "searchInputActive" : "searchInput"}
               >
-                <input type="text" onChange={this.handleChange} />
+                <input
+                  type="text"
+                  onChange={(e) => {
+                    handleChange(e);
+                    handleInput(e);
+                  }}
+                />
                 <button onClick={handleSearch}>close</button>
               </div>
               <ul className={searchActive ? "invisible" : ""}>
@@ -77,21 +109,17 @@ class Nav extends Component {
                   </li>
                 ))}
               </ul>
-              {getPathName[1] ? (
-                <Menu1
+              {getPathName[1] && (
+                <FirstSubMenu
                   searchActive={searchActive}
-                  firstSubMenu={getPathName[1]}
+                  firstSubMenu={getPathName}
                 />
-              ) : (
-                ""
               )}
-              {getPathName[2] ? (
-                <Menu2
+              {getPathName[2] && (
+                <SecondSubMenu
                   searchActive={searchActive}
                   secondSubMenu={getPathName}
                 />
-              ) : (
-                ""
               )}
             </div>
           </div>
