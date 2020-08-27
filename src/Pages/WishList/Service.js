@@ -7,7 +7,7 @@ class Service extends React.Component {
     return (
       <div className={btnClick === "Service" ? "Service" : "none"}>
         <input type="checkbox" id="isGift" />
-        <label for="isGift">IS THIS A GIFT?</label>
+        <label htmlFor="isGift">IS THIS A GIFT?</label>
         <br />
         <input type="text" />
         <button name="Payment" onClick={(btnClick) => visibleHandler(btnClick)}>

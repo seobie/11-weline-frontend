@@ -30,7 +30,7 @@ class Payment extends React.Component {
         <div className="placeholderContainor">
           <input
             type="text"
-            id={
+            className={
               isChange.indexOf("nameOfCard") !== -1 && !payment.nameOfCard
                 ? "inputFocusOut"
                 : ""
@@ -40,11 +40,12 @@ class Payment extends React.Component {
             onChange={this.placeholderHandler}
             onKeyUp={(e) => paymentHandler(e)}
           />
+          <p>NAME OF CARD</p>
         </div>
         <div className="placeholderContainor">
           <input
             type="number"
-            id={
+            className={
               isChange.indexOf("cardNumber") !== -1 && !payment.cardNumber
                 ? "inputFocusOut"
                 : ""
@@ -56,11 +57,12 @@ class Payment extends React.Component {
             onInput={(e) => this.limitLength(e)}
             onKeyUp={(e) => paymentHandler(e)}
           />
+          <p>CARD NUMBER</p>
         </div>
         <div className="placeholderContainorhalf">
           <input
             type="number"
-            id={
+            className={
               isChange.indexOf("expDate") !== -1 && !payment.expDate
                 ? "inputFocusOut"
                 : ""
@@ -72,12 +74,13 @@ class Payment extends React.Component {
             onInput={(e) => this.limitLength(e)}
             onKeyUp={(e) => paymentHandler(e)}
           />
+          <p>EXP DATE</p>
         </div>
         <div className="half"></div>
         <div className="placeholderContainorhalf">
           <input
             type="number"
-            id={
+            className={
               isChange.indexOf("securityCode") !== -1 && !payment.securityCode
                 ? "inputFocusOut"
                 : ""
@@ -89,10 +92,11 @@ class Payment extends React.Component {
             onInput={(e) => this.limitLength(e)}
             onKeyUp={(e) => paymentHandler(e)}
           />
+          <p>SECURITY CODE</p>
         </div>
-        <div className="adress">
-          <input id="adress" type="radio" checked />
-          <label for="adress">
+        <div className="address">
+          <input id="address" type="radio" checked />
+          <label htmlFor="address">
             <h3>MR. HAN TEAGYU</h3>
             <p>중동로</p>
             <p>KS009 BUCHUN, KOREA, REPUBLIC OF</p>
@@ -101,7 +105,7 @@ class Payment extends React.Component {
         </div>
         <div className="agree">
           <input onClick={this.checkboxHandler} id="agree" type="checkbox" />
-          <label for="agree">
+          <label htmlFor="agree">
             <p>
               I AGREE WITH THE
               <a href="?">

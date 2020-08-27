@@ -1,6 +1,7 @@
 .Payment {
   width: 452px;
   font-size: 10px;
+  margin-top: -22px;
 
   .placeholderContainor,
   .placeholderContainorhalf {
@@ -19,10 +20,9 @@
     }
 
     p {
-      //height: 27px;
-      opacity: 0;
+      height: 27px;
       padding-bottom: 3px;
-      color: gray;
+      color: #9a9a9a;
     }
   }
 
@@ -34,8 +34,11 @@
 
   .placeholderContainorhalf {
     display: inline-block;
-    height: 50px;
+    height: 40px;
     width: 48%;
+    p {
+      padding-top: 20px;
+    }
   }
 
   input[type="number"]::-webkit-outer-spin-button,
@@ -52,11 +55,11 @@
     }
   }
 
-  #inputFocusOut {
-    border-bottom: 1px solid red;
+  .inputFocusOut {
+    border-bottom: 1px solid #ff0000;
     &::placeholder {
       font-size: 10px;
-      color: red;
+      color: #ff0000;
       opacity: 1;
     }
     &:focus {
@@ -73,12 +76,12 @@
     width: 4%;
   }
 
-  .adress,
+  .address,
   .agree {
     display: flex;
     margin-top: 20px;
   }
-  .adress {
+  .address {
     h3 {
       font-weight: 800;
     }

@@ -20,8 +20,9 @@ class ShoppingMethod extends React.Component {
   };
 
   limitLength = (e) => {
-    if (e.target.value.length > e.target.maxLength) {
-      e.target.value = e.target.value.slice(0, e.target.maxLength);
+    let { value, maxLength } = e.target;
+    if (value.length > maxLength) {
+      value = value.slice(0, maxLength);
     }
   };
 
@@ -44,14 +45,14 @@ class ShoppingMethod extends React.Component {
           onClick={this.sendHandler}
           checked={howToSend === "shipToAdress"}
         />
-        <label for="shipToAdress">SHIP TO ADRESS</label>
+        <label htmlFor="shipToAdress">SHIP TO ADRESS</label>
         <input
           name="howToSend"
           id="collectInStore"
           type="radio"
           onClick={this.sendHandler}
         />
-        <label for="collectInStore">COLLECT IN STORE</label>
+        <label htmlFor="collectInStore">COLLECT IN STORE</label>
         <div className="changeContry">
           <span>KOREA</span>
           <button>CHANGE CONTRY</button>
@@ -125,7 +126,7 @@ class ShoppingMethod extends React.Component {
               id="save adress"
               type="checkbox"
             />
-            <label for="save adress">SAVE ADDRESS TO YOUR ACCOUNT</label>
+            <label htmlFor="save adress">SAVE ADDRESS TO YOUR ACCOUNT</label>
           </div>
         </div>
 
@@ -135,7 +136,7 @@ class ShoppingMethod extends React.Component {
           <p className="text">SHOW MAP</p>
           <div className="adress">
             <input name="shopAdress" id="shopAdress" type="radio" />
-            <label for="shopAdress">
+            <label htmlFor="shopAdress">
               <h3>
                 CELINE MOUNT STREETLONDON<span>DELIVERS FRIDAY 28</span>
               </h3>
@@ -152,7 +153,9 @@ class ShoppingMethod extends React.Component {
             type="checkbox"
             onClick={this.descriptionHandler}
           />
-          <label for="Proxy receipt">SOMEONE ELSE WILL COLLECT MY ORDER.</label>
+          <label htmlFor="Proxy receipt">
+            SOMEONE ELSE WILL COLLECT MY ORDER.
+          </label>
           <div className={isCheck ? "Description" : "none"}>
             IF YOU HAVE AUTHORIZED SOMEONE ELSE TO PICK UP YOUR ORDER, THEY WILL
             BE REQUIRED TO PRESENT THE FOLLOWING:

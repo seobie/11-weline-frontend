@@ -57,6 +57,7 @@ class CheckOut extends React.Component {
 
   render() {
     const { btnClick, service, payment, shoppingMethod } = this.state;
+    console.log(this.state);
     return (
       <div className="CheckOut">
         <div className="largeTab">
@@ -79,8 +80,8 @@ class CheckOut extends React.Component {
             <ShoppingMethod
               btnClick={btnClick}
               shoppingMethod={shoppingMethod}
-              visibleHandler={(btnClick) => this.visibleHandler(btnClick)}
-              shoppingMethodHandler={(e) => this.shoppingMethodHandler(e)}
+              visibleHandler={this.visibleHandler}
+              shoppingMethodHandler={this.shoppingMethodHandler}
             />
           </div>
         </div>
@@ -102,7 +103,7 @@ class CheckOut extends React.Component {
             <Service
               service={service}
               btnClick={btnClick}
-              visibleHandler={(btnClick) => this.visibleHandler(btnClick)}
+              visibleHandler={this.visibleHandler}
             />
           </div>
         </div>
