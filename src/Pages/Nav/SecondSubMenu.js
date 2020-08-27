@@ -11,16 +11,17 @@ class SecondSubMenu extends Component {
 
     return (
       <ul className={searchActive ? "invisible" : "SecondSubMenu"}>
-        {Object.keys(subCategoryObj).map((key) => (
-          <li key={key}>
-            <NavLink
-              to={`/${category}/${subCategory}/${subCategoryObj[key]}`}
-              activeStyle={{ fontWeight: "bold" }}
-            >
-              {subCategoryObj[key]}
-            </NavLink>
-          </li>
-        ))}
+        {subCategoryObj &&
+          Object.keys(subCategoryObj).map((key) => (
+            <li key={key}>
+              <NavLink
+                to={`/${category}/${subCategory}/${subCategoryObj[key]}`}
+                activeStyle={{ fontWeight: "bold" }}
+              >
+                {subCategoryObj[key]}
+              </NavLink>
+            </li>
+          ))}
       </ul>
     );
   }
