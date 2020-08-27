@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import ShopListRowItem from "./ShopListRowItem";
 import "./ShopListRowItems.scss";
 
@@ -42,14 +43,14 @@ export default class ShopListRowItems extends Component {
         <div className="wholeBox">
           <div className="categoryBox">
             <div className="categoryHeader">
-              <a>
+              <Link to="/shoplist">
                 <h3 className="categoryTitle">
                   {itemlist !== undefined && Object.keys(itemlist)}
                 </h3>
-              </a>
-              <a>
+              </Link>
+              <Link to="/shoplist">
                 <span>VIEW ALL</span>
-              </a>
+              </Link>
             </div>
             <div className="listBox">
               <div

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import WishItem from "./WishItem";
 import "./WishList.scss";
 
@@ -11,29 +12,19 @@ export default class WishList extends Component {
     };
   }
 
-  // componentDidMount = () => {
-  //   fetch("http://10.58.6.1:8000/user/wishlist", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization:
-  //         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.BAwk01jYJjCSMdifZqmwPWbLi65xV4usBNGiZ8jScPE",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       this.setState({
-  //         wishItems: result.wish_list,
-  //       });
-  //     });
-  // };
-
-  // 로컬 json 에 연결하는 컴디마
   componentDidMount = () => {
-    fetch("http://localhost:3000/wishlist.json")
+    fetch("http://10.58.6.1:8000/user/wishlist", {
+      method: "GET",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.BAwk01jYJjCSMdifZqmwPWbLi65xV4usBNGiZ8jScPE",
+      },
+    })
       .then((res) => res.json())
-      .then((res) => {
+      // .then((res) => console.log(res));
+      .then((result) => {
         this.setState({
-          wishItems: res.wish_list.map((obj) => ({
+          wishItems: result.result.map((obj) => ({
             ...obj,
             isSelected: false,
           })),
@@ -41,8 +32,21 @@ export default class WishList extends Component {
       });
   };
 
+  // 로컬 json 에 연결하는 컴디마
+  // componentDidMount = () => {
+  //   fetch("http://localhost:3000/wishlist.json")
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       this.setState({
+  //         wishItems: res.wish_list.map((obj) => ({
+  //           ...obj,
+  //           isSelected: false,
+  //         })),
+  //       });
+  //     });
+  // };
+
   selectHandler = (id) => {
-    console.log(id);
     const { wishItems } = this.state;
     let selectedItems = wishItems.map((obj) => {
       return {
@@ -51,6 +55,19 @@ export default class WishList extends Component {
       };
     });
     this.setState({ wishItems: selectedItems }, () => {
+      this.priceHandler();
+    });
+  };
+
+  selectAll = () => {
+    const { wishItems } = this.state;
+    let selectedAll = wishItems.map((obj) => {
+      return {
+        ...obj,
+        isSelected: !obj.isSelected,
+      };
+    });
+    this.setState({ wishItems: selectedAll }, () => {
       this.priceHandler();
     });
   };
@@ -70,11 +87,25 @@ export default class WishList extends Component {
   };
 
   removeItem = (id) => {
+    console.log(id);
     const { wishItems } = this.state;
     let filtered = wishItems.filter((el) => el.id !== id);
     this.setState({
       wishItems: filtered,
     });
+  };
+
+  deleteData = (el) => {
+    fetch(
+      `http://10.58.6.1:8000/user/wishlist?target=${this.state.wishItems[el].id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization:
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.BAwk01jYJjCSMdifZqmwPWbLi65xV4usBNGiZ8jScPE",
+        },
+      }
+    ).then((response) => response.json());
   };
 
   render() {
@@ -90,7 +121,7 @@ export default class WishList extends Component {
               </div>
               <div className="selectAll">
                 <div className="selectbutton">
-                  <button>SELECT ALL</button>
+                  <button onClick={this.selectAll}>SELECT ALL</button>
                 </div>
                 <div className="logOut">
                   <button>BACK</button>
@@ -104,7 +135,7 @@ export default class WishList extends Component {
                     selectHandler={this.selectHandler}
                     priceHandler={this.priceHandler}
                     removeItem={this.removeItem}
-                    // state={this.state}
+                    deleteData={this.deleteData}
                     list={el}
                     key={idx}
                     id={el.id}

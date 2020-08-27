@@ -5,13 +5,23 @@
   margin-bottom: 10px;
   padding-right: 30px;
   justify-content: space-between;
+
   .categoryTitle {
     @include hassBold;
   }
 }
 
+a:link,
+a:active,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
 .listBox {
   position: relative;
+
   .rangeLeft {
     position: absolute;
     left: 0;
@@ -19,6 +29,7 @@
     height: 430px;
     z-index: 100;
   }
+
   .rangeRight {
     position: absolute;
     right: 0;
@@ -26,22 +37,27 @@
     height: 430px;
     z-index: 100;
   }
+
   .itemlist {
-    // word-break: break-all;
     @include flexRow;
     overflow-x: scroll;
     white-space: nowrap;
     margin-bottom: 60px;
+
     p {
+      overflow: hidden;
       @include hassRegular;
     }
+
     .item {
       list-style: none;
       display: inline-block;
+
       .itemText {
         width: 430px;
         padding: 5px;
       }
+
       img {
         margin-right: 10px;
         width: 430px;

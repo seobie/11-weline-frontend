@@ -1,15 +1,13 @@
 @font-face {
   font-family: "Neue Haas Grotesk-Bold";
   src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
-    url("http://localhost:3000/Font/NeueHaasGroteskText-Bold.otf")
-      format("opentype");
+    url("/Font/NeueHaasGroteskText-Bold.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Neue Haas Grotesk-Regular";
   src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
-    url("http://localhost:3000/Font/NeueHaasGroteskText-Regular.otf")
-      format("opentype");
+    url("/Font/NeueHaasGroteskText-Regular.otf") format("opentype");
 }
 
 @mixin flexRow {
@@ -31,23 +29,35 @@
   letter-spacing: calc(1rem / 30);
 }
 
+a:link,
+a:active,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
 .shopListRow {
   @include flexRow;
 }
 
 .shopLists {
   margin-left: 20vw;
+
   h1 {
     @include hassRegular;
   }
+
   span {
     @include hassRegular;
   }
+
   .listHeader {
     margin-top: 40px;
     margin-bottom: 70px;
     height: 30px;
   }
+
   .subNav {
     display: flex;
     flex-direction: row;
