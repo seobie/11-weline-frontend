@@ -5,18 +5,16 @@ import MenuData from "./MenuData";
 class SecondSubMenu extends Component {
   render() {
     const { secondSubMenu, searchActive } = this.props;
-    const [category, subCategory] = [
-      `celine ${secondSubMenu[1]}`,
-      secondSubMenu[2],
-    ];
-    const subCategoryObj = MenuData[category][subCategory];
+    const subMenu = secondSubMenu.slice(1);
+    const [category, subCategory] = subMenu;
+    const subCategoryObj = MenuData[`celine ${category}`][subCategory];
 
     return (
       <ul className={searchActive ? "invisible" : "SecondSubMenu"}>
         {Object.keys(subCategoryObj).map((key) => (
           <li key={key}>
             <NavLink
-              to={`/${secondSubMenu[1]}/${subCategory}/${subCategoryObj[key]}`}
+              to={`/${category}/${subCategory}/${subCategoryObj[key]}`}
               activeStyle={{ fontWeight: "bold" }}
             >
               {subCategoryObj[key]}

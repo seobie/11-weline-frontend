@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 
-class Shoes extends Component {
+class Boots extends Component {
   render() {
     return (
       <main className="Boots">
@@ -11,4 +11,4 @@ class Shoes extends Component {
   }
 }
 
-export default Shoes;
+export default Boots;

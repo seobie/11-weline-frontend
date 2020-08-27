@@ -28,11 +28,8 @@ class Nav extends Component {
   handleInput = (e) => {
     this.setState({
       searchInput: e.target.value,
+      searchResult: e.target.value,
     });
-  };
-
-  handleChange = (e) => {
-    this.setState({ searchResult: e.target.value });
   };
 
   handleSearch = () => {
@@ -41,8 +38,10 @@ class Nav extends Component {
 
   render() {
     const getPathName = window.location.pathname.split("/");
+    const pathName = getPathName.slice(1);
+    const [mainMenu, subMenu] = pathName;
     const { searchActive, searchResult, searchInput, items } = this.state;
-    const { handleSearch, handleInput, handleChange } = this;
+    const { handleSearch, handleInput } = this;
     const filtered =
       items.products &&
       items.products.filter((el) =>
@@ -89,7 +88,6 @@ class Nav extends Component {
                 <input
                   type="text"
                   onChange={(e) => {
-                    handleChange(e);
                     handleInput(e);
                   }}
                 />
@@ -109,13 +107,13 @@ class Nav extends Component {
                   </li>
                 ))}
               </ul>
-              {getPathName[1] && (
+              {mainMenu && (
                 <FirstSubMenu
                   searchActive={searchActive}
                   firstSubMenu={getPathName}
                 />
               )}
-              {getPathName[2] && (
+              {subMenu && (
                 <SecondSubMenu
                   searchActive={searchActive}
                   secondSubMenu={getPathName}
