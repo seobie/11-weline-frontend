@@ -19,7 +19,7 @@ export default class ShopDetails extends Component {
   }
 
   componentDidMount() {
-    fetch(`${config.itemDetails}/product/detail/4`)
+    fetch(`${config.API}/product?q=${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) => this.setState({ detailData: res }));
   }
@@ -94,10 +94,12 @@ export default class ShopDetails extends Component {
             </div>
             <div className="itemDescriptions">
               <h1>{detailData.name}</h1>
-              <h1>{detailData.price}</h1>
+              <h1>{detailData.price} GBP</h1>
               <p>
                 {detailData.description &&
-                  detailData.description.split("\n").map((p) => <div>{p}</div>)}
+                  detailData.description
+                    .split("\n")
+                    .map((p) => <div key={p}>{p}</div>)}
               </p>
               <div className="productDetails" onClick={funcSidePanel}>
                 + product details
@@ -108,8 +110,8 @@ export default class ShopDetails extends Component {
                     <div className="option"></div>
                     <Option
                       title="colors"
-                      optionName="color_name"
-                      options="color_img"
+                      optionName="color_names"
+                      options="color_imgs"
                     />
                     <Option title="sizes" optionName="sizes" />
                   </div>
@@ -129,7 +131,7 @@ export default class ShopDetails extends Component {
                     <div className="share">share</div>
                   </div>
                 </div>
-                <button>add to bag</button>
+                <button onClick={this.addToWishList}>add to bag</button>
               </div>
             </div>
           </div>
