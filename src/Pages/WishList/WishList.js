@@ -13,36 +13,23 @@ class WishList extends Component {
   }
 
   componentDidMount = () => {
-    fetch("./wishlist.json")
+    fetch("http://10.58.6.1:8000/user/wishlist", {
+      method: "GET",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.BAwk01jYJjCSMdifZqmwPWbLi65xV4usBNGiZ8jScPE",
+      },
+    })
       .then((res) => res.json())
-      .then((res) => {
+      .then((result) => {
         this.setState({
-          wishItems: res.wish_list.map((obj) => ({
+          wishItems: result.result.map((obj) => ({
             ...obj,
             isSelected: false,
           })),
         });
       });
   };
-
-  // componentDidMount = () => {
-  //   fetch("http://10.58.6.1:8000/user/wishlist", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization:
-  //         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.BAwk01jYJjCSMdifZqmwPWbLi65xV4usBNGiZ8jScPE",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       this.setState({
-  //         wishItems: result.result.map((obj) => ({
-  //           ...obj,
-  //           isSelected: false,
-  //         })),
-  //       });
-  //     });
-  // };
 
   selectHandler = (id) => {
     const { wishItems } = this.state;
