@@ -5,7 +5,7 @@ export default class Card extends Component {
   render() {
     return (
       <div className="Card">
-        <li className="container">
+        <li className="cardContainer">
           <div>
             <img id="position" alt="runway" src={this.props.imgUrl} />
           </div>
