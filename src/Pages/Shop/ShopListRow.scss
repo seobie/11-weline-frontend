@@ -1,0 +1,98 @@
+/** @format */
+@font-face {
+  font-family: "Neue Haas Grotesk-Bold";
+  src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
+    url("http://localhost:3000/Font/NeueHaasGroteskText-Bold.otf")
+      format("opentype");
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk-Regular";
+  src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
+    url("http://localhost:3000/Font/NeueHaasGroteskText-Regular.otf")
+      format("opentype");
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin hassBold {
+  font-family: Neue Haas Grotesk-Bold, Arial, sans-serif;
+  font-size: calc(10rem / 16);
+  line-height: 13px;
+}
+
+@mixin hassRegular {
+  font-family: Neue Haas Grotesk-Regular, Arial, sans-serif;
+  font-size: calc(10rem / 16);
+  line-height: 13px;
+}
+
+.shopListRow {
+  h1 {
+    @include hassRegular;
+  }
+
+  span {
+    @include hassRegular;
+  }
+}
+
+.listHeader {
+  height: 30px;
+}
+
+.categoryHeader {
+  @include flexRow;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.categoryTitle {
+  @include hassBold;
+}
+
+.itemList {
+  @include flexRow;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-bottom: 60px;
+  p {
+    @include hassRegular;
+  }
+}
+
+.itemList::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  list-style: none;
+  display: inline-block;
+  img {
+    margin: 5px;
+    width: 430px;
+  }
+}
+
+.listBox {
+  position: relative;
+}
+
+.rangeLeft {
+  position: absolute;
+  left: 0;
+  width: 300px;
+  height: 430px;
+  z-index: 100;
+}
+
+.rangeRight {
+  position: absolute;
+  right: 0;
+  width: 300px;
+  height: 430px;
+  z-index: 100;
+}
