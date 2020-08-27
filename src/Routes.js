@@ -7,10 +7,14 @@ import Shop from "./Pages/Shop/Shop";
 import ShopListCol from "./Pages/Shop/ShopListCol";
 import ShopListRow from "./Pages/Shop/ShopListRow";
 import ShopDetails from "./Pages/Shop/ShopDetails";
+<<<<<<< HEAD
 import WishList from "./Pages/WishList/WishList";
 import Women from "./Pages/Women/Women";
 import Shoes from "./Pages/Women/Shoes";
 import Boots from "./Pages/Women/Boots";
+=======
+import WishList from "./Pages/WishList/CheckOut";
+>>>>>>> master
 
 class Routes extends React.Component {
   render() {
