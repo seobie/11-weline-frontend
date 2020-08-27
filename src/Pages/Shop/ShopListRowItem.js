@@ -3,13 +3,14 @@ import { withRouter } from "react-router-dom";
 
 class ShopListRowItem extends Component {
   render() {
-    console.log(this.props);
     const { item } = this.props;
     return (
       <li
         className="item"
         onClick={() =>
-          this.props.history.push(`/shoplistRow/${this.props.match.params.id}`)
+          this.props.history.push(
+            `${this.props.match.params.mainCategory}/${this.props.match.params.category}/${this.props.match.params.id}`
+          )
         }
       >
         <img src={item.img} />

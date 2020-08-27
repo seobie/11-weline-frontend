@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import WishItem from "./WishItem";
 import "./WishList.scss";
 
-export default class WishList extends Component {
+class WishList extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,18 +13,11 @@ export default class WishList extends Component {
   }
 
   componentDidMount = () => {
-    fetch("http://10.58.6.1:8000/user/wishlist", {
-      method: "GET",
-      headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.BAwk01jYJjCSMdifZqmwPWbLi65xV4usBNGiZ8jScPE",
-      },
-    })
+    fetch("./wishlist.json")
       .then((res) => res.json())
-      // .then((res) => console.log(res));
-      .then((result) => {
+      .then((res) => {
         this.setState({
-          wishItems: result.result.map((obj) => ({
+          wishItems: res.wish_list.map((obj) => ({
             ...obj,
             isSelected: false,
           })),
@@ -32,13 +25,18 @@ export default class WishList extends Component {
       });
   };
 
-  // 로컬 json 에 연결하는 컴디마
   // componentDidMount = () => {
-  //   fetch("http://localhost:3000/wishlist.json")
+  //   fetch("http://10.58.6.1:8000/user/wishlist", {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization:
+  //         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.BAwk01jYJjCSMdifZqmwPWbLi65xV4usBNGiZ8jScPE",
+  //     },
+  //   })
   //     .then((res) => res.json())
-  //     .then((res) => {
+  //     .then((result) => {
   //       this.setState({
-  //         wishItems: res.wish_list.map((obj) => ({
+  //         wishItems: result.result.map((obj) => ({
   //           ...obj,
   //           isSelected: false,
   //         })),
@@ -76,9 +74,9 @@ export default class WishList extends Component {
     const { wishItems } = this.state;
     let tempTotal = wishItems.reduce((acc, cur) => {
       if (cur.isSelected) {
-        return acc + cur.price * cur.quantity;
+        return Math.ceil(acc + cur.price * cur.quantity);
       } else {
-        return acc;
+        return Math.ceil(acc);
       }
     }, 0);
     this.setState({
@@ -110,6 +108,7 @@ export default class WishList extends Component {
 
   render() {
     const { wishItems, totalPrice } = this.state;
+    console.log(this.state);
 
     return (
       <div className="wishList">
@@ -195,3 +194,5 @@ export default class WishList extends Component {
     );
   }
 }
+
+export default withRouter(WishList);

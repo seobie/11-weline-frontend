@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import ShopListRowItems from "./ShopListRowItems";
 import "./ShopListRow.scss";
 
-export default class ShopListRow extends Component {
+class ShopListRow extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,7 +12,9 @@ export default class ShopListRow extends Component {
   }
 
   componentDidMount = () => {
-    fetch("/shoplistrow.json")
+    fetch("http://10.58.0.44:8000/product/products", {
+      method: "GET",
+    })
       .then((res) => res.json())
       .then((result) => {
         this.setState({
@@ -20,21 +23,9 @@ export default class ShopListRow extends Component {
       });
   };
 
-  // componentDidMount = () => {
-  //   fetch("http://10.58.3.133:8000/product/list", {
-  //     method: "GET",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       this.setState({
-  //         list: result,
-  //       });
-  //     });
-  // };
-
   render() {
     const { list } = this.state;
-
+    console.log(this.props);
     return (
       <div className="shopLists">
         <div className="listHeader">
@@ -55,3 +46,5 @@ export default class ShopListRow extends Component {
     );
   }
 }
+
+export default withRouter(ShopListRow);

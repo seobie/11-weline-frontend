@@ -8,6 +8,7 @@
 
   .categoryTitle {
     @include hassBold;
+    cursor: default;
   }
 }
 

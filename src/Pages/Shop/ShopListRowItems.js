@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import ShopListRowItem from "./ShopListRowItem";
 import "./ShopListRowItems.scss";
 
-export default class ShopListRowItems extends Component {
+class ShopListRowItems extends Component {
   constructor() {
     super();
     this.state = {
@@ -43,11 +43,17 @@ export default class ShopListRowItems extends Component {
         <div className="wholeBox">
           <div className="categoryBox">
             <div className="categoryHeader">
-              <Link to="/shoplist">
-                <h3 className="categoryTitle">
-                  {itemlist !== undefined && Object.keys(itemlist)}
-                </h3>
-              </Link>
+              <h3
+                className="categoryTitle"
+                onClick={() =>
+                  this.props.history.push(
+                    `${this.props.match.params.mainCategory}/${this.props.match.params.category}`
+                  )
+                }
+              >
+                {itemlist !== undefined && Object.keys(itemlist)}
+              </h3>
+
               <Link to="/shoplist">
                 <span>VIEW ALL</span>
               </Link>
@@ -90,3 +96,5 @@ export default class ShopListRowItems extends Component {
     );
   }
 }
+
+export default withRouter(ShopListRowItems);
