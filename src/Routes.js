@@ -7,7 +7,10 @@ import Shop from "./Pages/Shop/Shop";
 import ShopListCol from "./Pages/Shop/ShopListCol";
 import ShopListRow from "./Pages/Shop/ShopListRow";
 import ShopDetails from "./Pages/Shop/ShopDetails";
-import WishList from "./Pages/WishList/CheckOut";
+import WishList from "./Pages/WishList/WishList";
+import Women from "./Pages/Women/Women";
+import Shoes from "./Pages/Women/Shoes";
+import Boots from "./Pages/Women/Boots";
 
 class Routes extends React.Component {
   render() {
@@ -22,6 +25,9 @@ class Routes extends React.Component {
           <Route exact path="/shoplistRow" component={ShopListRow} />
           <Route exact path="/shopdetails" component={ShopDetails} />
           <Route exact path="/wishlist" component={WishList} />
+          <Route exact path="/women" component={Women} />
+          <Route exact path="/women/shoes" component={Shoes} />
+          <Route exact path="/women/shoes/boots" component={Boots} />
         </Switch>
       </Router>
     );
