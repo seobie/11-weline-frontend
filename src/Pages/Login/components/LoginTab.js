@@ -15,23 +15,32 @@ class LoginTab extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+    if (e.target.name === "email" || "password") {
+      this.setState({
+        disabled: false,
+      });
+    }
   };
 
   handleLogin = (e) => {
-    fetch("http://10.58.6.1:8000/user/signin", {
-      method: "POST",
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res === "LOGIN_SUCESS") {
-          localStorage.setItem("wtw-token", res.token);
-          // this.props.history.push("/");
-        }
-      });
+    this.state.email.includes("@" && ".") && this.state.password.length >= 8
+      ? fetch("http://10.58.6.1:8000/user/signin", {
+          method: "POST",
+          body: JSON.stringify({
+            email: this.state.email,
+            password: this.state.password,
+          }),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res.token) {
+              localStorage.setItem("wtw-token", res.token);
+              this.props.history.push("/");
+            } else {
+              alert("비밀번호를 확인해주세요");
+            }
+          })
+      : this.setState({ disabled: true });
   };
 
   render() {

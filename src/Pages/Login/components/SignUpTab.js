@@ -13,8 +13,8 @@ class SignUpTab extends React.Component {
       password: "",
       confirmpw: "",
       nationality: "",
-      is_email_agreed: true,
-      is_policy_agreed: true,
+      is_email_agreed: false,
+      is_policy_agreed: false,
       disabled: false,
     };
   }
@@ -23,16 +23,37 @@ class SignUpTab extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    if (e.target.name === "password" || "confirmpw") {
+    if (e.target.name === "email" || "password" || "confirmpw") {
       this.setState({
         disabled: false,
       });
     }
   };
 
+  handleAgree = (e) => {
+    this.setState({
+      [e.target.name]: false
+        ? this.setState({
+            [e.target.name]: true,
+          })
+        : this.setState({
+            [e.target.name]: false,
+          }),
+    });
+    // this.setState({
+    //   [e.target.name]: true,
+    // });
+    // if (e.target.name === "is_email_agreed" || "is_policy_agreed") {
+    //   this.setState({
+    //     [e.target.name]: false,
+    //   });
+    // }
+  };
+
   handleSignUp = (e) => {
     this.state.password === this.state.confirmpw &&
-    this.state.email.includes("@", ".")
+    this.state.email.includes("@", ".") &&
+    this.state.is_policy_agreed === true
       ? fetch("http://10.58.6.1:8000/user/signup", {
           method: "POST",
           body: JSON.stringify({
@@ -42,8 +63,8 @@ class SignUpTab extends React.Component {
             lastname: this.state.lastname,
             password: this.state.password,
             nationality: this.state.nationality,
-            is_email_agreed: true,
-            is_policy_agreed: true,
+            is_email_agreed: this.state.is_email_agreed,
+            is_policy_agreed: this.state.is_policy_agreed,
           }),
         })
           .then((res) => res.json())
@@ -120,13 +141,23 @@ class SignUpTab extends React.Component {
           </div>
           <div className="agreeCheckBtn">
             <div className="agreeEmail">
-              <input id="agreeEmailInput" type="checkbox" />
+              <input
+                id="agreeEmailInput"
+                name="is_email_agreed"
+                type="checkbox"
+                onClick={this.handleAgree}
+              />
               <label for="agreeEmailInput">
                 YES, I AGREE TO RECEIVE THE CELINE COMMUNICATIONS BY E-MAIL.
               </label>
             </div>
             <div className="agreePolicy">
-              <input id="agreePolicyInput" type="checkbox" />
+              <input
+                id="agreePolicyInput"
+                name="is_policy_agreed"
+                type="checkbox"
+                onClick={this.handleAgree}
+              />
               <label for="agreePolicyInput">
                 I AGREE WITH THE&nbsp;
                 <a
@@ -135,7 +166,7 @@ class SignUpTab extends React.Component {
                 >
                   CONFIDENTIALITY AND DATA PROTECTION POLICY
                 </a>
-                &nbsp;AND
+                &nbsp;AND&nbsp;
                 <span>THE TERMS OF USE</span>.
               </label>
             </div>
