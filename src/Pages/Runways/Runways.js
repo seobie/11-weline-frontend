@@ -5,25 +5,29 @@ import "./Runways.scss";
 export default class Runways extends Component {
   state = {
     runways: [
-      "https://twicpics.celine.com/products/dw115a002c/images/collections_recast/summer2021_men_look_01_01.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dw84104065/images/collections_recast/summer2021_men_look_01_02.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dwd7427098/images/collections_recast/summer2021_men_look_01_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dw55fe313a/images/collections_recast/summer2021_men_look_02_01.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dw84a66a3d/images/collections_recast/summer2021_men_look_02_02.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dw7165591f/images/collections_recast/summer2021_men_look_02_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dw131e9f73/images/collections_recast/summer2021_men_look_02_04.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dw0d0634c8/images/collections_recast/summer2021_men_look_03_01.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dw9dfb3a88/images/collections_recast/summer2021_men_look_03_02.jpg?sw=1333&sh=1998&sm=fit&strip=false",
-      "https://twicpics.celine.com/products/dw37493735/images/collections_recast/summer2021_men_look_03_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw115a002c/images/collections_recast/summer2021_men_look_01_01.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw84104065/images/collections_recast/summer2021_men_look_01_02.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dwd7427098/images/collections_recast/summer2021_men_look_01_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw55fe313a/images/collections_recast/summer2021_men_look_02_01.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw84a66a3d/images/collections_recast/summer2021_men_look_02_02.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw7165591f/images/collections_recast/summer2021_men_look_02_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw131e9f73/images/collections_recast/summer2021_men_look_02_04.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw0d0634c8/images/collections_recast/summer2021_men_look_03_01.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw9dfb3a88/images/collections_recast/summer2021_men_look_03_02.jpg?sw=1333&sh=1998&sm=fit&strip=false",
+      // "https://twicpics.celine.com/products/dw37493735/images/collections_recast/summer2021_men_look_03_03.jpg?sw=1333&sh=1998&sm=fit&strip=false",
     ],
     numberOfItems: 1,
   };
 
-  componentDidMount() {
-    fetch("api주소")
+  componentDidMount = () => {
+    fetch("http://10.58.0.44:8000/product/runway")
       .then((res) => res.json())
-      .then((res) => this.setState({ runways: res }));
-  }
+      .then((res) => {
+        this.setState({
+          runways: res.list,
+        });
+      });
+  };
 
   handleScroll = (e) => {
     this.setState({
