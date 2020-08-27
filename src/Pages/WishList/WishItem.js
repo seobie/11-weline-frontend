@@ -1,23 +1,16 @@
-/** @format */
-
 import React, { Component } from "react";
 
 export default class WishItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
-    console.log("child render");
     const {
       list,
+      key,
       id,
+      price,
       name,
       img,
-      price,
-      selectedItems,
-      selectedObj,
+      quantity,
+      isSelected,
     } = this.props;
 
     return (
@@ -36,23 +29,15 @@ export default class WishItem extends Component {
                 <div>{list.option}</div>
                 <div className="quantity">
                   <div>QUANTITY :</div>
-                  <button
-                    className="quantityButton"
-                    // onClick={console.log(
-                    //   "this.props.list.quantity>>",
-                    //   this.props.list.quantity
-                    // )}
-                  >
-                    -
-                  </button>
-                  <div> 1 </div>
-                  <button className="quantityButton"> + </button>
+                  <button className="quantityButton">-</button>
+                  <div>{quantity}</div>
+                  <button className="quantityButton">+</button>
                 </div>
               </div>
               <div className="priceBox">
                 <div className="itemPrice">{`${price.toLocaleString()} USD`}</div>
                 <button
-                  onClick={() => this.props.methods.removeItem(id)}
+                  onClick={() => this.props.removeItem(id)}
                   className="remove"
                 >
                   REMOVE
@@ -62,15 +47,10 @@ export default class WishItem extends Component {
             <div className="checkboxContainer">
               <div
                 onClick={() => {
-                  this.props.methods.handleSelect(id);
-                  selectedObj.selected
-                    ? (selectedObj.selected = false)
-                    : (selectedObj.selected = true);
+                  this.props.selectHandler(id);
                 }}
                 className={
-                  selectedObj.id === id && selectedObj.selected
-                    ? "checkArea checkboxOn"
-                    : "checkArea checkboxOff"
+                  isSelected ? "checkArea checkboxOn" : "checkArea checkboxOff"
                 }
               >
                 <div>

@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from "react";
 import ShopListRowItems from "./ShopListRowItems";
 import "./ShopListRow.scss";
@@ -37,12 +35,6 @@ export default class ShopListRow extends Component {
 
   render() {
     const { list } = this.state;
-    console.log("parent render");
-    console.log(list !== undefined && list["item_list"]);
-    console.log(list["item_list"] && Object.keys(list));
-    console.log(
-      list["item_list"] !== undefined && Object.keys(list["item_list"][0])
-    );
 
     return (
       <div className="shopLists">

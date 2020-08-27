@@ -1,6 +1,6 @@
-/** @format */
 import React, { Component } from "react";
 import ShopListRowItem from "./ShopListRowItem";
+import "./ShopListRowItems.scss";
 
 export default class ShopListRowItems extends Component {
   constructor() {
@@ -36,8 +36,7 @@ export default class ShopListRowItems extends Component {
   };
 
   render() {
-    console.log("child render");
-    console.log(this.ulRef);
+    const { itemlist } = this.props;
     return (
       <div className="shopListRowItems">
         <div className="wholeBox">
@@ -45,8 +44,7 @@ export default class ShopListRowItems extends Component {
             <div className="categoryHeader">
               <a>
                 <h3 className="categoryTitle">
-                  {this.props.itemlist !== undefined &&
-                    Object.keys(this.props.itemlist)}
+                  {itemlist !== undefined && Object.keys(itemlist)}
                 </h3>
               </a>
               <a>
@@ -71,24 +69,18 @@ export default class ShopListRowItems extends Component {
                 onMouseLeave={this.changMouseState}
               ></div>
               <ul className="itemlist" ref={this.ulRef}>
-                {this.props.itemlist[Object.keys(this.props.itemlist)[0]] &&
-                  this.props.itemlist[Object.keys(this.props.itemlist)[0]].map(
-                    (item, idx) => {
-                      return <ShopListRowItem key={idx} item={item} />;
-                    }
-                  )}
-                {this.props.itemlist[Object.keys(this.props.itemlist)[1]] &&
-                  this.props.itemlist[Object.keys(this.props.itemlist)[1]].map(
-                    (item, idx) => {
-                      return <ShopListRowItem key={idx} item={item} />;
-                    }
-                  )}
-                {this.props.itemlist[Object.keys(this.props.itemlist)[2]] &&
-                  this.props.itemlist[Object.keys(this.props.itemlist)[2]].map(
-                    (item, idx) => {
-                      return <ShopListRowItem key={idx} item={item} />;
-                    }
-                  )}
+                {itemlist[Object.keys(itemlist)[0]] &&
+                  itemlist[Object.keys(itemlist)[0]].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
+                {itemlist[Object.keys(itemlist)[1]] &&
+                  itemlist[Object.keys(itemlist)[1]].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
+                {itemlist[Object.keys(itemlist)[2]] &&
+                  itemlist[Object.keys(itemlist)[2]].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
               </ul>
             </div>
           </div>
