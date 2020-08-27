@@ -8,16 +8,17 @@ class FirstSubMenu extends Component {
 
     return (
       <ul className={searchActive ? "invisible" : "FirstSubMenu"}>
-        {Object.keys(MenuData[`celine ${firstSubMenu[1]}`]).map((key) => (
-          <li key={key}>
-            <NavLink
-              to={`/${firstSubMenu[1]}/${key}`}
-              activeStyle={{ fontWeight: "bold" }}
-            >
-              {key}
-            </NavLink>
-          </li>
-        ))}
+        {MenuData[`celine ${firstSubMenu[1]}`] &&
+          Object.keys(MenuData[`celine ${firstSubMenu[1]}`]).map((key) => (
+            <li key={key}>
+              <NavLink
+                to={`/${firstSubMenu[1]}/${key}`}
+                activeStyle={{ fontWeight: "bold" }}
+              >
+                {key}
+              </NavLink>
+            </li>
+          ))}
       </ul>
     );
   }
