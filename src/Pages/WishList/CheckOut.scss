@@ -1,0 +1,22 @@
+.CheckOut {
+  width: 761px;
+  height: 100%;
+
+  .none {
+    display: none;
+  }
+
+  .nameTab {
+    width: 308px;
+  }
+
+  .largeTab {
+    display: flex;
+    padding-bottom: 40px;
+  }
+
+  .mainTabNone,
+  .editDateNone {
+    display: none;
+  }
+}

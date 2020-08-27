@@ -1,0 +1,123 @@
+.Payment {
+  width: 452px;
+  font-size: 10px;
+  margin-top: -22px;
+
+  .placeholderContainor,
+  .placeholderContainorhalf {
+    position: relative;
+    display: flex;
+    justify-self: start;
+    align-items: flex-end;
+
+    input {
+      position: absolute;
+      border: 0;
+      width: 100%;
+      border-bottom: 1px solid black;
+      padding-top: 30px;
+      background: transparent;
+    }
+
+    p {
+      height: 27px;
+      padding-bottom: 3px;
+      color: #9a9a9a;
+    }
+  }
+
+  .placeholderContainor {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+  }
+
+  .placeholderContainorhalf {
+    display: inline-block;
+    height: 40px;
+    width: 48%;
+    p {
+      padding-top: 20px;
+    }
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input {
+    &::placeholder {
+      font-size: 10px;
+      color: white;
+      opacity: 0;
+    }
+  }
+
+  .inputFocusOut {
+    border-bottom: 1px solid #ff0000;
+    &::placeholder {
+      font-size: 10px;
+      color: #ff0000;
+      opacity: 1;
+    }
+    &:focus {
+      border-bottom: 1px solid black;
+      &::placeholder {
+        color: white;
+        opacity: 0;
+      }
+    }
+  }
+
+  .half {
+    display: inline-block;
+    width: 4%;
+  }
+
+  .address,
+  .agree {
+    display: flex;
+    margin-top: 20px;
+  }
+  .address {
+    h3 {
+      font-weight: 800;
+    }
+
+    label {
+      position: relative;
+      top: 1px;
+      line-height: 13px;
+    }
+  }
+  .agree {
+    label {
+      position: relative;
+      top: 5.5px;
+    }
+    a {
+      color: black;
+      border-bottom: 1px solid black;
+
+      &:hover {
+        font-weight: 800;
+      }
+    }
+  }
+  .purchase {
+    width: 100%;
+    height: 40px;
+    font-size: 10px;
+    color: white;
+    margin-top: 50px;
+    background-color: black;
+
+    &:disabled {
+      border: 1px solid black;
+      color: black;
+      background-color: white;
+    }
+  }
+}
