@@ -1,15 +1,17 @@
 @import "../../Styles/common.scss";
 
 .Nav {
+  z-index: 1;
   position: sticky;
   display: flex;
   flex-direction: column;
-  bottom: -148px;
+  bottom: -9.0625rem;
   justify-content: space-between;
   padding: 16px 27px 0;
   background-color: white;
 
   .searchResult {
+    z-index: 0;
     display: flex;
     position: fixed;
     top: 0;
@@ -31,6 +33,21 @@
       width: calc(100% - 12.875rem);
       padding: 0 0.3125rem;
 
+      .noResult {
+        display: flex;
+
+        img {
+          width: 50%;
+        }
+
+        h1 {
+          margin: 18vh calc(10rem / 16);
+          padding: 0 0.625rem;
+          font-weight: 700;
+          font-size: calc(13rem / 16);
+        }
+      }
+
       ul {
         display: flex;
         flex-wrap: wrap;
@@ -41,12 +58,13 @@
   .upper {
     display: flex;
     overflow: hidden;
+    background-color: white;
 
     .leftContainer {
       position: relative;
       display: flex;
       height: 149px;
-      width: auto;
+      width: 100%;
 
       .logo {
         width: 12.875rem;
@@ -58,11 +76,15 @@
 
       .navContainer {
         display: flex;
+        width: calc(100% - 206px);
+
         ul {
           width: 220px;
+
           li {
             a {
               color: black;
+
               &:hover {
                 font-weight: 600;
               }
@@ -75,80 +97,96 @@
         }
 
         .searchInputActive {
-          position: absolute;
-          width: 85vw;
+          position: relative;
+          width: 100%;
           display: flex;
           justify-content: space-between;
           height: 15px;
           border-bottom: 1px solid;
-          animation: rightToLeft 0.5s ease;
+          animation: rightToLeft 0.3s ease;
+
           input {
-            padding: 1px 2px 0 0;
+            position: relative;
+            right: 0;
             width: 100%;
             border: 0;
           }
+
           button {
-            position: fixed;
-            bottom: 11.5%;
-            right: 2%;
+            position: relative;
+            right: 0;
           }
         }
 
-        .Menu1 li {
+        .FirstSubMenu li {
           animation: menuFade 1s ease-in both;
           opacity: 0;
 
           &:nth-of-type(1) {
             animation-delay: 0.15s;
           }
+
           &:nth-of-type(2) {
             animation-delay: 0.3s;
           }
+
           &:nth-of-type(3) {
             animation-delay: 0.45s;
           }
+
           &:nth-of-type(4) {
             animation-delay: 0.6s;
           }
+
           &:nth-of-type(5) {
             animation-delay: 0.75s;
           }
+
           &:nth-of-type(6) {
             animation-delay: 0.9s;
           }
+
           &:nth-of-type(7) {
             animation-delay: 1.05s;
           }
+
           &:nth-of-type(8) {
             animation-delay: 1.2s;
           }
         }
 
-        .Menu2 li {
+        .SecondSubMenu li {
           animation: menuFade 1s ease-in both;
           opacity: 0;
 
           &:nth-of-type(1) {
             animation-delay: 0.6s;
           }
+
           &:nth-of-type(2) {
             animation-delay: 0.75s;
           }
+
           &:nth-of-type(3) {
             animation-delay: 0.9s;
           }
+
           &:nth-of-type(4) {
             animation-delay: 1.05s;
           }
+
           &:nth-of-type(5) {
             animation-delay: 1.2s;
           }
+
           &:nth-of-type(6) {
             animation-delay: 1.35s;
           }
+
           &:nth-of-type(7) {
             animation-delay: 1.5s;
           }
+
           &:nth-of-type(8) {
             animation-delay: 1.65s;
           }
@@ -159,7 +197,9 @@
     .rightContainer {
       position: relative;
       text-align: end;
+      width: calc((100% / 7) - (10rem / 16));
       margin-left: auto;
+
       div button {
         padding: 0;
       }
@@ -211,11 +251,11 @@
 
   @keyframes rightToLeft {
     from {
-      left: 1500%;
+      transform: translateX(100%);
       opacity: 0;
     }
     to {
-      left: 100%;
+      transform: translateX(0);
       opacity: 1;
     }
   }
