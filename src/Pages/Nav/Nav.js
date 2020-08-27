@@ -4,6 +4,7 @@ import MenuData from "./MenuData";
 import FirstSubMenu from "./FirstSubMenu";
 import SecondSubMenu from "./SecondSubMenu";
 import SearchResultItem from "./SearchResultItem";
+import config from "../../config";
 import "./Nav.scss";
 
 class Nav extends Component {
@@ -17,14 +18,6 @@ class Nav extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch("http://10.58.0.44:8000/product/products?q=F")
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       this.setState({ items: res });
-  //     });
-  // }
-
   handleInput = (e) => {
     this.setState(
       {
@@ -32,9 +25,7 @@ class Nav extends Component {
         searchResult: e.target.value,
       },
       () => {
-        fetch(
-          `http://10.58.0.44:8000/product/products?q=${this.state.searchInput}`
-        )
+        fetch(`${config.search}/product/products?q=${this.state.searchInput}`)
           .then((res) => res.json())
           .then((res) => {
             this.setState({ items: res });
@@ -51,13 +42,8 @@ class Nav extends Component {
     const getPathName = window.location.pathname.split("/");
     const pathName = getPathName.slice(1);
     const [mainMenu, subMenu] = pathName;
-    const { searchActive, searchResult, searchInput, items } = this.state;
+    const { searchActive, searchResult, items } = this.state;
     const { handleSearch, handleInput } = this;
-    // const filtered =
-    //   items.products &&
-    //   items.products.filter((el) =>
-    //     el.name.toLowerCase().includes(searchInput.toLowerCase())
-    //   );
     const filtered = items.products;
 
     return (
