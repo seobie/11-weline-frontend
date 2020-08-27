@@ -1,5 +1,11 @@
 * {
   box-sizing: border-box;
+  font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
+  font-size: calc(10rem / 16);
+  line-height: calc(13rem / 16);
+  letter-spacing: calc(0.3rem / 16);
+  font-weight: 400;
+  text-transform: uppercase;
 }
 *:focus {
   outline: none;

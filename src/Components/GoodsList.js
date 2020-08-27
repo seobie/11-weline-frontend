@@ -4,18 +4,21 @@ import "./GoodsList.scss";
 
 class GoodsList extends React.Component {
   render() {
+    const { hoverHandler, mouseOver, products } = this.props;
     return (
       <article className="GoodsList">
         <ul>
-          {this.props.Goods.map((goods) => (
-            <li className={goods.category}>
-              {goods.List.map((list, idx) => (
+          {products.map((products) => (
+            <li className={products.subcategory}>
+              {products.list.map((list, idx) => (
                 <Goods
-                  href={list.href}
-                  src={this.props.mouseover ? list.src : list.src2}
+                  url={list.url}
+                  src={list.img[1]}
+                  src2={list.img[0]}
                   name={list.name}
-                  new={list.new}
-                  mouseover={this.props.mouseover}
+                  is_new={list.checkNew}
+                  mouseOver={mouseOver}
+                  hoverHandler={(url) => hoverHandler(url)}
                   key={idx}
                 />
               ))}
