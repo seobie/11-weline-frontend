@@ -12,7 +12,7 @@ class Shop extends React.Component {
   }
 
   componentDidMount = () => {
-    fetch("Data/MockData/accordion.json")
+    fetch("Data/MockData/accordian.json")
       .then((response) => response.json())
       .then(({ accordion }) => this.setState({ accordion }));
   };
