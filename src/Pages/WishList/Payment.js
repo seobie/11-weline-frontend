@@ -24,6 +24,10 @@ class Payment extends React.Component {
     }
   };
 
+  purchaseHandler = () => {
+    alert("결제가 완료되었습니다.");
+  };
+
   render() {
     const { btnClick, payment, paymentHandler } = this.props;
     const { isCheck, isChange } = this.state;
@@ -125,6 +129,7 @@ class Payment extends React.Component {
             payment.cardNumber.length < 16 ||
             payment.securityCode.length < 3
           }
+          onClick={this.purchaseHandler}
         >
           PURCHASE
         </button>
