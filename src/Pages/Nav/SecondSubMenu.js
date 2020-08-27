@@ -10,7 +10,6 @@ class SecondSubMenu extends Component {
     const subCategoryObj =
       MenuData[`celine ${category}`] &&
       MenuData[`celine ${category}`][subCategory.replace(/-/gi, " ")];
-    console.log(subCategory);
 
     return (
       <ul className={searchActive ? "invisible" : "SecondSubMenu"}>

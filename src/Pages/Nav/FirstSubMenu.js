@@ -7,7 +7,6 @@ class FirstSubMenu extends Component {
     const { searchActive, firstSubMenu } = this.props;
     return (
       <ul className={searchActive ? "invisible" : "FirstSubMenu"}>
-<<<<<<< HEAD
         {MenuData[`celine ${firstSubMenu[1].replace(/-/gi, " ")}`] &&
           Object.keys(
             MenuData[`celine ${firstSubMenu[1].replace(/-/gi, " ")}`]
@@ -15,13 +14,6 @@ class FirstSubMenu extends Component {
             <li key={key}>
               <NavLink
                 to={`/${firstSubMenu[1]}/${key.replace(/ /gi, "-")}`}
-=======
-        {MenuData[`celine ${firstSubMenu[1]}`] &&
-          Object.keys(MenuData[`celine ${firstSubMenu[1]}`]).map((key) => (
-            <li key={key}>
-              <NavLink
-                to={`/${firstSubMenu[1]}/${key}`}
->>>>>>> master
                 activeStyle={{ fontWeight: "bold" }}
               >
                 {key}

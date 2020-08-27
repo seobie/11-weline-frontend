@@ -21,7 +21,7 @@ class Routes extends React.Component {
           <Route exact path="/" component={Main} />
           <Route
             exact
-            path="/:title/:mainCategory/:category"
+            path="/:title/:mainCategory/runway-looks"
             component={Runways}
           />
 
