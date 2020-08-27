@@ -7,7 +7,7 @@ import Shop from "./Pages/Shop/Shop";
 import ShopListCol from "./Pages/Shop/ShopListCol";
 import ShopListRow from "./Pages/Shop/ShopListRow";
 import ShopDetails from "./Pages/Shop/ShopDetails";
-import WishList from "./Pages/WishList/CheckOut";
+import WishList from "./Pages/WishList/WishList";
 
 class Routes extends React.Component {
   render() {
