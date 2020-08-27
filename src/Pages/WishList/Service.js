@@ -10,7 +10,7 @@ class Service extends React.Component {
         <label htmlFor="isGift">IS THIS A GIFT?</label>
         <br />
         <input type="text" />
-        <button name="Payment" onClick={(btnClick) => visibleHandler(btnClick)}>
+        <button name="Payment" onClick={visibleHandler}>
           CONTINUE
         </button>
       </div>

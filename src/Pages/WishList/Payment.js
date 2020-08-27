@@ -8,8 +8,9 @@ class Payment extends React.Component {
   }
 
   limitLength = (e) => {
-    if (e.target.value.length > e.target.maxLength) {
-      e.target.value = e.target.value.slice(0, e.target.maxLength);
+    let { value, maxLength } = e.target;
+    if (value.length > maxLength) {
+      value = value.slice(0, maxLength);
     }
   };
 
@@ -38,7 +39,7 @@ class Payment extends React.Component {
             name="nameOfCard"
             placeholder="THIS FIELD IS REQUIRED."
             onChange={this.placeholderHandler}
-            onKeyUp={(e) => paymentHandler(e)}
+            onKeyUp={paymentHandler}
           />
           <p>NAME OF CARD</p>
         </div>
@@ -54,8 +55,8 @@ class Payment extends React.Component {
             maxLength="16"
             placeholder="THIS FIELD IS REQUIRED."
             onChange={this.placeholderHandler}
-            onInput={(e) => this.limitLength(e)}
-            onKeyUp={(e) => paymentHandler(e)}
+            onInput={this.limitLength}
+            onKeyUp={paymentHandler}
           />
           <p>CARD NUMBER</p>
         </div>
@@ -71,8 +72,8 @@ class Payment extends React.Component {
             maxLength="4"
             placeholder="THIS FIELD IS REQUIRED."
             onChange={this.placeholderHandler}
-            onInput={(e) => this.limitLength(e)}
-            onKeyUp={(e) => paymentHandler(e)}
+            onInput={this.limitLength}
+            onKeyUp={paymentHandler}
           />
           <p>EXP DATE</p>
         </div>
@@ -89,8 +90,8 @@ class Payment extends React.Component {
             maxLength="3"
             placeholder="THIS FIELD IS REQUIRED."
             onChange={this.placeholderHandler}
-            onInput={(e) => this.limitLength(e)}
-            onKeyUp={(e) => paymentHandler(e)}
+            onInput={this.limitLength}
+            onKeyUp={paymentHandler}
           />
           <p>SECURITY CODE</p>
         </div>

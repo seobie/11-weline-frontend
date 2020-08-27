@@ -113,7 +113,7 @@ class CheckOut extends React.Component {
             <Payment
               payment={payment}
               btnClick={btnClick}
-              paymentHandler={(e) => this.paymentHandler(e)}
+              paymentHandler={this.paymentHandler}
             />
           </div>
         </div>
