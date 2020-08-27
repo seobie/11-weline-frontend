@@ -1,5 +1,7 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import GoodsList from "../../Components/GoodsList";
+import config from "../../config";
 import "./ShopListCol.scss";
 
 class ShopListCol extends React.Component {
@@ -14,7 +16,9 @@ class ShopListCol extends React.Component {
 
   componentDidMount = () => {
     fetch(
-      `http://10.58.0.44:8000/product/categories?q=${this.props.match.params.category}`
+      `${
+        config.API
+      }/product/categories?q=${this.props.match.params.category.toUpperCase()}`
     )
       .then((response) => response.json())
       .then((response) => this.setState(response));
@@ -34,7 +38,6 @@ class ShopListCol extends React.Component {
 
   render() {
     let { item_list, mouseOver } = this.state;
-    console.log(this.state);
     return (
       <div className="ShopListCol">
         <aside></aside>
@@ -68,4 +71,4 @@ class ShopListCol extends React.Component {
   }
 }
 
-export default ShopListCol;
+export default withRouter(ShopListCol);

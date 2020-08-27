@@ -8,8 +8,8 @@ class GoodsList extends React.Component {
     return (
       <article className="GoodsList">
         <ul>
-          {products.map((products) => (
-            <li className={products.subcategory}>
+          {products.map((products, idx) => (
+            <li key={idx} className={products.subcategory}>
               {products.list.map((list, idx) => (
                 <Goods
                   url={list.url}
