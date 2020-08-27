@@ -12,10 +12,11 @@ const ShopDetailsData = {
   description:
     "80% LAMBSKIN 20% CALFSKIN\n1.8 IN (45 MM) HEEL\nDOUBLE-FACED LAMB SHEARLING PATCHWORK AND CALFSKIN\nELONGATED ALMOND TOE SHAPE\nLARGE TUBULAR UPPER\nMEN'S SHOE INSPIRED LARGE WELT\nSLIP ON\nLEATHER INSOLE\nMONOBLOCK OUTSOLE WITH LEATHER AND TEXTURED RUBBER\nREFERENCE : 340043458C.02BG",
   price: "546.00",
-  color_name: ["BEIGE", "black"],
-  color_img: [
+  color_names: ["BEIGE", "black", "HAVANA"],
+  color_imgs: [
     "https://www.celine.com/on/demandware.static/-/Sites-masterCatalog/default/dwb87bd110/images/swatch/02BG.jpg",
     "https://www.celine.com/on/demandware.static/-/Sites-masterCatalog/default/dw8085d246/images/swatch/38NO.jpg",
+    "https://www.celine.com/on/demandware.static/-/Sites-masterCatalog/default/dwa7a9d9f4/images/swatch/19TO.jpg",
   ],
   sizes: [34, 35, 36, 37, 38, 39, 40, 41, 42, "sizes guide"],
   recentlyViewed: {

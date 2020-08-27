@@ -95,7 +95,7 @@ class Nav extends Component {
                 {Object.keys(MenuData).map((key) => (
                   <li key={key}>
                     <NavLink
-                      to={`/${key.slice(7)}`}
+                      to={`/${key.slice(7).replace(/ /gi, "-")}`}
                       activeStyle={{
                         fontWeight: "bold",
                       }}

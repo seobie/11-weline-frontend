@@ -1,0 +1,59 @@
+@import "../../Styles/common.scss";
+@import "../../Styles/reset.scss";
+
+.loginTab {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .loginInput {
+    font-family: HaasGrot-roman, Arial, sans-serif;
+    font-size: 11px;
+    color: #767676;
+    text-overflow: ellipsis;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+
+    div {
+      position: relative;
+
+      input {
+        border: none; //상위 태그에서 지정하면 왜 안돼?
+        border-bottom: calc(1rem / 16) solid #000;
+        font-size: 11px;
+        padding-top: 22px;
+        //height: 24px;
+        padding-right: 150px;
+        letter-spacing: 1px;
+        width: 100%;
+        box-sizing: border-box;
+        //cursor: text;
+      }
+      label {
+        position: absolute;
+        top: 10px;
+      }
+    }
+  }
+  .btnCheckbox {
+    width: 100%;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+
+    label {
+      font-size: 11px;
+      padding-top: 24px;
+      cursor: pointer;
+    }
+    .forgetPw {
+      font-size: 11px;
+    }
+  }
+  .submitBtn {
+    color: #000;
+    font-size: 11px;
+  }
+}

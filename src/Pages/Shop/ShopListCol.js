@@ -13,7 +13,9 @@ class ShopListCol extends React.Component {
   }
 
   componentDidMount = () => {
-    fetch("http://10.58.3.133:8000/product/categorylist/BOOTS")
+    fetch(
+      `http://10.58.0.44:8000/product/categories?q=${this.props.match.params.category}`
+    )
       .then((response) => response.json())
       .then((response) => this.setState(response));
   };
