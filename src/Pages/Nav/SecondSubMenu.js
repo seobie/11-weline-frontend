@@ -7,7 +7,10 @@ class SecondSubMenu extends Component {
     const { secondSubMenu, searchActive } = this.props;
     const subMenu = secondSubMenu.slice(1);
     const [category, subCategory] = subMenu;
-    const subCategoryObj = MenuData[`celine ${category}`][subCategory];
+    const subCategoryObj =
+      MenuData[`celine ${category}`] &&
+      MenuData[`celine ${category}`][subCategory.replace(/-/gi, " ")];
+    console.log(subCategory);
 
     return (
       <ul className={searchActive ? "invisible" : "SecondSubMenu"}>
@@ -15,7 +18,10 @@ class SecondSubMenu extends Component {
           Object.keys(subCategoryObj).map((key) => (
             <li key={key}>
               <NavLink
-                to={`/${category}/${subCategory}/${subCategoryObj[key]}`}
+                to={`/${category}/${subCategory}/${subCategoryObj[key].replace(
+                  / /gi,
+                  "-"
+                )}`}
                 activeStyle={{ fontWeight: "bold" }}
               >
                 {subCategoryObj[key]}

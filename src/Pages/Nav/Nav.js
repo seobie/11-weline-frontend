@@ -45,6 +45,7 @@ class Nav extends Component {
     const { searchActive, searchResult, items } = this.state;
     const { handleSearch, handleInput } = this;
     const filtered = items.products;
+    console.log(pathName);
 
     return (
       <nav className="Nav">
