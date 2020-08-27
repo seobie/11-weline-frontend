@@ -22,7 +22,7 @@ class Routes extends React.Component {
           <Route exact path="/runways" component={Runways} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/shoplist/:category" component={ShopListCol} />
-          <Route exact path="/shoplistRow/:id" component={ShopListRow} />
+          <Route exact path="/shoplistRow" component={ShopListRow} />
           <Route exact path="/shopdetails" component={ShopDetails} />
           <Route exact path="/wishlist" component={WishList} />
           <Route exact path="/women" component={Women} />

@@ -11,9 +11,7 @@ export default class ShopListRow extends Component {
   }
 
   componentDidMount = () => {
-    fetch("http://10.58.3.133:8000/product/list", {
-      method: "GET",
-    })
+    fetch("/shoplistrow.json")
       .then((res) => res.json())
       .then((result) => {
         this.setState({
@@ -21,6 +19,18 @@ export default class ShopListRow extends Component {
         });
       });
   };
+
+  // componentDidMount = () => {
+  //   fetch("http://10.58.3.133:8000/product/list", {
+  //     method: "GET",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       this.setState({
+  //         list: result,
+  //       });
+  //     });
+  // };
 
   render() {
     const { list } = this.state;
