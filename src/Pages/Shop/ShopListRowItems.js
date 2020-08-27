@@ -1,6 +1,6 @@
-/** @format */
 import React, { Component } from "react";
 import ShopListRowItem from "./ShopListRowItem";
+import "./ShopListRowItems.scss";
 
 export default class ShopListRowItems extends Component {
   constructor() {
@@ -13,7 +13,7 @@ export default class ShopListRowItems extends Component {
 
   autoScrollRight = () => {
     const intervalScroll = setInterval(() => {
-      this.ulRef.current.scrollLeft += 2;
+      this.ulRef.current.scrollLeft += 3;
       if (!this.state.isMouseOn) {
         clearInterval(intervalScroll);
       }
@@ -22,7 +22,7 @@ export default class ShopListRowItems extends Component {
 
   autoScrollLeft = () => {
     const intervalScroll = setInterval(() => {
-      this.ulRef.current.scrollLeft -= 2;
+      this.ulRef.current.scrollLeft -= 3;
       if (!this.state.isMouseOn) {
         clearInterval(intervalScroll);
       }
@@ -36,13 +36,16 @@ export default class ShopListRowItems extends Component {
   };
 
   render() {
+    const { itemlist } = this.props;
     return (
       <div className="shopListRowItems">
         <div className="wholeBox">
           <div className="categoryBox">
             <div className="categoryHeader">
               <a>
-                <h3 className="categoryTitle">{this.props.itemList.title}</h3>
+                <h3 className="categoryTitle">
+                  {itemlist !== undefined && Object.keys(itemlist)}
+                </h3>
               </a>
               <a>
                 <span>VIEW ALL</span>
@@ -65,10 +68,19 @@ export default class ShopListRowItems extends Component {
                 }}
                 onMouseLeave={this.changMouseState}
               ></div>
-              <ul className="itemList" ref={this.ulRef}>
-                {this.props.itemList.list.map((el) => {
-                  return <ShopListRowItem item={el} />;
-                })}
+              <ul className="itemlist" ref={this.ulRef}>
+                {itemlist[Object.keys(itemlist)[0]] &&
+                  itemlist[Object.keys(itemlist)[0]].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
+                {itemlist[Object.keys(itemlist)[1]] &&
+                  itemlist[Object.keys(itemlist)[1]].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
+                {itemlist[Object.keys(itemlist)[2]] &&
+                  itemlist[Object.keys(itemlist)[2]].map((item, idx) => {
+                    return <ShopListRowItem key={idx} item={item} />;
+                  })}
               </ul>
             </div>
           </div>
