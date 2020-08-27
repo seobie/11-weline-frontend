@@ -1,18 +1,18 @@
+@import "../../Styles/common.scss";
+
 .Login {
   display: flex;
   align-content: center;
   justify-content: center;
-  // height: 100vh;
 
   .loginContainer {
     * {
       font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
     }
     width: 491.922px;
-    // position: relative;
+
     .menuTabs {
       display: flex;
-      // position: absolute;
       justify-content: center;
       justify-content: space-between;
 

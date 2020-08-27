@@ -20,62 +20,78 @@ class SignUpTab extends React.Component {
   }
 
   handleSignUpInfo = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-    if (e.target.name === "email" || "password" || "confirmpw") {
+    const { name, value } = e.target;
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => this.checkValidation()
+    );
+  };
+
+  handleAgree = (e) => {
+    const { name } = e.target;
+    if (name === "is_email_agreed") {
+      this.setState(
+        {
+          is_email_agreed: !this.state.is_email_agreed,
+        },
+        () => this.checkValidation()
+      );
+    } else if (name === "is_policy_agreed") {
+      this.setState(
+        {
+          is_policy_agreed: !this.state.is_policy_agreed,
+        },
+        () => this.checkValidation()
+      );
+    }
+  };
+
+  checkValidation = () => {
+    const { email, password, confirmpw, is_policy_agreed } = this.state;
+    const isValid = email && password === confirmpw && is_policy_agreed;
+
+    if (isValid) {
       this.setState({
         disabled: false,
       });
     }
   };
 
-  handleAgree = (e) => {
-    this.setState({
-      [e.target.name]: false
-        ? this.setState({
-            [e.target.name]: true,
-          })
-        : this.setState({
-            [e.target.name]: false,
-          }),
-    });
-    // this.setState({
-    //   [e.target.name]: true,
-    // });
-    // if (e.target.name === "is_email_agreed" || "is_policy_agreed") {
-    //   this.setState({
-    //     [e.target.name]: false,
-    //   });
-    // }
+  sendData = () => {
+    fetch("http://10.58.6.1:8000/user/signup", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.email,
+        title: this.state.title,
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        password: this.state.password,
+        nationality: this.state.nationality,
+        is_email_agreed: this.state.is_email_agreed,
+        is_policy_agreed: this.state.is_policy_agreed,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.message === "SIGN_UP_SUCCESS") {
+          this.props.history.push("/");
+          console.log("res", res);
+        }
+      });
   };
 
   handleSignUp = (e) => {
     this.state.password === this.state.confirmpw &&
     this.state.email.includes("@", ".") &&
-    this.state.is_policy_agreed === true
-      ? fetch("http://10.58.6.1:8000/user/signup", {
-          method: "POST",
-          body: JSON.stringify({
-            email: this.state.email,
-            title: this.state.title,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            password: this.state.password,
-            nationality: this.state.nationality,
-            is_email_agreed: this.state.is_email_agreed,
-            is_policy_agreed: this.state.is_policy_agreed,
-          }),
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            if (res === "SIGN_UP_SUCCESS") {
-              this.props.history.push("/");
-            }
-          })
+    this.state.is_policy_agreed
+      ? this.sendData()
       : this.setState({ disabled: true });
   };
+
   render() {
+    console.log(this.state);
     return (
       <div className="SignUpTab">
         <div className="signUpTabContainer">
