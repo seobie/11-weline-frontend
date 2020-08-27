@@ -10,7 +10,7 @@ class Payment extends React.Component {
   limitLength = (e) => {
     let { value, maxLength } = e.target;
     if (value.length > maxLength) {
-      value = value.slice(0, maxLength);
+      e.target.value = value.slice(0, maxLength);
     }
   };
 
@@ -23,6 +23,7 @@ class Payment extends React.Component {
       this.setState({ isChange: [...this.state.isChange, e.target.name] });
     }
   };
+
   render() {
     const { btnClick, payment, paymentHandler } = this.props;
     const { isCheck, isChange } = this.state;
@@ -58,7 +59,7 @@ class Payment extends React.Component {
             onInput={this.limitLength}
             onKeyUp={paymentHandler}
           />
-          <p>CARD NUMBER</p>
+          <p>NUMBER</p>
         </div>
         <div className="placeholderContainorhalf">
           <input
@@ -115,7 +116,16 @@ class Payment extends React.Component {
             </p>
           </label>
         </div>
-        <button className="purchase" disabled={isCheck}>
+        <button
+          className="purchase"
+          disabled={
+            isCheck ||
+            !payment.expDate ||
+            !payment.nameOfCard ||
+            payment.cardNumber.length < 16 ||
+            payment.securityCode.length < 3
+          }
+        >
           PURCHASE
         </button>
       </div>

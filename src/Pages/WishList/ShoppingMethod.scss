@@ -1,11 +1,6 @@
 .ShoppingMethod {
   font-size: 10px;
   width: 452px;
-
-  button {
-    font-size: 10px;
-  }
-
   input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -16,41 +11,88 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid black;
-    margin: 0 3px;
+    margin: 15px 3px 0 3px;
+    button {
+      &:hover {
+        font-weight: 800;
+      }
+    }
   }
 
   .shipToAdress {
-    .title {
-      width: 145px;
+    .half {
+      display: inline-block;
+      width: 4%;
     }
 
-    .contryCode {
-      width: 222px;
+    .placeholderContainor,
+    .placeholderContainorhalf {
+      position: relative;
+      display: flex;
+      justify-self: start;
+      align-items: flex-end;
+      height: 50px;
+      background: transparent;
+
+      select,
+      input {
+        position: absolute;
+        border: 0;
+        width: 100%;
+        border-bottom: 1px solid black;
+        padding-top: 30px;
+        background: transparent;
+      }
+
+      select {
+        bottom: 3px;
+        font-size: 10px;
+      }
+
+      p {
+        height: 27px;
+        padding-bottom: 3px;
+        color: #9a9a9a;
+      }
+
+      .inputFocusOut {
+        border-bottom: 1px solid #ff0000;
+        &::placeholder {
+          font-size: 10px;
+          color: #ff0000;
+          opacity: 1;
+        }
+        &:focus {
+          border-bottom: 1px solid black;
+          &::placeholder {
+            color: white;
+            opacity: 0;
+          }
+        }
+      }
     }
 
-    .firstName {
-      width: 299px;
+    .placeholderContainor {
+      width: 100%;
     }
 
-    .contactPhone {
-      width: 222px;
+    .placeholderContainorhalf {
+      display: inline-block;
+      width: 48%;
+      p {
+        padding-top: 20px;
+      }
     }
 
     input {
-      width: 449px;
-      border: 0;
-      border-bottom: 1px solid black;
-      padding-top: 30px;
-      background-color: inherit;
-    }
-
-    select {
-      border: 0;
-      border-bottom: 1px solid black;
-      font-size: 10px;
-      margin-right: 5px;
+      &::placeholder {
+        font-size: 10px;
+        color: white;
+        opacity: 0;
+      }
     }
   }
+
   .collectInStore {
     .adress {
       display: flex;
@@ -97,14 +139,6 @@
     input[type="radio"] {
       width: 30px;
     }
-
-    input {
-      width: 449px;
-      border: 0;
-      border-bottom: 1px solid black;
-      padding-top: 30px;
-      background-color: inherit;
-    }
     select {
       border: 0;
       border-bottom: 1px solid black;
@@ -120,6 +154,10 @@
     color: white;
     margin-top: 50px;
     background-color: black;
+
+    &:hover {
+      font-weight: 400;
+    }
 
     &:disabled {
       border: 1px solid black;

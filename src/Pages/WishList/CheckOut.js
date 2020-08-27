@@ -69,11 +69,15 @@ class CheckOut extends React.Component {
           <div className="mainTab">
             <div
               className={
-                btnClick !== "ShoppingMethod" ? "editDate" : "editDateNone"
+                btnClick !== "ShoppingMethod" ? "editData" : "editDataNone"
               }
             >
               SHIP TO ADDRESS
-              <button name="ShoppingMethod" onClick={this.visibleHandler}>
+              <button
+                className="edit"
+                name="ShoppingMethod"
+                onClick={this.visibleHandler}
+              >
                 EDIT
               </button>
             </div>
@@ -91,12 +95,16 @@ class CheckOut extends React.Component {
             <div
               className={
                 btnClick !== "Service" && btnClick !== "ShoppingMethod"
-                  ? "editDate"
-                  : "editDateNone"
+                  ? "editData"
+                  : "editDataNone"
               }
             >
               SHIP TO ADDRESS
-              <button name="Service" onClick={this.visibleHandler}>
+              <button
+                className="edit"
+                name="Service"
+                onClick={this.visibleHandler}
+              >
                 EDIT
               </button>
             </div>
