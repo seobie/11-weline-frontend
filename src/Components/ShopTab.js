@@ -10,13 +10,13 @@ class ShopTab extends React.Component {
       src2,
       text,
       hover,
-      enterHandler,
       link,
+      hoverHandler,
     } = this.props;
     return (
       <li
         className={tabName === hover ? "hover" : "unhover"}
-        onMouseEnter={() => enterHandler(tabName)}
+        onMouseEnter={() => hoverHandler(tabName)}
       >
         <Link to={link}>
           <a href={href}>

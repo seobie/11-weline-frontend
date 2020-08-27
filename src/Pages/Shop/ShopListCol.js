@@ -38,6 +38,7 @@ class ShopListCol extends React.Component {
 
   render() {
     let { item_list, mouseOver } = this.state;
+    console.log(this.state);
     return (
       <div className="ShopListCol">
         <aside></aside>

@@ -13,13 +13,12 @@ class Goods extends React.Component {
       hoverHandler,
       is_new,
     } = this.props;
-    console.log(this.props);
     return (
       <div
         className="Goods"
         onClick={() =>
           this.props.history.push(
-            `/${this.props.match.params.title}/${this.props.match.params.mainCategory}/${this.props.match.params.category}/${this.props.match.params.id}`
+            `/${this.props.match.params.title}/${this.props.match.params.mainCategory}/${this.props.match.params.category}/${this.props.id}`
           )
         }
       >

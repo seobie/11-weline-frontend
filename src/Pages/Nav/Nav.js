@@ -34,6 +34,10 @@ class Nav extends Component {
     );
   };
 
+  changeHandler = (e) => {
+    this.setState({ change: e });
+  };
+
   handleSearch = () => {
     this.setState({ searchActive: !this.state.searchActive });
   };
@@ -109,6 +113,8 @@ class Nav extends Component {
                 <FirstSubMenu
                   searchActive={searchActive}
                   firstSubMenu={getPathName}
+                  hover={this.props.hover}
+                  hoverHandler={this.props.hoverHandler}
                 />
               )}
               {subMenu && (

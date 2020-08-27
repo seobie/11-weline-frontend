@@ -16,6 +16,7 @@ class GoodsList extends React.Component {
                   src={list.img[1]}
                   src2={list.img[0]}
                   name={list.name}
+                  id={list.id}
                   is_new={list.checkNew}
                   mouseOver={mouseOver}
                   hoverHandler={(url) => hoverHandler(url)}
