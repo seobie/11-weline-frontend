@@ -4,7 +4,6 @@ import "./SearchResultItem.scss";
 class SearchResultItem extends Component {
   render() {
     const { products } = this.props;
-    console.log(products);
     return (
       <>
         {products &&
@@ -16,8 +15,8 @@ class SearchResultItem extends Component {
                   <img src={el.img[0]} alt={`${el.name} 2`} />
                 </div>
                 <figcaption>
-                  <h2>{el.name.slice(6)}</h2>
-                  <span>{`${el.price.slice(0, el.price.length - 3)} GBP`}</span>
+                  <h2>{el.name}</h2>
+                  <span>{`${el.price}0 GBP`}</span>
                 </figcaption>
               </div>
             </li>

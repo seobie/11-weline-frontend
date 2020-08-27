@@ -17,19 +17,30 @@ class Nav extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("Data/MockData/SearchData.json")
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({ items: res });
-      });
-  }
+  // componentDidMount() {
+  //   fetch("http://10.58.0.44:8000/product/products?q=F")
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       this.setState({ items: res });
+  //     });
+  // }
 
   handleInput = (e) => {
-    this.setState({
-      searchInput: e.target.value,
-      searchResult: e.target.value,
-    });
+    this.setState(
+      {
+        searchInput: e.target.value,
+        searchResult: e.target.value,
+      },
+      () => {
+        fetch(
+          `http://10.58.0.44:8000/product/products?q=${this.state.searchInput}`
+        )
+          .then((res) => res.json())
+          .then((res) => {
+            this.setState({ items: res });
+          });
+      }
+    );
   };
 
   handleSearch = () => {
@@ -42,11 +53,12 @@ class Nav extends Component {
     const [mainMenu, subMenu] = pathName;
     const { searchActive, searchResult, searchInput, items } = this.state;
     const { handleSearch, handleInput } = this;
-    const filtered =
-      items.products &&
-      items.products.filter((el) =>
-        el.name.toLowerCase().includes(searchInput.toLowerCase())
-      );
+    // const filtered =
+    //   items.products &&
+    //   items.products.filter((el) =>
+    //     el.name.toLowerCase().includes(searchInput.toLowerCase())
+    //   );
+    const filtered = items.products;
 
     return (
       <nav className="Nav">
