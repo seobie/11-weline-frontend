@@ -1,0 +1,44 @@
+.CheckOut {
+  width: 761px;
+  height: 100%;
+  margin-top: 10px;
+
+  .none {
+    display: none;
+  }
+
+  .mainTab {
+    font-size: 10px;
+
+    .editData {
+      position: relative;
+      width: 452px;
+      button {
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  .nameTab {
+    width: 308px;
+  }
+
+  .largeTab {
+    display: flex;
+    padding-bottom: 40px;
+
+    button {
+      font-size: 10px;
+    }
+  }
+
+  .edit:hover {
+    font-weight: 600;
+  }
+
+  .mainTabNone,
+  .editDataNone {
+    display: none;
+  }
+}
