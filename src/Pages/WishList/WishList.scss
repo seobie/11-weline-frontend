@@ -260,6 +260,17 @@ button {
   height: 100vh;
   background-color: white;
 }
+.slide {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
 .none {
   display: none;
 }

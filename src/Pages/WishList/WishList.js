@@ -33,6 +33,10 @@ class WishList extends Component {
       });
   };
 
+  purchaseHandler = () => {
+    this.setState({ purchase: !this.state.purchase });
+  };
+
   selectHandler = (id) => {
     const { wishItems } = this.state;
     let selectedItems = wishItems.map((obj) => {
@@ -95,91 +99,98 @@ class WishList extends Component {
   };
 
   render() {
-    const { wishItems, totalPrice } = this.state;
+    const { wishItems, totalPrice, purchase } = this.state;
 
     return (
-      <div className="wishList">
-        <div className="wishWhole">
-          <div className="wishBox">
-            <div className="wishHeader">
-              <div className="title">
-                <div>SHOPPING BAG</div>
-              </div>
-              <div className="selectAll">
-                <div className="selectbutton">
-                  <button onClick={this.selectAll}>SELECT ALL</button>
+      <>
+        <div className="wishList">
+          <div className="wishWhole">
+            <div className="wishBox">
+              <div className="wishHeader">
+                <div className="title">
+                  <div>SHOPPING BAG</div>
                 </div>
-                <div className="logOut">
-                  <button>BACK</button>
-                </div>
-              </div>
-            </div>
-            {wishItems.length > 0 &&
-              wishItems.map((el, idx) => {
-                return (
-                  <WishItem
-                    selectHandler={this.selectHandler}
-                    priceHandler={this.priceHandler}
-                    removeItem={this.removeItem}
-                    deleteData={this.deleteData}
-                    list={el}
-                    key={idx}
-                    id={el.id}
-                    price={el.price}
-                    name={el.name}
-                    img={el.img}
-                    quantity={el.quantity}
-                    isSelected={el.isSelected}
-                  />
-                );
-              })}
-            <div className="purchaseSec">
-              <div className="purchaseBox">
-                <div className="purchaseTotal">
-                  <div>TOTAL</div>
-                  <div className="priceTotal">{`${Math.ceil(
-                    totalPrice.toLocaleString()
-                  )} USD`}</div>
-                </div>
-                <div className="purchaseInfo">
-                  <table>
-                    <tbody>
-                      <tr>
-                        TAX
-                        <td>7440 DKK</td>
-                      </tr>
-                      <tr>
-                        SHIPPING
-                        <td>FREE</td>
-                      </tr>
-                      <tr>
-                        PAYMENT OPTIONS
-                        <td>TERMS OF SALES</td>
-                      </tr>
-
-                      <tr>
-                        SHIPPING & PACKAGING
-                        <td>CLIENT SERVICES</td>
-                      </tr>
-                      <tr>
-                        RETURNS AND EXCHANGES
-                        <td>PHONE +45 80 40 02 03</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div className="payIcons">
-                    <img src="https://www.celine.com/on/demandware.static/-/Sites/default/dw173887ed/images/slot/creditcard/visa.svg" />
-                    <img src="https://www.celine.com/on/demandware.static/-/Sites/default/dw00d3ee67/images/slot/creditcard/amex.svg" />
-                    <img src="https://www.celine.com/on/demandware.static/-/Sites/default/dwbb732df3/images/slot/creditcard/mastercard.svg" />
-                    <img src="https://www.celine.com/on/demandware.static/-/Sites/default/dwf6eb4474/images/slot/creditcard/paypal.png" />
+                <div className="selectAll">
+                  <div className="selectbutton">
+                    <button onClick={this.selectAll}>SELECT ALL</button>
                   </div>
-                  <button className="checkout">CHECKOUT</button>
+                  <div className="logOut">
+                    <button>BACK</button>
+                  </div>
+                </div>
+              </div>
+              {wishItems.length > 0 &&
+                wishItems.map((el, idx) => {
+                  return (
+                    <WishItem
+                      selectHandler={this.selectHandler}
+                      priceHandler={this.priceHandler}
+                      removeItem={this.removeItem}
+                      deleteData={this.deleteData}
+                      list={el}
+                      key={idx}
+                      id={el.id}
+                      price={el.price}
+                      name={el.name}
+                      img={el.img}
+                      quantity={el.quantity}
+                      isSelected={el.isSelected}
+                    />
+                  );
+                })}
+              <div className="purchaseSec">
+                <div className="purchaseBox">
+                  <div className="purchaseTotal">
+                    <div>TOTAL</div>
+                    <div className="priceTotal">{`${Math.ceil(
+                      totalPrice.toLocaleString()
+                    )} USD`}</div>
+                  </div>
+                  <div className="purchaseInfo">
+                    <table>
+                      <tbody>
+                        <tr>
+                          TAX
+                          <td>7440 DKK</td>
+                        </tr>
+                        <tr>
+                          SHIPPING
+                          <td>FREE</td>
+                        </tr>
+                        <tr>
+                          PAYMENT OPTIONS
+                          <td>TERMS OF SALES</td>
+                        </tr>
+
+                        <tr>
+                          SHIPPING & PACKAGING
+                          <td>CLIENT SERVICES</td>
+                        </tr>
+                        <tr>
+                          RETURNS AND EXCHANGES
+                          <td>PHONE +45 80 40 02 03</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div className="payIcons">
+                      <img src="https://www.celine.com/on/demandware.static/-/Sites/default/dw173887ed/images/slot/creditcard/visa.svg" />
+                      <img src="https://www.celine.com/on/demandware.static/-/Sites/default/dw00d3ee67/images/slot/creditcard/amex.svg" />
+                      <img src="https://www.celine.com/on/demandware.static/-/Sites/default/dwbb732df3/images/slot/creditcard/mastercard.svg" />
+                      <img src="https://www.celine.com/on/demandware.static/-/Sites/default/dwf6eb4474/images/slot/creditcard/paypal.png" />
+                    </div>
+                    <button onClick={this.purchaseHandler} className="checkout">
+                      CHECKOUT
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <div className={purchase ? "slide" : "none"}>
+          <Checkout purchaseHandler={this.purchaseHandler} />
+        </div>
+      </>
     );
   }
 }
