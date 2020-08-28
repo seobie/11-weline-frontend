@@ -3,15 +3,13 @@
 @font-face {
   font-family: "Neue Haas Grotesk-Bold";
   src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
-    url("http://localhost:3000/Font/NeueHaasGroteskText-Bold.otf")
-      format("opentype");
+    url("/Font/NeueHaasGroteskText-Bold.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Neue Haas Grotesk-Regular";
   src: local("Neue-HaasGrotesk-Text"), url("/public/") format("woff2"),
-    url("http://localhost:3000/Font/NeueHaasGroteskText-Regular.otf")
-      format("opentype");
+    url("/Font/NeueHaasGroteskText-Regular.otf") format("opentype");
 }
 
 @mixin flexRow {
@@ -55,39 +53,95 @@ button {
 .wishList {
   display: flex;
   justify-content: center;
+
   .wishWhole {
     display: flex;
     justify-content: space-around;
     margin-top: 130px;
+
     .wishBox {
       @include hassRegular;
+
+      .purchaseSec {
+        width: 1080px;
+        display: flex;
+        justify-content: flex-end;
+
+        .purchaseBox {
+          width: 330px;
+
+          .purchaseTotal {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 40px;
+            border-bottom: 1px solid black;
+            margin-bottom: 20px;
+
+            .priceTotal {
+              @include hassBoldSmall;
+            }
+          }
+
+          .purchaseInfo {
+            table {
+              width: 330px;
+              line-height: 22px;
+              margin-bottom: 40px;
+            }
+            td {
+              text-align: right;
+            }
+            .payIcons {
+              img {
+                width: 44px;
+                height: 28px;
+                margin-right: 5px;
+              }
+            }
+
+            .checkout {
+              width: 330px;
+              height: 40px;
+              margin-top: 10px;
+              margin-bottom: 50px;
+              color: white;
+              background-color: black;
+            }
+          }
+        }
+      }
+
       .wishHeader {
         @include flexBtwn;
         width: 1080px;
         margin-bottom: 30px;
+
         .title {
           @include flexBtwn;
           @include hassBold;
           border-bottom: 1px solid black;
           padding-bottom: 5px;
           width: 740px;
+
           div {
             width: 740px;
           }
+
           button {
             @include buttonNone;
           }
         }
         .selectAll {
-          // border: 2px solid green;
           @include flexBtwn;
           width: 330px;
           margin-left: 10px;
           div {
             width: 175px;
           }
+
           .logOut {
             position: relative;
+
             button {
               position: absolute;
               right: 0;
@@ -99,59 +153,15 @@ button {
   }
 }
 
-.purchaseSec {
-  width: 1080px;
-  border: 2px solid pink;
-  display: flex;
-  justify-content: flex-end;
-  .purchaseBox {
-    width: 330px;
-    .purchaseTotal {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 40px;
-      border-bottom: 1px solid black;
-      margin-bottom: 20px;
-      .priceTotal {
-        @include hassBoldSmall;
-      }
-    }
-    .purchaseInfo {
-      table {
-        width: 330px;
-        line-height: 22px;
-        margin-bottom: 40px;
-      }
-      td {
-        text-align: right;
-      }
-      .payIcons {
-        img {
-          width: 44px;
-          height: 28px;
-          margin-right: 5px;
-        }
-      }
-      .checkout {
-        width: 330px;
-        height: 40px;
-        margin-top: 10px;
-        margin-bottom: 50px;
-        color: white;
-        background-color: black;
-      }
-    }
-  }
-}
-
 .itemWishList {
   display: flex;
   flex-direction: row;
   width: 1160px;
+
   .itemImage {
-    // border: 2px solid greenyellow;
     width: 740px;
     height: 185px;
+
     img {
       margin-right: 10px;
       margin-bottom: 10px;
@@ -163,19 +173,23 @@ button {
 .itemBox {
   margin-left: 10px;
   width: 330px;
+
   .itemDetail {
-    // border: 2px solid red;
     @include flexBtwn;
     position: relative;
     width: 330px;
+
     button {
       @include buttonNone;
     }
+
     .itemData {
       height: 50px;
+
       .quantity {
         display: flex;
         flex-direction: row;
+
         button {
           font-size: 13px;
           width: 20px;
@@ -186,6 +200,7 @@ button {
       @include hassBoldSmall;
       margin-bottom: 10px;
     }
+
     .remove {
       position: absolute;
       right: 0;
@@ -198,6 +213,7 @@ button {
   align-items: center;
   position: relative;
   margin-top: 30px;
+
   .checkArea {
     background-color: rgba(255, 255, 255, 0);
     z-index: 10;
@@ -206,6 +222,7 @@ button {
     width: 20px;
     height: 20px;
   }
+
   .checkboxOff {
     width: 10px;
     height: 10px;
@@ -214,12 +231,14 @@ button {
     background-color: white;
     z-index: 100;
   }
+
   .checkboxOn {
     position: relative;
     width: 10px;
     height: 10px;
     border: 1px solid black;
     margin-right: 5px;
+
     .check {
       position: absolute;
       left: 1.25px;

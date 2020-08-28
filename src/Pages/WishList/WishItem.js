@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 export default class WishItem extends Component {
+  handleDelete = (id) => {
+    this.props.deleteData(id);
+  };
+
   render() {
     const {
       list,
@@ -37,18 +42,23 @@ export default class WishItem extends Component {
               <div className="priceBox">
                 <div className="itemPrice">{`${price.toLocaleString()} USD`}</div>
                 <button
-                  onClick={() => this.props.removeItem(id)}
+                  onClick={() => {
+                    this.props.removeItem(id);
+                    this.handleDelete(id);
+                  }}
                   className="remove"
                 >
                   REMOVE
                 </button>
               </div>
             </div>
-            <div className="checkboxContainer">
+            <div
+              className="checkboxContainer"
+              onClick={() => {
+                this.props.selectHandler(id);
+              }}
+            >
               <div
-                onClick={() => {
-                  this.props.selectHandler(id);
-                }}
                 className={
                   isSelected ? "checkArea checkboxOn" : "checkArea checkboxOff"
                 }
