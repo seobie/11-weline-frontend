@@ -1,7 +1,7 @@
 const MenuData = {
   "celine women": {
-    "new winter part1": [],
-    "harms collection": [],
+    "new winter part 1": [],
+    "charms collection": [],
     "ready to wear": [
       "dress & skrts",
       "kackets & coats",

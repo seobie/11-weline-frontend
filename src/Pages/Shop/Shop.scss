@@ -69,9 +69,11 @@
           position: absolute;
           display: block;
           width: 100%;
+          font-weight: 800;
 
           span {
             display: inherit;
+            height: 40px;
             font-size: 40px;
             font-weight: 700;
             text-align: center;
