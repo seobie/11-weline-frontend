@@ -8,9 +8,9 @@ class GoodsList extends React.Component {
     return (
       <article className="GoodsList">
         <ul>
-          {products.map((products, idx) => (
-            <li key={idx} className={products.subcategory}>
-              {products.list.map((list, idx) => (
+          {products.map((products) => (
+            <li key={products.subcategory} className={products.subcategory}>
+              {products.list.map((list) => (
                 <Goods
                   url={list.url}
                   src={list.img[1]}
@@ -20,7 +20,7 @@ class GoodsList extends React.Component {
                   is_new={list.checkNew}
                   mouseOver={mouseOver}
                   hoverHandler={(url) => hoverHandler(url)}
-                  key={idx}
+                  key={list.url}
                 />
               ))}
             </li>

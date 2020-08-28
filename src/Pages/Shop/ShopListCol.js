@@ -24,6 +24,18 @@ class ShopListCol extends React.Component {
       .then((response) => this.setState(response));
   };
 
+  componentDidUpdate(prevprops) {
+    if (prevprops.match.params.category !== this.props.match.params.category) {
+      fetch(
+        `${
+          config.API
+        }/product/categories?q=${this.props.match.params.category.toUpperCase()}`
+      )
+        .then((response) => response.json())
+        .then((response) => this.setState(response));
+    }
+  }
+
   hoverHandler = (url) => {
     if (url) {
       this.setState({

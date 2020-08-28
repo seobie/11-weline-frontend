@@ -1,5 +1,6 @@
 /** @format */
-import React, { Component } from "react";
+import React from "react";
+import Child from "./child";
 
 class Parent extends React.Component {
   constructor() {

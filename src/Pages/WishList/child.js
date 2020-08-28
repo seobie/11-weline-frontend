@@ -1,5 +1,5 @@
 /** @format */
-import React, { Component } from "react";
+import React from "react";
 
 class Child extends React.Component {
   constructor(props) {

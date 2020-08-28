@@ -41,7 +41,6 @@ class ShoppingMethod extends React.Component {
       shoppingMethod,
     } = this.props;
     const { howToSend, isCheck, isChange } = this.state;
-    console.log(shoppingMethod.firstName);
     return (
       <div
         className={btnClick !== "ShoppingMethod" ? "none" : "ShoppingMethod"}
