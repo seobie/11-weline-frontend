@@ -5,6 +5,7 @@ import FirstSubMenu from "./FirstSubMenu";
 import SecondSubMenu from "./SecondSubMenu";
 import SearchResultItem from "./SearchResultItem";
 import config from "../../config";
+import Login from "../Login/Login";
 import "./Nav.scss";
 
 class Nav extends Component {
@@ -15,6 +16,7 @@ class Nav extends Component {
       searchResult: false,
       items: [],
       searchInput: "",
+      sidePanel: false,
     };
   }
 
@@ -38,12 +40,16 @@ class Nav extends Component {
     this.setState({ searchActive: !this.state.searchActive });
   };
 
+  signInPanel = () => {
+    this.setState({ sidePanel: !this.state.sidePanel });
+  };
+
   render() {
     const getPathName = window.location.pathname.split("/");
     const pathName = getPathName.slice(1);
     const [mainMenu, subMenu] = pathName;
-    const { searchActive, searchResult, items } = this.state;
-    const { handleSearch, handleInput } = this;
+    const { searchActive, searchResult, items, sidePanel } = this.state;
+    const { handleSearch, handleInput, signInPanel } = this;
     const filtered = items.products;
 
     return (
@@ -68,6 +74,9 @@ class Nav extends Component {
               <SearchResultItem products={filtered} />
             </ul>
           </div>
+        </div>
+        <div className={sidePanel ? "sidePanel" : "hiddenPanel"}>
+          <Login functionFromNav={signInPanel} />
         </div>
         <div className="upper">
           <div className="leftContainer">
@@ -125,13 +134,15 @@ class Nav extends Component {
             </div>
             <div className={searchActive ? "invisible" : "rightBtns"}>
               <div>
-                <button>sign in / register</button>
+                <button onClick={signInPanel}>sign in / register</button>
               </div>
               <div>
                 <button>store locator</button>
               </div>
               <div>
-                <button>shopping bag</button>
+                <button>
+                  <Link to="/wishlist">shopping bag</Link>
+                </button>
               </div>
             </div>
           </div>

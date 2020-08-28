@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ShopDetailsData from "./ShopDetailsData";
 import Option from "./Option";
-import TempText from "./TempText";
 import config from "../../config";
+import TempText from "./TempText";
 import "./ShopDetails.scss";
 
 export default class ShopDetails extends Component {
@@ -53,12 +53,15 @@ export default class ShopDetails extends Component {
   render() {
     const { detailData, imgClicked, zoomed, sidePanel } = this.state;
     const { showOriginal, zoomToggle, funcSidePanel } = this;
+    const { title, mainCategory, category } = this.props.match.params;
 
     return (
       <div className="ShopDetails">
         <div className="detailWrapper">
           <div className="returnToListing">
-            <Link to="/">return to listing</Link>
+            <Link to={`/${title}/${mainCategory}/${category}`}>
+              return to listing
+            </Link>
           </div>
           <div className="detailContainer">
             <div
