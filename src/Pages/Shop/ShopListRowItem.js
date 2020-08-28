@@ -1,10 +1,18 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
-export default class ShopListRowItem extends Component {
+class ShopListRowItem extends Component {
   render() {
     const { item } = this.props;
     return (
-      <li className="item">
+      <li
+        className="item"
+        onClick={() =>
+          this.props.history.push(
+            `/${this.props.match.params.title}/${this.props.match.params.mainCategory}/${this.props.match.params.category}/${this.props.item.id}`
+          )
+        }
+      >
         <img src={item.img} />
         <div className="itemText">
           <p>{item.name}</p>
@@ -14,3 +22,5 @@ export default class ShopListRowItem extends Component {
     );
   }
 }
+
+export default withRouter(ShopListRowItem);
