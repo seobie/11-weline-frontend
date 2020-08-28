@@ -4,6 +4,7 @@ import ShopDetailsData from "./ShopDetailsData";
 import Option from "./Option";
 import config from "../../config";
 import TempText from "./TempText";
+import Nav from "../Nav/Nav";
 import "./ShopDetails.scss";
 
 export default class ShopDetails extends Component {
@@ -166,6 +167,7 @@ export default class ShopDetails extends Component {
             </ul>
           </nav>
         </div>
+        <Nav />
       </div>
     );
   }
