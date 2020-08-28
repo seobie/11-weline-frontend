@@ -25,7 +25,7 @@ class ShopListRow extends Component {
 
   render() {
     const { list } = this.state;
-    console.log(this.props);
+    console.log(this.state.list);
     return (
       <div className="shopLists">
         <div className="listHeader">

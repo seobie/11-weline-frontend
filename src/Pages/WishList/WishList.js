@@ -72,7 +72,6 @@ class WishList extends Component {
   };
 
   removeItem = (id) => {
-    console.log(id);
     const { wishItems } = this.state;
     let filtered = wishItems.filter((el) => el.id !== id);
     this.setState({
@@ -95,7 +94,6 @@ class WishList extends Component {
 
   render() {
     const { wishItems, totalPrice } = this.state;
-    console.log(this.state);
 
     return (
       <div className="wishList">
