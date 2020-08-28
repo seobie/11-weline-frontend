@@ -1,7 +1,7 @@
 @import "../../Styles/common.scss";
 
 .Nav {
-  z-index: 1;
+  z-index: 2;
   position: sticky;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,23 @@
     }
   }
 
+  .sidePanel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% / 24 * 8 + 12px);
+    height: 100%;
+    background-color: #fff;
+    padding-top: calc(218rem / 16);
+    animation: rightToLeft 1s ease;
+  }
+
+  .hiddenPanel {
+    display: none;
+  }
+
   .upper {
+    z-index: 3;
     display: flex;
     overflow: hidden;
     background-color: white;
@@ -84,6 +100,10 @@
           li {
             a {
               color: black;
+              font-family: Neue-HaasGrotesk-Text, Arial, sans-serif;
+              font-size: calc(10rem / 16);
+              line-height: calc(13rem / 16);
+              letter-spacing: calc(0.3rem / 16);
 
               &:hover {
                 font-weight: 600;
@@ -202,6 +222,14 @@
 
       div button {
         padding: 0;
+
+        a {
+          color: black;
+        }
+
+        &:hover {
+          font-weight: 600;
+        }
       }
     }
   }
@@ -257,6 +285,17 @@
     to {
       transform: translateX(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes leftToRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
     }
   }
 
