@@ -16,7 +16,7 @@ class SearchResultItem extends Component {
                 </div>
                 <figcaption>
                   <h2>{el.name}</h2>
-                  <span>{`${el.price}0 GBP`}</span>
+                  <span>{`${el.price} GBP`}</span>
                 </figcaption>
               </div>
             </li>

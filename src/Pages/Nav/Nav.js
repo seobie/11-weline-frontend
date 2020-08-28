@@ -27,13 +27,17 @@ class Nav extends Component {
         searchResult: e.target.value,
       },
       () => {
-        fetch(`${config.search}/product/products?q=${this.state.searchInput}`)
+        fetch(`${config.API}/product/products?q=${this.state.searchInput}`)
           .then((res) => res.json())
           .then((res) => {
             this.setState({ items: res });
           });
       }
     );
+  };
+
+  changeHandler = (e) => {
+    this.setState({ change: e });
   };
 
   handleSearch = () => {
@@ -118,6 +122,8 @@ class Nav extends Component {
                 <FirstSubMenu
                   searchActive={searchActive}
                   firstSubMenu={getPathName}
+                  hover={this.props.hover}
+                  hoverHandler={this.props.hoverHandler}
                 />
               )}
               {subMenu && (

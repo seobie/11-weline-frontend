@@ -1,5 +1,7 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import GoodsList from "../../Components/GoodsList";
+import config from "../../config";
 import "./ShopListCol.scss";
 
 class ShopListCol extends React.Component {
@@ -14,11 +16,25 @@ class ShopListCol extends React.Component {
 
   componentDidMount = () => {
     fetch(
-      `http://10.58.0.44:8000/product/categories?q=${this.props.match.params.category}`
+      `${
+        config.API
+      }/product/categories?q=${this.props.match.params.category.toUpperCase()}`
     )
       .then((response) => response.json())
       .then((response) => this.setState(response));
   };
+
+  componentDidUpdate(prevprops) {
+    if (prevprops.match.params.category !== this.props.match.params.category) {
+      fetch(
+        `${
+          config.API
+        }/product/categories?q=${this.props.match.params.category.toUpperCase()}`
+      )
+        .then((response) => response.json())
+        .then((response) => this.setState(response));
+    }
+  }
 
   hoverHandler = (url) => {
     if (url) {
@@ -68,4 +84,4 @@ class ShopListCol extends React.Component {
   }
 }
 
-export default ShopListCol;
+export default withRouter(ShopListCol);
