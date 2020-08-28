@@ -7,6 +7,7 @@ export default class Runways extends Component {
   state = {
     runways: [],
     numberOfItems: 1,
+    hover: "",
   };
 
   componentDidMount = () => {
@@ -25,6 +26,10 @@ export default class Runways extends Component {
     });
   };
 
+  hoverHandler = (e) => {
+    this.setState({ hover: e.toUpperCase() });
+  };
+
   render() {
     return (
       <div className="Runways">
@@ -38,7 +43,7 @@ export default class Runways extends Component {
               return <Card imgUrl={el} imgOrder={idx + 1} />;
             })}
           </ul>
-          <Nav />
+          <Nav hover={this.state.hover} hoverHandler={this.hoverHandler} />
         </div>
       </div>
     );
