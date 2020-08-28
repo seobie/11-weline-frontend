@@ -9,17 +9,18 @@ class GoodsList extends React.Component {
       <article className="GoodsList">
         <ul>
           {products.map((products) => (
-            <li className={products.subcategory}>
-              {products.list.map((list, idx) => (
+            <li key={products.subcategory} className={products.subcategory}>
+              {products.list.map((list) => (
                 <Goods
                   url={list.url}
                   src={list.img[1]}
                   src2={list.img[0]}
                   name={list.name}
+                  id={list.id}
                   is_new={list.checkNew}
                   mouseOver={mouseOver}
                   hoverHandler={(url) => hoverHandler(url)}
-                  key={idx}
+                  key={list.url}
                 />
               ))}
             </li>

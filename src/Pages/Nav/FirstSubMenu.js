@@ -11,7 +11,11 @@ class FirstSubMenu extends Component {
           Object.keys(
             MenuData[`celine ${firstSubMenu[1].replace(/-/gi, " ")}`]
           ).map((key) => (
-            <li key={key}>
+            <li
+              key={key}
+              className={key.toUpperCase() === this.props.hover ? "bold" : ""}
+              onMouseEnter={() => this.props.hoverHandler(key)}
+            >
               <NavLink
                 to={`/${firstSubMenu[1]}/${key.replace(/ /gi, "-")}`}
                 activeStyle={{ fontWeight: "bold" }}

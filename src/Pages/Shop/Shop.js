@@ -1,24 +1,20 @@
 import React from "react";
 import ShopTab from "../../Components/ShopTab";
 import "./Shop.scss";
+import "../WishList/Payment.scss";
 
 class Shop extends React.Component {
   constructor() {
     super();
     this.state = {
-      hover: "NEW WINTER PART 1",
       accordion: [],
     };
   }
 
   componentDidMount = () => {
-    fetch("Data/MockData/accordion.json")
+    fetch("Data/MockData/accordian.json")
       .then((response) => response.json())
       .then(({ accordion }) => this.setState({ accordion }));
-  };
-
-  enterHandler = (tabName) => {
-    this.setState({ hover: tabName });
   };
 
   render() {
@@ -35,8 +31,9 @@ class Shop extends React.Component {
                 src2={tab.src2}
                 href={tab.href}
                 text={tab.text}
-                hover={this.state.hover}
-                enterHandler={(tabName) => this.enterHandler(tabName)}
+                hover={this.props.hover}
+                link={tab.link}
+                hoverHandler={this.props.hoverHandler}
               />
             ))}
           </ul>

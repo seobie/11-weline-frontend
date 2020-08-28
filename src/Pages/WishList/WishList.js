@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import WishItem from "./WishItem";
+import Checkout from "./CheckOut";
 import "./WishList.scss";
 
 class WishList extends Component {
@@ -9,6 +10,7 @@ class WishList extends Component {
     this.state = {
       wishItems: [],
       totalPrice: 0,
+      purchase: false,
     };
   }
 
@@ -135,7 +137,9 @@ class WishList extends Component {
               <div className="purchaseBox">
                 <div className="purchaseTotal">
                   <div>TOTAL</div>
-                  <div className="priceTotal">{`${totalPrice.toLocaleString()} USD`}</div>
+                  <div className="priceTotal">{`${Math.ceil(
+                    totalPrice.toLocaleString()
+                  )} USD`}</div>
                 </div>
                 <div className="purchaseInfo">
                   <table>

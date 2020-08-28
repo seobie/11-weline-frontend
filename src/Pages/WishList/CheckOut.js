@@ -8,7 +8,7 @@ class CheckOut extends React.Component {
   constructor() {
     super();
     this.state = {
-      btnClick: "Payment",
+      btnClick: "ShoppingMethod",
       shoppingMethod: {
         firstName: "",
         lastName: "",
@@ -56,8 +56,13 @@ class CheckOut extends React.Component {
   };
 
   render() {
-    const { btnClick, service, payment, shoppingMethod } = this.state;
-    console.log(this.state);
+    const {
+      btnClick,
+      service,
+      payment,
+      shoppingMethod,
+      purchaseHandler,
+    } = this.state;
     return (
       <div className="CheckOut">
         <div className="largeTab">
@@ -122,6 +127,7 @@ class CheckOut extends React.Component {
               payment={payment}
               btnClick={btnClick}
               paymentHandler={this.paymentHandler}
+              purchaseHandler={purchaseHandler}
             />
           </div>
         </div>

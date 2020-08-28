@@ -16,6 +16,7 @@ export default class ShopDetails extends Component {
       zoomed: false,
       sidePanel: false,
       isSelectActive: false,
+      hover: "",
     };
   }
 
@@ -49,6 +50,10 @@ export default class ShopDetails extends Component {
     })
       .then((res) => res.json())
       .then((res) => console.log(res));
+  };
+
+  hoverHandler = (e) => {
+    this.setState({ hover: e.toUpperCase() });
   };
 
   render() {
@@ -167,7 +172,7 @@ export default class ShopDetails extends Component {
             </ul>
           </nav>
         </div>
-        <Nav />
+        <Nav hover={this.state.hover} hoverHandler={this.hoverHandler} />
       </div>
     );
   }
