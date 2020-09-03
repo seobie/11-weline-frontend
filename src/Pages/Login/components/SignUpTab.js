@@ -76,8 +76,7 @@ class SignUpTab extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.message === "SIGN_UP_SUCCESS") {
-          this.props.history.push("/");
-          console.log("res", res);
+          this.props.functionFromNav();
         }
       });
   };
