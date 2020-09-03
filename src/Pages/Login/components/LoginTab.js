@@ -35,11 +35,10 @@ class LoginTab extends React.Component {
           .then((res) => {
             if (res.access_token) {
               localStorage.setItem("wtw-token", res.access_token);
-              this.props.history.push("/");
+              this.props.functionFromNav();
             } else {
               alert("email / password를 확인해주세요");
             }
-            console.log("res", res);
           })
       : this.setState({ disabled: true });
   };

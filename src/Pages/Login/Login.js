@@ -3,11 +3,6 @@ import LoginTab from "./components/LoginTab";
 import SignUpTab from "./components/SignUpTab";
 import "./Login.scss";
 
-const content = {
-  1: <LoginTab />,
-  2: <SignUpTab />,
-};
-
 export default class Login extends Component {
   constructor() {
     super();
@@ -23,6 +18,11 @@ export default class Login extends Component {
   };
 
   render() {
+    const content = {
+      1: <LoginTab functionFromNav={this.props.functionFromNav} />,
+      2: <SignUpTab functionFromNav={this.props.functionFromNav} />,
+    };
+
     return (
       <div className="Login">
         <div className="loginContainer">
